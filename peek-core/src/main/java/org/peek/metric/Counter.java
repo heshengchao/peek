@@ -23,23 +23,26 @@ public class Counter {
 	}
 	
 	public static void addCount(Date time,String metricName,MetricConstant metricType,long value,CountType countType) {
-		String period=DateUtils.format(time);
+		String period=DateUtils.format(time,DateUtils.format_YYYYMMDDHHMM);
 	
 		String metricId= metricIdMap.get(metricName);
 		if(StringUtils.isEmpty(metricId)) {
-			metricId=metricName+"+"+period;
+			metricId=metricName+"_"+period;
 			metricIdMap.put(metricName,metricId);
 			
 			List<Long> countValue=new ArrayList<>(20);
-			metricCountMap.put(metricName,countValue);
+			metricCountMap.put(metricId,countValue);
 			countValue.add(value);
-		}else if( metricId.equals(metricName+"+"+period)  ) {
+		}else if( metricId.equals(metricName+"_"+period)  ) {
 			List<Long> countValue= metricCountMap.get(metricId);
 			countValue.add(value);
 		}else {
 			List<Long> countValue= metricCountMap.get(metricId);
-			
-			String str[]=metricId.split("+");
+			if(countValue==null) {
+				metricIdMap.remove(metricName);
+				return ;
+			}
+			String str[]=metricId.split("_");
 			
 			Map<MetricConstant,List<Metric>> metrices=metricList.get(period);
 			if(metrices==null) {
@@ -54,9 +57,10 @@ public class Counter {
 			Metric	metric=new Metric();
 			
 			metricList.add(metric);
-			
+			metric.setPeriod(str[1]);
 			metric.setMetricType(metricType);
-			
+			metric.setId(metricName);
+			metric.setCountType(countType);
 			metric.setCount( countValue.size() );
 			long sum=0;
 			for(long v:countValue) {
@@ -67,7 +71,6 @@ public class Counter {
 			}else {
 				metric.setValue(sum);
 			}
-			metric.setPeriod(str[1]);
 		}
 		
 	}

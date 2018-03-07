@@ -37,6 +37,7 @@ public class DateUtils {
     public static final SimpleDateFormat format_YYYYMMDDHHMMSS = new SimpleDateFormat("yyyyMMddHHmmss");
     /**yyyyMMddHHmmssSSS*/
     public static final SimpleDateFormat format_YYYYMMDDHHMMSSSSS = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+    public static final SimpleDateFormat format_YYYYMMDDHHMM = new SimpleDateFormat("yyyyMMddHHmm");
     public static final SimpleDateFormat format_YYYY_MM_DD_HH_MM_SS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static final SimpleDateFormat format_YYYY_MM_DD_HH_MM_SS_SSSS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     public static final SimpleDateFormat format_HH_MM_SS = new SimpleDateFormat("HH:mm:ss");
