@@ -5,12 +5,12 @@ import org.peek.metric.constant.MetricConstant;
 import lombok.Data;
 
 @Data
-public class Metric {
+public abstract class Metric {
 	String id;
+	String name;
 	MetricConstant metricType;
-	int count;
 	long value;
-	String period;
 	CountType countType;
 	
+	public abstract long getCount();
 }
