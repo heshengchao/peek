@@ -2,8 +2,10 @@ package org.peek.logger;
 
 import java.util.Date;
 
+import org.peek.common.LoggerLevelEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.spi.LocationAwareLogger;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
@@ -58,7 +60,12 @@ public class LogbackAppender  extends UnsynchronizedAppenderBase<ILoggingEvent> 
 		if (event.getLevel().isGreaterOrEqual(THRESHOLD)) {
 			
 			LoggerCount lc=new LoggerCount();
-			lc.setLevel(event.getLevel().levelStr);
+			Level level= event.getLevel();
+			if(LocationAwareLogger.ERROR_INT==level.levelInt) {
+				lc.setLevel(LoggerLevelEnum.ERROR);
+			}else if(LocationAwareLogger.WARN_INT==level.levelInt) {
+				lc.setLevel(LoggerLevelEnum.WARN);
+			}
 			lc.setMsg(event.getMessage());
 			lc.setThread(event.getThreadName());
 			lc.setTime(new Date(event.getTimeStamp()));

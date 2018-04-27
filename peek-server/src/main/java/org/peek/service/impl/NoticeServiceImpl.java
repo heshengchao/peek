@@ -1,22 +1,14 @@
 package org.peek.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-
+import org.peek.common.LoggerLevelEnum;
 import org.peek.constant.EmailConstant;
-import org.peek.constant.NoticeLevelEnum;
 import org.peek.domain.Notice;
 import org.peek.service.NoticeService;
 import org.peek.utils.MailSenderUtils;
 import org.peek.utils.SendSmsComponent;
 import org.peek.utils.email.MailSenderInfo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
@@ -33,7 +25,7 @@ public class NoticeServiceImpl implements NoticeService {
 //	private NoticeRepository noticeRepository;
 
 	@Override
-	public void noticeBySms(List<String> phoneList, String sendContent,NoticeLevelEnum level) {
+	public void noticeBySms(List<String> phoneList, String sendContent,LoggerLevelEnum level) {
 		log.info("NoticeServiceImpl.noticeBySms.phoneList={},sendContent={},level={}",
 				JSON.toJSON(phoneList), sendContent,level);
 		// 发送+存储
@@ -66,7 +58,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void noticeByEmail( List<String> emailAddressList, String sendTitle,
-			String sendContent,NoticeLevelEnum level) {
+			String sendContent,LoggerLevelEnum level) {
 
 		log.info("NoticeServiceImpl.noticeByEmail.emailAddressList={},sendTitle={},sendContent={},level={}",
 				 JSON.toJSON(emailAddressList), sendTitle, sendContent,level);

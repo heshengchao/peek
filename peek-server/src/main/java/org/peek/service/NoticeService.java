@@ -2,7 +2,9 @@ package org.peek.service;
 
 import java.util.List;
 
-import org.peek.constant.NoticeLevelEnum;
+import org.peek.common.LoggerLevelEnum;
+
+
 
 public interface NoticeService {
 
@@ -16,7 +18,7 @@ public interface NoticeService {
 	 * @param sendContent  内容
 	 * @return void
 	 */
-	void noticeBySms( List<String> phoneList, String sendContent,NoticeLevelEnum level);
+	void noticeBySms( List<String> phoneList, String sendContent,LoggerLevelEnum level);
 
 	
 	/**
@@ -31,7 +33,7 @@ public interface NoticeService {
 	 * @return void
 	 */
 	void noticeByEmail(List<String> emailAddressList, String sendTitle,
-			 String sendContent,NoticeLevelEnum level);
+			 String sendContent,LoggerLevelEnum level);
 
 
 }
