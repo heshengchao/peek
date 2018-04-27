@@ -12,9 +12,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
-import com.gome.cmp.common.entity.BaseEntity;
-
-
 @Entity
 @Table(name = "Notice")
 @Where(clause = "deleted = 0")

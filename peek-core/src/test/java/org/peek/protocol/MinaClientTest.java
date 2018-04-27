@@ -1,4 +1,6 @@
-import org.junit.jupiter.api.Test;
+package org.peek.protocol;
+import org.junit.Test;
+import org.peek.protocol.client.MinaClient;
 
 public class MinaClientTest {
 

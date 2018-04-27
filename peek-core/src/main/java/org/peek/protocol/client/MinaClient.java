@@ -1,3 +1,4 @@
+package org.peek.protocol.client;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
@@ -79,25 +80,15 @@ public class MinaClient {
 		bean.setSeq(instance.getNextMessageSeq());
 		session.write(bean);
 		
-		IoSession closeSession= session;
-		excutor.execute(new Runnable() {
-			@Override public void run() {
-				try {
-					Thread.sleep(30000);
-					if(closeSession.isActive()) {
-						if(closeSession.getCloseFuture().awaitUninterruptibly(3000)){
-							if(log.isDebugEnabled())
-								log.debug("消息正常接收，关闭连接！");
-						}else{
-							log.warn("接收消息超时，关闭连接！");
-						}
-						connector.dispose();
-					}
-				} catch (InterruptedException e) {
-					log.error(e.getMessage(),e);
-				}
+		if(session.isActive()) {
+			if(session.getCloseFuture().awaitUninterruptibly(3000)){
+				if(log.isDebugEnabled())
+					log.debug("消息正常接收，关闭连接！");
+			}else{
+				log.warn("接收消息超时，关闭连接！");
 			}
-		});
+			connector.dispose();
+		}
 		
 		
 		return handler.wb;

@@ -2,7 +2,8 @@ package org.peek.protocol;
 
 import java.io.IOException;
 
-import org.peek.protocol.MinaServer;
+import org.peek.protocol.server.MinaServer;
+
 
 public class MinaServerTest {
 	

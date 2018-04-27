@@ -1,4 +1,4 @@
-package org.peek.protocol;
+package org.peek.protocol.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -8,6 +8,8 @@ import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
+import org.peek.protocol.ClientMinaDecoder;
+import org.peek.protocol.ClientMinaEncoder;
 
 import lombok.extern.slf4j.Slf4j;
 

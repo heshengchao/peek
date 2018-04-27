@@ -1,10 +1,11 @@
-package org.peek.protocol;
+package org.peek.protocol.server;
 
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.transport.socket.SocketSessionConfig;
 import org.peek.logger.LoggingHandler;
+import org.peek.protocol.WriteBean;
 
 import com.alibaba.fastjson.JSON;
 
