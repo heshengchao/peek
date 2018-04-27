@@ -32,8 +32,8 @@ public class ClientMinaEncoder extends ProtocolEncoderAdapter {
 			
 			IoBuffer buffer = IoBuffer.allocate(bytes.length + HEAD_SIZE + 16).setAutoExpand(true);
 
-			
-			logger.debug("发送长度："+bytes.length+",CMD:"+wb.getCmd()+",seq:"+wb.getSeq()+",XML数据："+wb.getXmlMsg());
+			if(logger.isDebugEnabled())
+				logger.debug("发送长度："+bytes.length+",CMD:"+wb.getCmd()+",seq:"+wb.getSeq()+",XML数据："+wb.getXmlMsg());
 			buffer.put(convertHeaderByte(bytes.length, wb.getCmd(), wb.getSeq()));
 			
 			buffer.put(bytes);

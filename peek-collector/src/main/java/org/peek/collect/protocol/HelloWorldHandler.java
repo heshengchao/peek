@@ -27,6 +27,10 @@ public class HelloWorldHandler extends IoHandlerAdapter{
 	public @Override void messageReceived(IoSession session, Object message) throws Exception {
 		wb=(WriteBean)message;
 		log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
+		
+		WriteBean rsp=new WriteBean();
+		rsp.setXmlMsg("asdfasdfwereqerqwereqwerqwerqwerqewrqwerrqewrqwerqwer");
+		session.write(rsp);
 		session.closeOnFlush();
 	}
 	public @Override void sessionIdle(IoSession session, IdleStatus status) throws Exception{

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/info.log</file>   
+		<encoder>
+			<pattern> [ %-5level] [%thread] [%date{yyyy-MM-dd HH:mm:ss}] %logger{96} [%line] - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<MaxHistory>120</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100 MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+	
+	 <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%date %-5level [%thread] %logger{100}[%line] - %msg%n</pattern>
+        </encoder>
+        
+    </appender>
+
+	<logger name="com.gome" level="INFO"/>
+	<logger name="RocketmqClient" level="WARN"/>
+	<logger name="springfox" level="WARN"/>
+	<logger name="org.apache" level="WARN"/>
+	<logger name="com.alibaba" level="ERROR"/>
+	<logger name="com.netflix" level="ERROR"/>
+	<logger name="org.springframework.test" level="INFO"/>
+	<logger name="org.springframework.boot" level="INFO"/>
+	<logger name="org.springframework" level="WARN"/>
+	<logger name="jdbc" level="WARN"/>
+	<logger name="jdbc.sqltiming" level="DEBUG"/>
+	<logger name="org.mybatis" level="WARN"/>
+	
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE"/>
+		
+	</root>
+
+
+</configuration>

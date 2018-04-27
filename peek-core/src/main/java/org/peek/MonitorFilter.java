@@ -13,7 +13,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.peek.metric.CountType;
-import org.peek.metric.Counter;
 import org.peek.metric.constant.MetricConstant;
 import org.springframework.util.StringUtils;
 
@@ -39,7 +38,7 @@ public class MonitorFilter  implements Filter {
 			response.setContentType("text/json; charset=UTF-8");  
 			String time=req.getParameter("time");
 			PrintWriter out = response.getWriter();  
-	        out.print(Counter.popByTime(time));  
+//	        out.print(Counter.popByTime(time));  
 	        out.flush();  
 	        return;
 		}
@@ -50,7 +49,7 @@ public class MonitorFilter  implements Filter {
 		Date now= new Date();
 		long finishTime=now.getTime();
 		
-		Counter.addCount(now, MetricConstant.HttpCount, finishTime-currentTime, CountType.AVG);
+//		Counter.addCount(now, MetricConstant.HttpCount, finishTime-currentTime, CountType.AVG);
 	}
 
 	@Override

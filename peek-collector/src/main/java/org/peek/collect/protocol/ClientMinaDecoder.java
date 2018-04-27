@@ -24,8 +24,8 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 
 	@Override
 	protected boolean doDecode(IoSession session, IoBuffer in, ProtocolDecoderOutput out) throws Exception {
-		
-		logger.debug("数据大小："+in.limit());
+		if(logger.isDebugEnabled())
+			logger.debug("数据大小："+in.limit());
 		
 		int oldPos = in.position();
 		if(in.hasRemaining()){
@@ -39,12 +39,14 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 			in.get(headers);
 				
 			CustomPotocolMeta meta = getDataHeader(headers);
-			logger.debug("数据包头信息："+meta.toJsonString());
+			if(logger.isDebugEnabled())
+				logger.debug("数据包头信息："+meta.toJsonString());
 			//数据并未发送完全
 			if( (meta.length+headerSize)>totleDataSize ){
 				in.position(oldPos);
 				in.setAutoExpand(true);
-				logger.debug("数据接收未完成，等待下一包数据");
+				if(logger.isDebugEnabled())
+					logger.debug("数据接收未完成，等待下一包数据");
 				return false;
 			}else{
 				byte[] tmp=new byte[meta.length];
@@ -60,7 +62,8 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 				if(in.hasRemaining()){
 					in.get(new byte[in.remaining()]);
 				}
-				logger.debug("数据接收完成，传入业务");
+				if(logger.isDebugEnabled())
+					logger.debug("数据接收完成，传入业务");
 			}
 		}
 		return true;

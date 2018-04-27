@@ -3,31 +3,39 @@ import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.mina.core.future.ConnectFuture;
 import org.apache.mina.core.service.IoConnector;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
+import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.SocketSessionConfig;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.peek.collect.protocol.ClientMinaDecoder;
 import org.peek.collect.protocol.ClientMinaEncoder;
 import org.peek.collect.protocol.WriteBean;
 import org.peek.exception.ConnectAccessException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class MinaClient {
-	private final static Logger log = LoggerFactory.getLogger(MinaClient.class);
 	private final static Map<String,InetSocketAddress> netMap=new HashMap<String,InetSocketAddress>();
 	final static Charset  charset=Charset.defaultCharset();
 	
 	final static SequenceGenerator instance = new SequenceGenerator();
 	
+	final static ThreadPoolExecutor excutor=new ThreadPoolExecutor(1, 10,
+            60L, TimeUnit.SECONDS,
+            new SynchronousQueue<Runnable>());
+	
 	/**发送消息 */
-	public static WriteBean sendMsg(String host,Integer port,String xmlMsg,int cmd ){
+	public static WriteBean sendMsg(String host,Integer port,String xmlMsg ){
 		
 		final IoConnector connector = new NioSocketConnector(); // 创建一个非阻塞的客户端程序
 		connector.setConnectTimeoutMillis(1000);  // 设置链接超时时间
@@ -35,7 +43,7 @@ public class MinaClient {
 		CustomerHandler handler=new CustomerHandler();
 		// 添加过滤器
 		connector.getFilterChain().addLast("codec",new ProtocolCodecFilter(new ClientMinaEncoder(charset),new ClientMinaDecoder(charset)));
-//		connector.getFilterChain().addLast("log", new LoggingFilter());  
+		connector.getFilterChain().addLast("log", new LoggingFilter());  
 		
 		// 添加业务逻辑处理器类
 		connector.setHandler(handler);// 添加业务处理
@@ -66,16 +74,29 @@ public class MinaClient {
 		
 		WriteBean bean =new WriteBean();
 		bean.setXmlMsg(xmlMsg);
-		bean.setCmd((short)cmd);
+		bean.setCmd((short)1);
 		bean.setSeq(instance.getNextMessageSeq());
 		session.write(bean);
 		
-		if(session.getCloseFuture().awaitUninterruptibly(3000)){
-			log.debug("消息正常接收，关闭连接！");
-		}else{
-			log.warn("接收消息超时，关闭连接！");
-		}
-		connector.dispose();
+		IoSession closeSession= session;
+		excutor.execute(new Runnable() {
+			@Override public void run() {
+				try {
+					Thread.sleep(30000);
+					if(closeSession.isActive()) {
+						if(closeSession.getCloseFuture().awaitUninterruptibly(3000)){
+							log.debug("消息正常接收，关闭连接！");
+						}else{
+							log.warn("接收消息超时，关闭连接！");
+						}
+						connector.dispose();
+					}
+				} catch (InterruptedException e) {
+					log.error(e.getMessage(),e);
+				}
+			}
+		});
+		
 		
 		return handler.wb;
 	}
@@ -92,17 +113,17 @@ public class MinaClient {
 	    }
 		
 		public @Override void exceptionCaught(IoSession session, Throwable cause) throws Exception {
-			MinaClient.log.error("消息发送异常："+cause.getMessage(),cause);
-			session.close(true);
+			log.error("消息发送异常："+cause.getMessage(),cause);
+			session.closeOnFlush();
 		}
 
 		public @Override void messageReceived(IoSession session, Object message) throws Exception {
 			wb=(WriteBean)message;
-			MinaClient.log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
-			session.close(true);
+			log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
+			session.closeOnFlush();
 		}
 		public @Override void sessionIdle(IoSession session, IdleStatus status) throws Exception{
-			MinaClient.log.debug("mina状态检测消息:"+status.toString());
+			log.debug("mina状态检测消息:"+status.toString());
 		}
 	};
 	
