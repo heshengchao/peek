@@ -25,7 +25,7 @@ public class MinaServer {
 		ioAcceptor=new NioSocketAcceptor();
 		log.info("begin server....");
         ioAcceptor.getFilterChain().addLast("codec",new ProtocolCodecFilter(new ClientMinaEncoder(charset),new ClientMinaDecoder(charset)));
-        ioAcceptor.setHandler(new HelloWorldHandler());
+        ioAcceptor.setHandler(new PeekIoHandler());
         ioAcceptor.getSessionConfig().setReadBufferSize(2048);
         ioAcceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
         try {

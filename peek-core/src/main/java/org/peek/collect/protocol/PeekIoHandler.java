@@ -4,11 +4,14 @@ import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.transport.socket.SocketSessionConfig;
+import org.peek.collect.logger.LoggingHandler;
+
+import com.alibaba.fastjson.JSON;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class HelloWorldHandler extends IoHandlerAdapter{
+public class PeekIoHandler extends IoHandlerAdapter{
 	public WriteBean wb;
 	
 	public void sessionCreated(IoSession session) throws Exception {
@@ -20,7 +23,6 @@ public class HelloWorldHandler extends IoHandlerAdapter{
     }
 	
 	public @Override void exceptionCaught(IoSession session, Throwable cause) throws Exception {
-		
 		log.error("消息发送异常："+cause.getMessage(),cause);
 		session.closeOnFlush();
 	}
@@ -31,7 +33,7 @@ public class HelloWorldHandler extends IoHandlerAdapter{
 			log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
 		
 		WriteBean rsp=new WriteBean();
-		rsp.setXmlMsg("asdfasdfwereqerqwereqwerqwerqwerqewrqwerrqewrqwerqwer");
+		rsp.setXmlMsg(JSON.toJSONString(LoggingHandler.collect()));
 		session.write(rsp);
 		session.closeOnFlush();
 	}
