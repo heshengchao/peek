@@ -21,18 +21,14 @@ public class MinaServer {
 		this.port = port;
 	}
 	
-	public void start() {
+	public void start() throws IOException {
 		ioAcceptor=new NioSocketAcceptor();
 		log.info("begin server....");
         ioAcceptor.getFilterChain().addLast("codec",new ProtocolCodecFilter(new ClientMinaEncoder(charset),new ClientMinaDecoder(charset)));
         ioAcceptor.setHandler(new PeekIoHandler());
         ioAcceptor.getSessionConfig().setReadBufferSize(2048);
         ioAcceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
-        try {
-            ioAcceptor.bind(new InetSocketAddress(port));
-        } catch (IOException e) {
-           log.error(e.getMessage(),e);
-        }
+        ioAcceptor.bind(new InetSocketAddress(port));
 	}
 	
 	public void stop() {

@@ -12,8 +12,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.peek.metric.CountType;
-import org.peek.metric.constant.MetricConstant;
+import org.peek.logger.LOG;
+import org.peek.logger.LogbackAppender;
 import org.springframework.util.StringUtils;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +24,26 @@ public class MonitorFilter  implements Filter {
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		log.info("monitor start");
-		
+		initLogs();
 	}
+	private static void initLogs() {
 
+		if (LOG.LOG4J_ENABLED) {
+			// si log4j est disponible on branche aussi l'appender pour le counter de logs
+//			Log4JAppender.getSingleton().register();
+		}
+
+		if (LOG.LOG4J2_ENABLED) {
+			// si log4j2 est disponible on branche aussi l'appender pour le counter de logs
+			//			Log4J2Appender.getSingleton().register();
+		}
+
+		if (LOG.LOGBACK_ENABLED) {
+			// si logback est disponible on branche aussi l'appender pour le counter de logs
+			LogbackAppender.getSingleton().register();
+		}
+		LOG.debug("log listeners initialized");
+	}
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
