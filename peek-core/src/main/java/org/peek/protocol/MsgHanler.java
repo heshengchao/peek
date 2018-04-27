@@ -1,4 +1,4 @@
-package org.peek.collect.protocol;
+package org.peek.protocol;
 
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;

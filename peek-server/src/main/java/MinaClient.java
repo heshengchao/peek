@@ -16,10 +16,10 @@ import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.SocketSessionConfig;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
-import org.peek.collect.protocol.ClientMinaDecoder;
-import org.peek.collect.protocol.ClientMinaEncoder;
-import org.peek.collect.protocol.WriteBean;
 import org.peek.exception.ConnectAccessException;
+import org.peek.protocol.ClientMinaDecoder;
+import org.peek.protocol.ClientMinaEncoder;
+import org.peek.protocol.WriteBean;
 
 import lombok.extern.slf4j.Slf4j;
 

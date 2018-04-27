@@ -1,4 +1,4 @@
-package org.peek.collect.logger;
+package org.peek.logger;
 
 import java.util.AbstractQueue;
 import java.util.Iterator;

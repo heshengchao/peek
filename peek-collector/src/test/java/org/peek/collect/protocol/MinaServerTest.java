@@ -1,7 +1,7 @@
 package org.peek.collect.protocol;
 
 import org.junit.Test;
-import org.peek.collect.protocol.MinaServer;
+import org.peek.protocol.MinaServer;
 
 public class MinaServerTest {
 	

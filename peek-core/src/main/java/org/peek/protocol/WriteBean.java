@@ -1,4 +1,4 @@
-package org.peek.collect.protocol;
+package org.peek.protocol;
 
 import lombok.Data;
 
