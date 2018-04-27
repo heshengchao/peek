@@ -1,24 +1,23 @@
 package org.peek.collect.logger;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Queue;
 
 public class LoggingHandler {
 	
-	List<LoggerCount> logList=new ArrayList<>(1000);
+	Queue<LoggerCount> logList=new LimitQueue<>(1000);
 	
 	private static final LoggingHandler instance=new LoggingHandler();
 
 	
 	private void add(LoggerCount lc) {
 		synchronized (logList) {
-			logList.add	(lc);
+			logList.offer(lc);
 		}
 	}
-	public List<LoggerCount> rebuild() {
+	public Queue<LoggerCount> rebuild() {
 		synchronized (logList) {
-			List<LoggerCount>	old=logList;
-			logList=new ArrayList<>(1000);
+			Queue<LoggerCount>	old=logList;
+			logList=new LimitQueue<>(1000);
 			return old;
 		}
 	}
@@ -28,7 +27,7 @@ public class LoggingHandler {
 		instance.add(lc);
 	}
 
-	public static List<LoggerCount> collect() {
+	public static Queue<LoggerCount> collect() {
 		return instance.rebuild();
 	}
 }
