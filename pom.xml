@@ -50,4 +50,14 @@
 			</plugin>
 		</plugins>
 	</build>
+	    <distributionManagement>
+        <repository>
+            <id>gome</id>
+            <url>http://10.128.11.68:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>gome</id>
+            <url>http://10.128.11.68:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
