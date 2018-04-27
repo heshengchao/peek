@@ -20,13 +20,15 @@ public class HelloWorldHandler extends IoHandlerAdapter{
     }
 	
 	public @Override void exceptionCaught(IoSession session, Throwable cause) throws Exception {
+		
 		log.error("消息发送异常："+cause.getMessage(),cause);
 		session.closeOnFlush();
 	}
 
 	public @Override void messageReceived(IoSession session, Object message) throws Exception {
 		wb=(WriteBean)message;
-		log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
+		if(log.isDebugEnabled())
+			log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
 		
 		WriteBean rsp=new WriteBean();
 		rsp.setXmlMsg("asdfasdfwereqerqwereqwerqwerqwerqewrqwerrqewrqwerqwer");
@@ -34,6 +36,7 @@ public class HelloWorldHandler extends IoHandlerAdapter{
 		session.closeOnFlush();
 	}
 	public @Override void sessionIdle(IoSession session, IdleStatus status) throws Exception{
-		log.debug("mina状态检测消息:"+status.toString());
+		if(log.isDebugEnabled())
+			log.debug("mina状态检测消息:"+status.toString());
 	}
 }

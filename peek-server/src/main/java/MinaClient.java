@@ -58,7 +58,8 @@ public class MinaClient {
 				throw new ConnectAccessException("连接服务器："+host+":"+port+"失败："+e.getMessage(),e);
 			}
 			netMap.put(host+port, adds);
-			log.debug("添加新服务器："+host+":"+port);
+			if(log.isDebugEnabled())
+				log.debug("添加新服务器："+host+":"+port);
 		}
 		
 		ConnectFuture future = connector.connect(adds);// 创建连接
@@ -85,7 +86,8 @@ public class MinaClient {
 					Thread.sleep(30000);
 					if(closeSession.isActive()) {
 						if(closeSession.getCloseFuture().awaitUninterruptibly(3000)){
-							log.debug("消息正常接收，关闭连接！");
+							if(log.isDebugEnabled())
+								log.debug("消息正常接收，关闭连接！");
 						}else{
 							log.warn("接收消息超时，关闭连接！");
 						}
@@ -119,11 +121,13 @@ public class MinaClient {
 
 		public @Override void messageReceived(IoSession session, Object message) throws Exception {
 			wb=(WriteBean)message;
-			log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
+			if(log.isDebugEnabled())
+				log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
 			session.closeOnFlush();
 		}
 		public @Override void sessionIdle(IoSession session, IdleStatus status) throws Exception{
-			log.debug("mina状态检测消息:"+status.toString());
+			if(log.isDebugEnabled())
+				log.debug("mina状态检测消息:"+status.toString());
 		}
 	};
 	
