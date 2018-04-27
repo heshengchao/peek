@@ -60,8 +60,8 @@ public class NoticeServiceImpl implements NoticeService {
 	public void noticeByEmail( List<String> emailAddressList, String sendTitle,
 			String sendContent,LoggerLevelEnum level) {
 
-		log.info("NoticeServiceImpl.noticeByEmail.emailAddressList={},sendTitle={},sendContent={},level={}",
-				 JSON.toJSON(emailAddressList), sendTitle, sendContent,level);
+//		log.info("NoticeServiceImpl.noticeByEmail.emailAddressList={},sendTitle={},sendContent={},level={}",
+//				 JSON.toJSON(emailAddressList), sendTitle, sendContent,level);
 		if (emailAddressList != null && emailAddressList.size() != 0) {
 			for (String address : emailAddressList) {
 				// 邮件参数

@@ -25,16 +25,18 @@
         </encoder>
         
     </appender>
+    
+    <logger name="ch.qos.logback" level="INFO"/>
 
 	<logger name="com.gome" level="INFO"/>
 	<logger name="RocketmqClient" level="WARN"/>
-	<logger name="springfox" level="WARN"/>
 	<logger name="org.apache" level="WARN"/>
 	<logger name="com.alibaba" level="ERROR"/>
 	<logger name="com.netflix" level="ERROR"/>
-	<logger name="org.springframework.test" level="INFO"/>
-	<logger name="org.springframework.boot" level="INFO"/>
 	<logger name="org.springframework" level="WARN"/>
+	<logger name="org.hibernate" level="WARN"/>
+	
+	<logger name="log4jdbc" level="WARN"/>
 	<logger name="jdbc" level="WARN"/>
 	<logger name="jdbc.sqltiming" level="DEBUG"/>
 	<logger name="org.mybatis" level="WARN"/>

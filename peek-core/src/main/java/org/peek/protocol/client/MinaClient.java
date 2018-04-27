@@ -70,7 +70,7 @@ public class MinaClient {
 			session = future.getSession();// 获得session
 		}catch(Exception e){
 			connector.dispose();
-			log.error("打开连接["+host+":"+port+"]异常，请注意检查！详细："+e.getMessage(),e);
+			log.error("打开连接["+host+":"+port+"]异常，请注意检查！详细："+e.getMessage());
 			return null;
 		}
 		
