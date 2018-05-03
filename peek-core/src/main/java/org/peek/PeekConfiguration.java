@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 public class PeekConfiguration {
 
-	@Bean(name = "monitoringFilter")
+	@Bean(name = "peekFilter")
 	public FilterRegistrationBean filterMonitoringFilter() {
 		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
 		filterRegistrationBean.setFilter(new MonitorFilter());

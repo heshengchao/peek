@@ -44,14 +44,14 @@ public class NoticeServiceImpl implements NoticeService {
 //				}
 			}
 			// 发送短信成功，存库
-			String phoneLis="";
-			Notice noti = new Notice();
-			for (String phone : phoneList) {
-				phoneLis=phone+";";
-			}
-			noti.setPhone(phoneLis);
-			noti.setSendContent(sendContent);
-			noti.setLevel(level.name());
+//			String phoneLis="";
+//			Notice noti = new Notice();
+//			for (String phone : phoneList) {
+//				phoneLis=phone+";";
+//			}
+//			noti.setPhone(phoneLis);
+//			noti.setSendContent(sendContent);
+//			noti.setLevel(level.name());
 //			noticeRepository.save(noti);
 		}
 	}
@@ -88,15 +88,15 @@ public class NoticeServiceImpl implements NoticeService {
 //				}
 			}
 			// 发送邮件成功，存库
-			String addressLis=""; 
-			Notice noti = new Notice();
-			for (String address : emailAddressList) {
-				addressLis=address+";";
-			}
-			noti.setEmailAddress(addressLis);
-			noti.setSendTitle(sendTitle);
-			noti.setSendContent(sendContent);
-			noti.setLevel(level.name());
+//			String addressLis=""; 
+//			Notice noti = new Notice();
+//			for (String address : emailAddressList) {
+//				addressLis=address+";";
+//			}
+//			noti.setEmailAddress(addressLis);
+//			noti.setSendTitle(sendTitle);
+//			noti.setSendContent(sendContent);
+//			noti.setLevel(level.name());
 //			noticeRepository.save(noti);
 		}
 

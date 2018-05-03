@@ -47,24 +47,24 @@ public class MonitorFilter  implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		HttpServletRequest req=(HttpServletRequest)request;
+//		HttpServletRequest req=(HttpServletRequest)request;
 
 
-		String m=req.getHeader("peek.monitor");
-		if(!StringUtils.isEmpty(m)) {
-			response.setContentType("text/json; charset=UTF-8");  
-			String time=req.getParameter("time");
-			PrintWriter out = response.getWriter();  
-//	        out.print(Counter.popByTime(time));  
-	        out.flush();  
-	        return;
-		}
+//		String m=req.getHeader("peek.monitor");
+//		if(!StringUtils.isEmpty(m)) {
+//			response.setContentType("text/json; charset=UTF-8");  
+//			String time=req.getParameter("time");
+//			PrintWriter out = response.getWriter();  
+////	        out.print(Counter.popByTime(time));  
+//	        out.flush();  
+//	        return;
+//		}
 		
-		long currentTime=System.currentTimeMillis();
+//		long currentTime=System.currentTimeMillis();
 		
 		chain.doFilter(request, response);
-		Date now= new Date();
-		long finishTime=now.getTime();
+//		Date now= new Date();
+//		long finishTime=now.getTime();
 		
 //		Counter.addCount(now, MetricConstant.HttpCount, finishTime-currentTime, CountType.AVG);
 	}
