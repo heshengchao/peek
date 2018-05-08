@@ -1,8 +1,6 @@
 package org.peek;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -10,11 +8,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 import org.peek.logger.LOG;
 import org.peek.logger.LogbackAppender;
-import org.springframework.util.StringUtils;
 
 import lombok.extern.slf4j.Slf4j;
 
