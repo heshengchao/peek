@@ -45,3 +45,883 @@
 [ DEBUG] [NioProcessor-2] [2018-04-27 15:27:39] org.peek.protocol.ClientMinaDecoder [43] - 数据包头信息：seralNo:0,cmd:0,length:22684
 [ DEBUG] [NioProcessor-2] [2018-04-27 15:27:39] org.peek.protocol.ClientMinaDecoder [66] - 数据接收完成，传入业务
 [ DEBUG] [NioProcessor-2] [2018-04-27 15:27:39] MinaClient [125] - 接收到返回消息【命令：0】消息:[{"level":"ERROR","msg":"exception:Required String parameter 'insOrderId' is not present","thread":"http-nio-18090-exec-3","time":1524813994557},{"level":"ERROR","msg":"exception:Required String parameter 'insOrderId' is not present","stack":"org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'insOrderId' is not present\r\n\tat org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:198)\r\n\tat org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:109)\r\n\tat org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:661)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:742)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat com.gome.gsh.ParamterFilter.doFilter(ParamterFilter.java:42)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.peek.MonitorFilter.doFilter(MonitorFilter.java:65)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\r\n\tat java.lang.Thread.run(Thread.java:745)\r\n","thread":"http-nio-18090-exec-4","time":1524814048009},{"level":"ERROR","msg":"exception:Required String parameter 'insOrderId' is not present","stack":"org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'insOrderId' is not present\r\n\tat org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:198)\r\n\tat org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:109)\r\n\tat org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:661)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:742)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat com.gome.gsh.ParamterFilter.doFilter(ParamterFilter.java:42)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.peek.MonitorFilter.doFilter(MonitorFilter.java:65)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\r\n\tat java.lang.Thread.run(Thread.java:745)\r\n","thread":"http-nio-18090-exec-6","time":1524814049270},{"level":"ERROR","msg":"exception:Required String parameter 'insOrderId' is not present","stack":"org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'insOrderId' is not present\r\n\tat org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:198)\r\n\tat org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:109)\r\n\tat org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:661)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:742)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat com.gome.gsh.ParamterFilter.doFilter(ParamterFilter.java:42)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.peek.MonitorFilter.doFilter(MonitorFilter.java:65)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\r\n\tat java.lang.Thread.run(Thread.java:745)\r\n","thread":"http-nio-18090-exec-7","time":1524814052354}]
+[ INFO ] [main] [2018-04-27 17:56:41] org.peek.PeekServerRunner [48] - Starting PeekServerRunner on heshengcho with PID 21856 (D:\dev\workspace\gome\configCenter\peek\peek-server\target\classes started by heshengchao in D:\dev\workspace\gome\configCenter\peek\peek-server)
+[ DEBUG] [main] [2018-04-27 17:56:41] org.peek.PeekServerRunner [51] - Running with Spring Boot v1.5.11.RELEASE, Spring v4.3.15.RELEASE
+[ INFO ] [main] [2018-04-27 17:56:41] org.peek.PeekServerRunner [593] - No active profile set, falling back to default profiles: default
+[ INFO ] [main] [2018-04-27 17:56:41] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [583] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6a01e23: startup date [Fri Apr 27 17:56:41 CST 2018]; root of context hierarchy
+[ DEBUG] [background-preinit] [2018-04-27 17:56:42] org.jboss.logging [160] - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+[ INFO ] [background-preinit] [2018-04-27 17:56:42] org.hibernate.validator.internal.util.Version [30] - HV000001: Hibernate Validator 5.3.6.Final
+[ DEBUG] [background-preinit] [2018-04-27 17:56:42] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [background-preinit] [2018-04-27 17:56:42] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.engine.ConfigurationImpl [163] - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.engine.ConfigurationImpl [185] - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.engine.ConfigurationImpl [199] - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy58
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.xml.ValidationXmlParser [99] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.xml.ResourceLoaderHelper [47] - Trying to load META-INF/validation.xml via user class loader
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.xml.ResourceLoaderHelper [54] - Trying to load META-INF/validation.xml via TCCL
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.xml.ResourceLoaderHelper [60] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[ DEBUG] [main] [2018-04-27 17:56:44] org.hibernate.validator.internal.xml.ValidationXmlParser [106] - No META-INF/validation.xml found. Using annotation based configuration only.
+[ INFO ] [main] [2018-04-27 17:56:44] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [92] - Tomcat initialized with port(s): 18090 (http)
+[ INFO ] [localhost-startStop-1] [2018-04-27 17:56:45] org.springframework.boot.web.servlet.ServletRegistrationBean [190] - Mapping servlet: 'dispatcherServlet' to [/]
+[ INFO ] [localhost-startStop-1] [2018-04-27 17:56:45] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'characterEncodingFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 17:56:45] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 17:56:45] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 17:56:45] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'requestContextFilter' to: [/*]
+[ WARN ] [main] [2018-04-27 17:56:45] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [551] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Cannot determine embedded database driver class for database type NONE. If you want an embedded database please put a supported one on the classpath. If you have database settings to be loaded from a particular profile you may need to active it (no profiles are currently active).
+[ INFO ] [main] [2018-04-27 17:56:46] org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer [101] - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+[ ERROR] [main] [2018-04-27 17:56:46] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Cannot determine embedded database driver class for database type NONE
+
+Action:
+
+If you want an embedded database please put a supported one on the classpath. If you have database settings to be loaded from a particular profile you may need to active it (no profiles are currently active).
+
+[ INFO ] [main] [2018-04-27 18:03:06] org.peek.PeekServerRunner [48] - Starting PeekServerRunner on heshengcho with PID 24472 (D:\dev\workspace\gome\configCenter\peek\peek-server\target\classes started by heshengchao in D:\dev\workspace\gome\configCenter\peek\peek-server)
+[ DEBUG] [main] [2018-04-27 18:03:06] org.peek.PeekServerRunner [51] - Running with Spring Boot v1.5.11.RELEASE, Spring v4.3.15.RELEASE
+[ INFO ] [main] [2018-04-27 18:03:06] org.peek.PeekServerRunner [593] - No active profile set, falling back to default profiles: default
+[ INFO ] [main] [2018-04-27 18:03:06] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [583] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6a01e23: startup date [Fri Apr 27 18:03:06 CST 2018]; root of context hierarchy
+[ DEBUG] [background-preinit] [2018-04-27 18:03:07] org.jboss.logging [160] - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+[ INFO ] [background-preinit] [2018-04-27 18:03:07] org.hibernate.validator.internal.util.Version [30] - HV000001: Hibernate Validator 5.3.6.Final
+[ DEBUG] [background-preinit] [2018-04-27 18:03:07] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [background-preinit] [2018-04-27 18:03:07] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.engine.ConfigurationImpl [163] - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.engine.ConfigurationImpl [185] - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.engine.ConfigurationImpl [199] - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy58
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.xml.ValidationXmlParser [99] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.xml.ResourceLoaderHelper [47] - Trying to load META-INF/validation.xml via user class loader
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.xml.ResourceLoaderHelper [54] - Trying to load META-INF/validation.xml via TCCL
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.xml.ResourceLoaderHelper [60] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[ DEBUG] [main] [2018-04-27 18:03:08] org.hibernate.validator.internal.xml.ValidationXmlParser [106] - No META-INF/validation.xml found. Using annotation based configuration only.
+[ INFO ] [main] [2018-04-27 18:03:09] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [92] - Tomcat initialized with port(s): 18090 (http)
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:03:10] org.springframework.boot.web.servlet.ServletRegistrationBean [190] - Mapping servlet: 'dispatcherServlet' to [/]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:03:10] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'characterEncodingFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:03:10] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:03:10] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:03:10] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'requestContextFilter' to: [/*]
+[ WARN ] [main] [2018-04-27 18:03:10] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [551] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: net.sf.log4jdbc.DriverSpy
+[ INFO ] [main] [2018-04-27 18:03:10] org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer [101] - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+[ ERROR] [main] [2018-04-27 18:03:10] org.springframework.boot.SpringApplication [771] - Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: net.sf.log4jdbc.DriverSpy
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1197)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1099)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1071)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1080)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.peek.PeekServerRunner.main(PeekServerRunner.java:13)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: net.sf.log4jdbc.DriverSpy
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1071)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741)
+	... 26 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: net.sf.log4jdbc.DriverSpy
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 39 common frames omitted
+Caused by: java.lang.IllegalStateException: Cannot load driver class: net.sf.log4jdbc.DriverSpy
+	at org.springframework.util.Assert.state(Assert.java:70)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:232)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.initializeDataSourceBuilder(DataSourceProperties.java:184)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:42)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat.dataSource(DataSourceConfiguration.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 40 common frames omitted
+[ INFO ] [main] [2018-04-27 18:06:24] org.peek.PeekServerRunner [48] - Starting PeekServerRunner on heshengcho with PID 5868 (D:\dev\workspace\gome\configCenter\peek\peek-server\target\classes started by heshengchao in D:\dev\workspace\gome\configCenter\peek\peek-server)
+[ DEBUG] [main] [2018-04-27 18:06:24] org.peek.PeekServerRunner [51] - Running with Spring Boot v1.5.11.RELEASE, Spring v4.3.15.RELEASE
+[ INFO ] [main] [2018-04-27 18:06:24] org.peek.PeekServerRunner [593] - No active profile set, falling back to default profiles: default
+[ INFO ] [main] [2018-04-27 18:06:24] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [583] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7fc2413d: startup date [Fri Apr 27 18:06:24 CST 2018]; root of context hierarchy
+[ DEBUG] [background-preinit] [2018-04-27 18:06:24] org.jboss.logging [160] - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+[ INFO ] [background-preinit] [2018-04-27 18:06:24] org.hibernate.validator.internal.util.Version [30] - HV000001: Hibernate Validator 5.3.6.Final
+[ DEBUG] [background-preinit] [2018-04-27 18:06:24] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [background-preinit] [2018-04-27 18:06:24] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.engine.ConfigurationImpl [163] - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.engine.ConfigurationImpl [185] - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.engine.ConfigurationImpl [199] - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy58
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.xml.ValidationXmlParser [99] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.xml.ResourceLoaderHelper [47] - Trying to load META-INF/validation.xml via user class loader
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.xml.ResourceLoaderHelper [54] - Trying to load META-INF/validation.xml via TCCL
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.xml.ResourceLoaderHelper [60] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[ DEBUG] [main] [2018-04-27 18:06:26] org.hibernate.validator.internal.xml.ValidationXmlParser [106] - No META-INF/validation.xml found. Using annotation based configuration only.
+[ INFO ] [main] [2018-04-27 18:06:26] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [92] - Tomcat initialized with port(s): 18090 (http)
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:06:27] org.springframework.boot.web.servlet.ServletRegistrationBean [190] - Mapping servlet: 'dispatcherServlet' to [/]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:06:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'characterEncodingFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:06:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:06:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[ INFO ] [localhost-startStop-1] [2018-04-27 18:06:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'requestContextFilter' to: [/*]
+[ WARN ] [main] [2018-04-27 18:06:27] org.apache.tomcat.jdbc.pool.ConnectionPool [180] - maxIdle is larger than maxActive, setting maxIdle to: 20
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - ... log4jdbc initializing ...
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] -   log4jdbc.properties not found on classpath
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.debug.stack.prefix is not defined
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.sqltiming.warn.threshold is not defined
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.sqltiming.error.threshold is not defined
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.booleanastruefalse is not defined (using default value false)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.sql.maxlinelength is not defined (using default of 90)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.fulldebugstacktrace is not defined (using default value false)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.statement.warn is not defined (using default value false)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.sql.select is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.sql.insert is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.sql.update is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.sql.delete is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.sql.create is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.dump.sql.addsemicolon is not defined (using default value false)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.auto.load.popular.drivers is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.trim.sql is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.trim.sql.extrablanklines is not defined (using default value true)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.suppress.generated.keys.exception is not defined (using default value false)
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - x log4jdbc.drivers is not defined
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] -   FOUND DRIVER com.mysql.jdbc.Driver
+[ DEBUG] [main] [2018-04-27 18:06:27] log4jdbc.debug [519] - ... log4jdbc initialized! ...
+[ DEBUG] [main] [2018-04-27 18:06:36] org.hibernate.jpa.internal.util.LogHelper [102] - PersistenceUnitInfo [
+	name: default
+	persistence provider classname: null
+	classloader: sun.misc.Launcher$AppClassLoader@2a139a55
+	excludeUnlistedClasses: true
+	JTA datasource: null
+	Non JTA datasource: org.apache.tomcat.jdbc.pool.DataSource@34dc85a{ConnectionPool[defaultAutoCommit=false; defaultReadOnly=null; defaultTransactionIsolation=-1; defaultCatalog=null; driverClassName=net.sf.log4jdbc.DriverSpy; maxActive=20; maxIdle=20; minIdle=15; initialSize=15; maxWait=30000; testOnBorrow=false; testOnReturn=false; timeBetweenEvictionRunsMillis=5000; numTestsPerEvictionRun=0; minEvictableIdleTimeMillis=60000; testWhileIdle=true; testOnConnect=false; password=********; url=jdbc:log4jdbc:mysql://10.112.68.2:3306/carp?useUnicode=true&characterEncoding=UTF8&autoReconnect=true&useSSL=true; username=wduser; validationQuery=select 1; validationQueryTimeout=-1; validatorClassName=null; validationInterval=3000; accessToUnderlyingConnectionAllowed=true; removeAbandoned=false; removeAbandonedTimeout=60; logAbandoned=false; connectionProperties=null; initSQL=null; jdbcInterceptors=null; jmxEnabled=true; fairQueue=true; useEquals=true; abandonWhenPercentageFull=0; maxAge=0; useLock=false; dataSource=null; dataSourceJNDI=null; suspectTimeout=0; alternateUsernameAllowed=false; commitOnReturn=false; rollbackOnReturn=false; useDisposableConnectionFacade=true; logValidationErrors=false; propagateInterruptState=false; ignoreExceptionOnPreLoad=false; useStatementFacade=true; }
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/D:/dev/workspace/gome/configCenter/peek/peek-server/target/classes/
+	Shared Cache Mode: UNSPECIFIED
+	Validation Mode: AUTO
+	Jar files URLs []
+	Managed classes names [
+		org.peek.domain.BaseEntity
+		org.peek.domain.Notice]
+	Mapping files names []
+	Properties []
+[ DEBUG] [main] [2018-04-27 18:06:36] org.hibernate.integrator.internal.IntegratorServiceImpl [46] - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+[ DEBUG] [main] [2018-04-27 18:06:36] org.hibernate.integrator.internal.IntegratorServiceImpl [46] - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+[ DEBUG] [main] [2018-04-27 18:06:36] org.hibernate.integrator.internal.IntegratorServiceImpl [46] - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+[ DEBUG] [main] [2018-04-27 18:06:36] org.hibernate.integrator.internal.IntegratorServiceImpl [46] - Adding Integrator [org.hibernate.jpa.event.spi.JpaIntegrator].
+[ INFO ] [main] [2018-04-27 18:06:36] org.hibernate.Version [37] - HHH000412: Hibernate Core {5.0.12.Final}
+[ INFO ] [main] [2018-04-27 18:06:36] org.hibernate.cfg.Environment [213] - HHH000206: hibernate.properties not found
+[ INFO ] [main] [2018-04-27 18:06:36] org.hibernate.cfg.Environment [317] - HHH000021: Bytecode provider name : javassist
+[ DEBUG] [main] [2018-04-27 18:06:36] org.hibernate.service.spi.ServiceBinding [68] - Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+[ DEBUG] [main] [2018-04-27 18:06:36] org.hibernate.cache.internal.RegionFactoryInitiator [74] - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+[ INFO ] [main] [2018-04-27 18:06:36] org.hibernate.annotations.common.Version [66] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration boolean -> org.hibernate.type.BooleanType@2af4129d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration boolean -> org.hibernate.type.BooleanType@2af4129d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@2af4129d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@20de05e5
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration true_false -> org.hibernate.type.TrueFalseType@2af46afd
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration yes_no -> org.hibernate.type.YesNoType@295bf2a
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration byte -> org.hibernate.type.ByteType@44924587
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration byte -> org.hibernate.type.ByteType@44924587
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@44924587
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration character -> org.hibernate.type.CharacterType@3a08078c
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration char -> org.hibernate.type.CharacterType@3a08078c
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@3a08078c
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration short -> org.hibernate.type.ShortType@5f117b3d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration short -> org.hibernate.type.ShortType@5f117b3d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@5f117b3d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration integer -> org.hibernate.type.IntegerType@78226c36
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration int -> org.hibernate.type.IntegerType@78226c36
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@78226c36
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration long -> org.hibernate.type.LongType@1d5d5621
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration long -> org.hibernate.type.LongType@1d5d5621
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Long -> org.hibernate.type.LongType@1d5d5621
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration float -> org.hibernate.type.FloatType@690bc15e
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration float -> org.hibernate.type.FloatType@690bc15e
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@690bc15e
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration double -> org.hibernate.type.DoubleType@181e72d3
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration double -> org.hibernate.type.DoubleType@181e72d3
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@181e72d3
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@5c7668ba
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@5c7668ba
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@6c6333cd
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@6c6333cd
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration string -> org.hibernate.type.StringType@5d425813
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.String -> org.hibernate.type.StringType@5d425813
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@6b52dd31
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@1000d54d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration url -> org.hibernate.type.UrlType@2620e717
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.net.URL -> org.hibernate.type.UrlType@2620e717
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration date -> org.hibernate.type.DateType@10823d72
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.sql.Date -> org.hibernate.type.DateType@10823d72
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration time -> org.hibernate.type.TimeType@38aafb53
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@38aafb53
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration timestamp -> org.hibernate.type.TimestampType@3eda0aeb
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@3eda0aeb
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@3eda0aeb
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@d0865a3
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration calendar -> org.hibernate.type.CalendarType@716e431d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@716e431d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@716e431d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@6a4ccef7
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration locale -> org.hibernate.type.LocaleType@49ec6a9f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@49ec6a9f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration currency -> org.hibernate.type.CurrencyType@56afdf9a
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@56afdf9a
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration timezone -> org.hibernate.type.TimeZoneType@67efd2c2
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@67efd2c2
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration class -> org.hibernate.type.ClassType@25b52284
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@25b52284
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@6f1a80fb
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@6f1a80fb
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@6a0094c9
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration binary -> org.hibernate.type.BinaryType@28cb3a25
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration byte[] -> org.hibernate.type.BinaryType@28cb3a25
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration [B -> org.hibernate.type.BinaryType@28cb3a25
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@73fb1d7f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@73fb1d7f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@73fb1d7f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration row_version -> org.hibernate.type.RowVersionType@22a0d4ea
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration image -> org.hibernate.type.ImageType@3f725306
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration characters -> org.hibernate.type.CharArrayType@5cbe2654
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration char[] -> org.hibernate.type.CharArrayType@5cbe2654
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration [C -> org.hibernate.type.CharArrayType@5cbe2654
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@5ba26eb0
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@5ba26eb0
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@5ba26eb0
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration text -> org.hibernate.type.TextType@1e86a5a7
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration ntext -> org.hibernate.type.NTextType@65d57e4e
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration blob -> org.hibernate.type.BlobType@2ba5aa7a
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@2ba5aa7a
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@6a638c79
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration clob -> org.hibernate.type.ClobType@10c07b8d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@10c07b8d
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration nclob -> org.hibernate.type.NClobType@36cc9385
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@36cc9385
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@68d651f2
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@4a67b4ec
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration serializable -> org.hibernate.type.SerializableType@48840594
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration object -> org.hibernate.type.ObjectType@24e83d19
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@24e83d19
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@4ee6291f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@2b03d52f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@37e0292a
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@4af70944
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@35267fd4
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@397ef2
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@36a6bea6
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.type.BasicTypeRegistry [136] - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@44e93c1f
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [72] - Database ->
+       name : MySQL
+    version : 5.7.17
+      major : 5
+      minor : 7
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [83] - Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )
+      major : 5
+      minor : 1
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [389] - JDBC version : 4.0
+[ INFO ] [main] [2018-04-27 18:06:37] org.hibernate.dialect.Dialect [156] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder [116] - JDBC driver metadata reported database stores quoted identifiers in more than one case
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder [182] - IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [MIXED]; that will likely lead to problems in schema update and validation if using quoted identifiers
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [81] - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.SequenceGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [84] -     - overriding [org.hibernate.id.enhanced.SequenceStyleGenerator]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.boot.model.relational.Namespace [47] - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AnnotationBinder [509] - Binding entity from annotated class: org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.EntityBinder [409] - Import with entity name Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.EntityBinder [685] - Bind entity org.peek.domain.Notice on table notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=id, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property id with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:id]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for id
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property id
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=created_by, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property createdBy with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:createdBy]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=created_time, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property createdTime with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:createdTime]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=deleted, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property deleted with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:deleted]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=update_by, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property updateBy with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:updateBy]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=update_time, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property updateTime with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:updateTime]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=create_time, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property createTime with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:createTime]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=email_address, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property emailAddress with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:emailAddress]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=notice_level, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property level with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:level]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=phone, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property phone with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:phone]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=project_name, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property projectName with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:projectName]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=send_content, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property sendContent with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:sendContent]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=send_title, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property sendTitle with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:sendTitle]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=send_type, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property sendType with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:sendType]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Ejb3Column [213] - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(notice), mappingColumn=success, insertable=true, updatable=true, unique=false}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [169] - MetadataSourceProcessor property success with lazy=false
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.AbstractPropertyHolder [90] - Attempting to locate auto-apply AttributeConverter for property [org.peek.domain.Notice:success]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [395] - building SimpleValue for success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.PropertyBinder [260] - Building property success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for id
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.annotations.SimpleValueBinder [437] - Starting fillSimpleValue for success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.mapping.PrimaryKey [35] - Forcing column [id] to be non-null as it is part of the primary key for table [notice]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryImpl [212] - Building session factory
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [69] - SessionFactory name : null
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [70] - Automatic flush during beforeCompletion(): disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [71] - Automatic session close at end of transaction: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [73] - Statistics: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [75] - Deleted entity synthetic identifier rollback: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [76] - Default entity-mode: pojo
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [77] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [78] - Allow initialization of lazy state outside session : disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [80] - Using BatchFetchStyle : LEGACY
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [81] - Default batch fetch size: -1
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [82] - Maximum outer join fetch depth: 2
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [83] - Default null ordering: NONE
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [84] - Order SQL updates by primary key: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [85] - Order SQL inserts for batching: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [87] - multi-tenancy strategy : NONE
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [89] - JTA Track by Thread: enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [91] - Query language substitutions: {}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [92] - JPA query language strict compliance: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [93] - Named query checking : enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [95] - Second-level cache: enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [96] - Second-level query cache: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [97] - Second-level query cache factory: org.hibernate.cache.internal.StandardQueryCacheFactory@7b32b129
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [98] - Second-level cache region prefix: null
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [99] - Optimize second-level cache for minimal puts: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [100] - Structured second-level cache entries: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [101] - Second-level cache direct-reference entries: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [102] - Automatic eviction of collection cache: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [104] - JDBC batch size: 15
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [105] - JDBC batch updates for versioned data: enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [106] - Scrollable result sets: enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [107] - Wrap result sets: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [108] - JDBC3 getGeneratedKeys(): enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [109] - JDBC result set fetch size: null
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [110] - Connection release mode: ON_CLOSE
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.cfg.Settings [111] - Generate SQL with comments: disabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryImpl [877] - Returning a Reference to the SessionFactory
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryImpl [257] - Session factory constructed with filter configurations : {}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryImpl [258] - Instantiating session factory with properties: {java.vendor=Oracle Corporation, sun.java.launcher=SUN_STANDARD, catalina.base=C:\Users\my\AppData\Local\Temp\tomcat.8915297342071735953.18090, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, catalina.useNaming=false, hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy, os.name=Windows 10, sun.boot.class.path=D:\dev\sdk\jdk1.8.0_101\jre\lib\resources.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\rt.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\sunrsasign.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\jsse.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\jce.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\charsets.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\jfr.jar;D:\dev\sdk\jdk1.8.0_101\jre\classes, sun.desktop=windows, java.vm.specification.vendor=Oracle Corporation, java.runtime.version=1.8.0_101-b13, user.name=heshengchao, javax.persistence.validation.mode=AUTO, user.language=zh, sun.boot.library.path=D:\dev\sdk\jdk1.8.0_101\jre\bin, PID=5868, java.version=1.8.0_101, user.timezone=Asia/Shanghai, sun.arch.data.model=64, java.endorsed.dirs=D:\dev\sdk\jdk1.8.0_101\jre\lib\endorsed, sun.cpu.isalist=amd64, sun.jnu.encoding=GBK, file.encoding.pkg=sun.io, file.separator=\, java.specification.name=Java Platform API Specification, java.class.version=52.0, user.country=CN, java.home=D:\dev\sdk\jdk1.8.0_101\jre, java.vm.info=mixed mode, os.version=10.0, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@67507df, hibernate.connection.datasource=org.apache.tomcat.jdbc.pool.DataSource@34dc85a{ConnectionPool[defaultAutoCommit=false; defaultReadOnly=null; defaultTransactionIsolation=-1; defaultCatalog=null; driverClassName=net.sf.log4jdbc.DriverSpy; maxActive=20; maxIdle=20; minIdle=15; initialSize=15; maxWait=30000; testOnBorrow=false; testOnReturn=false; timeBetweenEvictionRunsMillis=5000; numTestsPerEvictionRun=0; minEvictableIdleTimeMillis=60000; testWhileIdle=true; testOnConnect=false; password=********; url=jdbc:log4jdbc:mysql://10.112.68.2:3306/carp?useUnicode=true&characterEncoding=UTF8&autoReconnect=true&useSSL=true; username=wduser; validationQuery=select 1; validationQueryTimeout=-1; validatorClassName=null; validationInterval=3000; accessToUnderlyingConnectionAllowed=true; removeAbandoned=false; removeAbandonedTimeout=60; logAbandoned=false; connectionProperties=null; initSQL=null; jdbcInterceptors=null; jmxEnabled=true; fairQueue=true; useEquals=true; abandonWhenPercentageFull=0; maxAge=0; useLock=false; dataSource=null; dataSourceJNDI=null; suspectTimeout=0; alternateUsernameAllowed=false; commitOnReturn=false; rollbackOnReturn=false; useDisposableConnectionFacade=true; logValidationErrors=false; propagateInterruptState=false; ignoreExceptionOnPreLoad=false; useStatementFacade=true; }, path.separator=;, java.vm.version=25.101-b13, org.jboss.logging.provider=slf4j, user.variant=, hibernate.id.new_generator_mappings=false, java.awt.printerjob=sun.awt.windows.WPrinterJob, sun.io.unicode.encoding=UnicodeLittle, awt.toolkit=sun.awt.windows.WToolkit, user.script=, user.home=C:\Users\my, java.specification.vendor=Oracle Corporation, hibernate.transaction.coordinator_class=class org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorBuilderImpl, java.library.path=D:\dev\sdk\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:/dev/sdk/jdk1.8.0_101/bin/../jre/bin/server;D:/dev/sdk/jdk1.8.0_101/bin/../jre/bin;D:/dev/sdk/jdk1.8.0_101/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\dev\tools\instantclient_12_2;E:\Program Files\Git\cmd;D:\dev\tools\apache-maven-3.3.9\bin;D:\dev\sdk\jdk1.8.0_101\bin;C:\Users\my\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;E:\Program Files\Nmap;;D:\dev\ide\eclipse4.7.3;;., java.vendor.url=http://java.oracle.com/, spring.beaninfo.ignore=true, java.vm.vendor=Oracle Corporation, hibernate.dialect=org.hibernate.dialect.MySQL5Dialect, hibernate.ejb.persistenceUnitName=default, java.runtime.name=Java(TM) SE Runtime Environment, sun.java.command=org.peek.PeekServerRunner, java.class.path=D:\dev\sdk\jdk1.8.0_101\jre\lib\resources.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\rt.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\jsse.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\jce.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\charsets.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\jfr.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\access-bridge-64.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\cldrdata.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\dnsns.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\jaccess.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\jfxrt.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\localedata.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\nashorn.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\sunec.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\sunjce_provider.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\sunmscapi.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\sunpkcs11.jar;D:\dev\sdk\jdk1.8.0_101\jre\lib\ext\zipfs.jar;D:\dev\workspace\gome\configCenter\peek\peek-server\target\classes;D:\dev\workspace\gome\configCenter\peek\peek-collector\target\classes;D:\dev\workspace\gome\configCenter\peek\peek-core\target\classes;C:\Users\my\.m2\repository\org\apache\mina\mina-core\2.0.17\mina-core-2.0.17.jar;C:\Users\my\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;C:\Users\my\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\my\.m2\repository\com\google\guava\guava\21.0\guava-21.0.jar;C:\Users\my\.m2\repository\com\github\kevinsawicki\http-request\6.0\http-request-6.0.jar;C:\Users\my\.m2\repository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar;C:\Users\my\.m2\repository\com\googlecode\log4jdbc\log4jdbc\1.2\log4jdbc-1.2.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\1.5.11.RELEASE\spring-boot-starter-data-jpa-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter\1.5.11.RELEASE\spring-boot-starter-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot\1.5.11.RELEASE\spring-boot-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\1.5.11.RELEASE\spring-boot-autoconfigure-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter-logging\1.5.11.RELEASE\spring-boot-starter-logging-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\slf4j\jul-to-slf4j\1.7.25\jul-to-slf4j-1.7.25.jar;C:\Users\my\.m2\repository\org\slf4j\log4j-over-slf4j\1.7.25\log4j-over-slf4j-1.7.25.jar;C:\Users\my\.m2\repository\org\springframework\spring-core\4.3.15.RELEASE\spring-core-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\yaml\snakeyaml\1.17\snakeyaml-1.17.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter-aop\1.5.11.RELEASE\spring-boot-starter-aop-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\spring-aop\4.3.15.RELEASE\spring-aop-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\aspectj\aspectjweaver\1.8.13\aspectjweaver-1.8.13.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\1.5.11.RELEASE\spring-boot-starter-jdbc-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\apache\tomcat\tomcat-jdbc\8.5.29\tomcat-jdbc-8.5.29.jar;C:\Users\my\.m2\repository\org\apache\tomcat\tomcat-juli\8.5.29\tomcat-juli-8.5.29.jar;C:\Users\my\.m2\repository\org\springframework\spring-jdbc\4.3.15.RELEASE\spring-jdbc-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\hibernate\hibernate-core\5.0.12.Final\hibernate-core-5.0.12.Final.jar;C:\Users\my\.m2\repository\org\jboss\logging\jboss-logging\3.3.0.Final\jboss-logging-3.3.0.Final.jar;C:\Users\my\.m2\repository\org\hibernate\javax\persistence\hibernate-jpa-2.1-api\1.0.0.Final\hibernate-jpa-2.1-api-1.0.0.Final.jar;C:\Users\my\.m2\repository\org\javassist\javassist\3.18.1-GA\javassist-3.18.1-GA.jar;C:\Users\my\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\my\.m2\repository\org\jboss\jandex\2.0.0.Final\jandex-2.0.0.Final.jar;C:\Users\my\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\my\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\my\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.0.1.Final\hibernate-commons-annotations-5.0.1.Final.jar;C:\Users\my\.m2\repository\org\hibernate\hibernate-entitymanager\5.0.12.Final\hibernate-entitymanager-5.0.12.Final.jar;C:\Users\my\.m2\repository\javax\transaction\javax.transaction-api\1.2\javax.transaction-api-1.2.jar;C:\Users\my\.m2\repository\org\springframework\data\spring-data-jpa\1.11.11.RELEASE\spring-data-jpa-1.11.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\data\spring-data-commons\1.13.11.RELEASE\spring-data-commons-1.13.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\spring-orm\4.3.15.RELEASE\spring-orm-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\spring-context\4.3.15.RELEASE\spring-context-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\spring-expression\4.3.15.RELEASE\spring-expression-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\spring-tx\4.3.15.RELEASE\spring-tx-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\spring-beans\4.3.15.RELEASE\spring-beans-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.25\jcl-over-slf4j-1.7.25.jar;C:\Users\my\.m2\repository\org\springframework\spring-aspects\4.3.15.RELEASE\spring-aspects-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter-freemarker\1.5.11.RELEASE\spring-boot-starter-freemarker-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter-web\1.5.11.RELEASE\spring-boot-starter-web-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\1.5.11.RELEASE\spring-boot-starter-tomcat-1.5.11.RELEASE.jar;C:\Users\my\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\8.5.29\tomcat-embed-core-8.5.29.jar;C:\Users\my\.m2\repository\org\apache\tomcat\tomcat-annotations-api\8.5.29\tomcat-annotations-api-8.5.29.jar;C:\Users\my\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\8.5.29\tomcat-embed-el-8.5.29.jar;C:\Users\my\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\8.5.29\tomcat-embed-websocket-8.5.29.jar;C:\Users\my\.m2\repository\org\hibernate\hibernate-validator\5.3.6.Final\hibernate-validator-5.3.6.Final.jar;C:\Users\my\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;C:\Users\my\.m2\repository\com\fasterxml\classmate\1.3.1\classmate-1.3.1.jar;C:\Users\my\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.8.11.1\jackson-databind-2.8.11.1.jar;C:\Users\my\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.8.0\jackson-annotations-2.8.0.jar;C:\Users\my\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.8.10\jackson-core-2.8.10.jar;C:\Users\my\.m2\repository\org\springframework\spring-web\4.3.15.RELEASE\spring-web-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\springframework\spring-webmvc\4.3.15.RELEASE\spring-webmvc-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\org\freemarker\freemarker\2.3.28\freemarker-2.3.28.jar;C:\Users\my\.m2\repository\org\springframework\spring-context-support\4.3.15.RELEASE\spring-context-support-4.3.15.RELEASE.jar;C:\Users\my\.m2\repository\javax\mail\mail\1.4.7\mail-1.4.7.jar;C:\Users\my\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar;C:\Users\my\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\my\.m2\repository\org\projectlombok\lombok\1.16.20\lombok-1.16.20.jar;C:\Users\my\.m2\repository\com\alibaba\fastjson\1.2.46\fastjson-1.2.46.jar, hibernate.bytecode.use_reflection_optimizer=false, java.vm.specification.name=Java Virtual Machine Specification, java.vm.specification.version=1.8, catalina.home=C:\Users\my\AppData\Local\Temp\tomcat.8915297342071735953.18090, sun.cpu.endian=little, sun.os.patch.level=, java.awt.headless=true, java.io.tmpdir=C:\Users\my\AppData\Local\Temp\, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, javax.persistence.sharedCache.mode=UNSPECIFIED, os.arch=amd64, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy, java.ext.dirs=D:\dev\sdk\jdk1.8.0_101\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext, user.dir=D:\dev\workspace\gome\configCenter\peek\peek-server, line.separator=
+, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.transaction.jta.platform=org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform@341b13a8, file.encoding=UTF-8, java.specification.version=1.8}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [103] - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver [114] - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.validator.internal.xml.ValidationXmlParser [99] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.validator.internal.xml.ResourceLoaderHelper [54] - Trying to load META-INF/validation.xml via TCCL
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.validator.internal.xml.ResourceLoaderHelper [60] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.validator.internal.xml.ValidationXmlParser [106] - No META-INF/validation.xml found. Using annotation based configuration only.
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.boot.internal.ClassLoaderAccessImpl [55] - Not known whether passed class name [org.peek.domain.Notice] is safe
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.boot.internal.ClassLoaderAccessImpl [57] - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.secure.spi.JaccIntegrator [80] - Skipping JACC integration as it was not enabled
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.engine.spi.CascadeStyles [268] - External cascade style regsitration [persist : STYLE_PERSIST_SKIPLAZY] overrode base registration [STYLE_PERSIST]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.jpa.event.internal.jpa.CallbackBuilderLegacyImpl [110] - Adding preUpdate as PreUpdate callback for entity org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.jpa.event.internal.jpa.CallbackBuilderLegacyImpl [110] - Adding prePersist as PrePersist callback for entity org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.jpa.event.internal.jpa.CallbackBuilderLegacyImpl [110] - Adding preRemove as PreRemove callback for entity org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.boot.internal.ClassLoaderAccessImpl [55] - Not known whether passed class name [org.peek.domain.Notice] is safe
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.boot.internal.ClassLoaderAccessImpl [57] - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.boot.internal.ClassLoaderAccessImpl [55] - Not known whether passed class name [org.peek.domain.Notice] is safe
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.boot.internal.ClassLoaderAccessImpl [57] - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.entity.AbstractEntityPersister [3544] - Static SQL for entity: org.peek.domain.Notice
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.entity.AbstractEntityPersister [3549] -  Version select: select id from notice where id =?
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.entity.AbstractEntityPersister [3552] -  Snapshot select: select notice_.id, notice_.created_by as created_2_0_, notice_.created_time as created_3_0_, notice_.deleted as deleted4_0_, notice_.update_by as update_b5_0_, notice_.update_time as update_t6_0_, notice_.create_time as create_t7_0_, notice_.email_address as email_ad8_0_, notice_.notice_level as notice_l9_0_, notice_.phone as phone10_0_, notice_.project_name as project11_0_, notice_.send_content as send_co12_0_, notice_.send_title as send_ti13_0_, notice_.send_type as send_ty14_0_, notice_.success as success15_0_ from notice notice_ where notice_.id=?
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.entity.AbstractEntityPersister [394] -  Insert 0: insert into notice (created_by, created_time, deleted, update_by, update_time, create_time, email_address, notice_level, phone, project_name, send_content, send_title, send_type, success, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.entity.AbstractEntityPersister [394] -  Update 0: update notice set created_by=?, created_time=?, deleted=?, update_by=?, update_time=?, create_time=?, email_address=?, notice_level=?, phone=?, project_name=?, send_content=?, send_title=?, send_type=?, success=? where id=?
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.entity.AbstractEntityPersister [394] -  Delete 0: delete from notice where id=?
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.entity.AbstractEntityPersister [3560] -  Identity insert: insert into notice (created_by, created_time, deleted, update_by, update_time, create_time, email_address, notice_level, phone, project_name, send_content, send_title, send_type, success) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6025d790]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [NONE]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0)
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3596b249]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [READ]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0)
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@781711b7]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [UPGRADE]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) for update
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@642ee49c]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [UPGRADE_NOWAIT]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) for update
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@69909c14]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [UPGRADE_SKIPLOCKED]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) for update
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4e224df5]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [FORCE]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) for update
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5f5827d0]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [PESSIMISTIC_READ]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) lock in share mode
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4337afd]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:37] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+12. select 1 
+ {executed in 122 msec}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [PESSIMISTIC_WRITE]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) for update
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3fa7df1]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [PESSIMISTIC_FORCE_INCREMENT]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) for update
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@52227eb2]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [OPTIMISTIC]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0)
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [174] - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@a146b11]
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createdTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : deleted
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateBy
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : updateTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : createTime
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : emailAddress
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : level
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : phone
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : projectName
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendContent
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendTitle
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : sendType
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.persister.walking.spi.MetamodelGraphWalker [137] - Visiting attribute path : success
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [150] - Building LoadPlan...
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [100] - processing queryspace <gen:0>
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [55] - LoadPlan(entity=org.peek.domain.Notice)
+    - Returns
+       - EntityReturnImpl(entity=org.peek.domain.Notice, querySpaceUid=<gen:0>, path=org.peek.domain.Notice)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=org.peek.domain.Notice)
+          - SQL table alias mapping - notice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.entity.plan.EntityLoader [115] - Static select for entity org.peek.domain.Notice [OPTIMISTIC_FORCE_INCREMENT]: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0)
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.Loader [38] - Static select for action ACTION_MERGE on entity org.peek.domain.Notice: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) 
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.loader.Loader [38] - Static select for action ACTION_REFRESH on entity org.peek.domain.Notice: select notice0_.id as id1_0_0_, notice0_.created_by as created_2_0_0_, notice0_.created_time as created_3_0_0_, notice0_.deleted as deleted4_0_0_, notice0_.update_by as update_b5_0_0_, notice0_.update_time as update_t6_0_0_, notice0_.create_time as create_t7_0_0_, notice0_.email_address as email_ad8_0_0_, notice0_.notice_level as notice_l9_0_0_, notice0_.phone as phone10_0_0_, notice0_.project_name as project11_0_0_, notice0_.send_content as send_co12_0_0_, notice0_.send_title as send_ti13_0_0_, notice0_.send_type as send_ty14_0_0_, notice0_.success as success15_0_0_ from notice notice0_ where notice0_.id=? and ( notice0_.deleted = 0) 
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryImpl [453] - Instantiated session factory
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.NamedQueryRepository [149] - Checking 0 named HQL queries
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.NamedQueryRepository [165] - Checking 0 named SQL queries
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryRegistry [52] - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@72b6832e
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryRegistry [74] - Registering SessionFactory: b29b6703-6bdb-4aca-874e-4551e18a4d25 (<unnamed>)
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.internal.SessionFactoryRegistry [81] - Not binding SessionFactory to JNDI, no JNDI name configured
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.jpa.internal.schemagen.JpaSchemaGenerator [106] - No actions specified; doing nothing
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:37] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+11. select 1 
+ {executed in 45 msec}
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.jpa.internal.EntityManagerFactoryRegistry [39] - Initializing EntityManagerFactoryRegistry : org.hibernate.jpa.internal.EntityManagerFactoryRegistry@314a31b0
+[ DEBUG] [main] [2018-04-27 18:06:37] org.hibernate.jpa.internal.EntityManagerFactoryRegistry [49] - Registering EntityManagerFactory: default 
+[ WARN ] [main] [2018-04-27 18:06:38] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [551] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchData': Unsatisfied dependency expressed through field 'noticeService'; nested exception is org.springframework.beans.ConversionNotSupportedException: Failed to convert value of type 'java.lang.String' to required type 'org.peek.service.NoticeService'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'java.lang.String' to required type 'org.peek.service.NoticeService': no matching editors or conversion strategy found
+[ DEBUG] [main] [2018-04-27 18:06:38] org.hibernate.internal.SessionFactoryImpl [1054] - HHH000031: Closing
+[ DEBUG] [main] [2018-04-27 18:06:38] org.hibernate.service.internal.AbstractServiceRegistryImpl [407] - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+[ DEBUG] [main] [2018-04-27 18:06:38] org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl [286] - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+[ DEBUG] [main] [2018-04-27 18:06:38] org.hibernate.jpa.internal.EntityManagerFactoryRegistry [91] - Remove: name=default
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+10. select 1 
+ {executed in 44 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+9. select 1 
+ {executed in 44 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+8. select 1 
+ {executed in 57 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+7. select 1 
+ {executed in 45 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+6. select 1 
+ {executed in 47 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+5. select 1 
+ {executed in 49 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+4. select 1 
+ {executed in 43 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+3. select 1 
+ {executed in 53 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+2. select 1 
+ {executed in 47 msec}
+[ DEBUG] [Tomcat JDBC Pool Cleaner[705927765:1524823587750]] [2018-04-27 18:06:38] jdbc.sqltiming [365] -  org.apache.tomcat.jdbc.pool.PooledConnection.validate(PooledConnection.java:543)
+1. select 1 
+ {executed in 52 msec}
+[ INFO ] [main] [2018-04-27 18:06:39] org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer [101] - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+[ ERROR] [main] [2018-04-27 18:06:39] org.springframework.boot.SpringApplication [771] - Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchData': Unsatisfied dependency expressed through field 'noticeService'; nested exception is org.springframework.beans.ConversionNotSupportedException: Failed to convert value of type 'java.lang.String' to required type 'org.peek.service.NoticeService'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'java.lang.String' to required type 'org.peek.service.NoticeService': no matching editors or conversion strategy found
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1268)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.peek.PeekServerRunner.main(PeekServerRunner.java:13)
+Caused by: org.springframework.beans.ConversionNotSupportedException: Failed to convert value of type 'java.lang.String' to required type 'org.peek.service.NoticeService'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'java.lang.String' to required type 'org.peek.service.NoticeService': no matching editors or conversion strategy found
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:74)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:54)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1092)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 17 common frames omitted
+Caused by: java.lang.IllegalStateException: Cannot convert value of type 'java.lang.String' to required type 'org.peek.service.NoticeService': no matching editors or conversion strategy found
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:307)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:126)
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:61)
+	... 21 common frames omitted

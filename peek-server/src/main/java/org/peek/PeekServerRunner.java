@@ -3,6 +3,8 @@ package org.peek;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 
 @EnableAutoConfiguration
 @SpringBootApplication
@@ -13,5 +15,12 @@ public class PeekServerRunner {
 		application.run(args);
 	}
 	
+	
+	   @Bean  
+	    public FilterRegistrationBean  filterSitemesh() {  
+	        FilterRegistrationBean registrationBean = new FilterRegistrationBean();  
+	        registrationBean.setFilter(new WebSiteMeshFilter());  
+	        return registrationBean;  
+	    }  
 	
 }
