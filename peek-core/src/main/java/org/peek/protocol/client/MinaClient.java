@@ -18,13 +18,11 @@ import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.SocketSessionConfig;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.peek.exception.ConnectAccessException;
+import org.peek.logger.LOG;
 import org.peek.protocol.ClientMinaDecoder;
 import org.peek.protocol.ClientMinaEncoder;
 import org.peek.protocol.WriteBean;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class MinaClient {
 	private final static Map<String,InetSocketAddress> netMap=new HashMap<String,InetSocketAddress>();
 	final static Charset  charset=Charset.defaultCharset();
@@ -59,8 +57,8 @@ public class MinaClient {
 				throw new ConnectAccessException("连接服务器："+host+":"+port+"失败："+e.getMessage(),e);
 			}
 			netMap.put(host+port, adds);
-			if(log.isDebugEnabled())
-				log.debug("添加新服务器："+host+":"+port);
+			if(LOG.isDebugEnabled())
+				LOG.debug("添加新服务器："+host+":"+port);
 		}
 		
 		ConnectFuture future = connector.connect(adds);// 创建连接
@@ -70,7 +68,7 @@ public class MinaClient {
 			session = future.getSession();// 获得session
 		}catch(Exception e){
 			connector.dispose();
-			log.error("打开连接["+host+":"+port+"]异常，请注意检查！详细："+e.getMessage());
+			LOG.warn("打开连接["+host+":"+port+"]异常，请注意检查！详细："+e.getMessage());
 			return null;
 		}
 		
@@ -82,10 +80,10 @@ public class MinaClient {
 		
 		if(session.isActive()) {
 			if(session.getCloseFuture().awaitUninterruptibly(3000)){
-				if(log.isDebugEnabled())
-					log.debug("消息正常接收，关闭连接！");
+				if(LOG.isDebugEnabled())
+					LOG.debug("消息正常接收，关闭连接！");
 			}else{
-				log.warn("接收消息超时，关闭连接！");
+				LOG.warn("接收消息超时，关闭连接！");
 			}
 			connector.dispose();
 		}
@@ -106,19 +104,19 @@ public class MinaClient {
 	    }
 		
 		public @Override void exceptionCaught(IoSession session, Throwable cause) throws Exception {
-			log.error("消息发送异常："+cause.getMessage(),cause);
+			LOG.warn("消息发送异常："+cause.getMessage(),cause);
 			session.closeOnFlush();
 		}
 
 		public @Override void messageReceived(IoSession session, Object message) throws Exception {
 			wb=(WriteBean)message;
-			if(log.isDebugEnabled())
-				log.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
+			if(LOG.isDebugEnabled())
+				LOG.debug("接收到返回消息【命令："+wb.getCmd()+"】消息:"+wb.getXmlMsg());
 			session.closeOnFlush();
 		}
 		public @Override void sessionIdle(IoSession session, IdleStatus status) throws Exception{
-			if(log.isDebugEnabled())
-				log.debug("mina状态检测消息:"+status.toString());
+			if(LOG.isDebugEnabled())
+				LOG.debug("mina状态检测消息:"+status.toString());
 		}
 	};
 	

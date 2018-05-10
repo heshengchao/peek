@@ -7,14 +7,11 @@ import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolEncoderAdapter;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
+import org.peek.logger.LOG;
 
 
 public class ClientMinaEncoder extends ProtocolEncoderAdapter {  
-	private static Logger logger = LoggerFactory.getLogger(ClientMinaEncoder.class);
+//	private static Logger logger = LoggerFactory.getLogger(ClientMinaEncoder.class);
     private final Charset charset;  
     private static final int HEAD_SIZE=8;
 
@@ -32,8 +29,8 @@ public class ClientMinaEncoder extends ProtocolEncoderAdapter {
 			
 			IoBuffer buffer = IoBuffer.allocate(bytes.length + HEAD_SIZE + 16).setAutoExpand(true);
 
-			if(logger.isDebugEnabled())
-				logger.debug("发送长度："+bytes.length+",CMD:"+wb.getCmd()+",seq:"+wb.getSeq()+",XML数据："+wb.getXmlMsg());
+			if(LOG.isDebugEnabled())
+				LOG.debug("发送长度："+bytes.length+",CMD:"+wb.getCmd()+",seq:"+wb.getSeq()+",XML数据："+wb.getXmlMsg());
 			buffer.put(convertHeaderByte(bytes.length, wb.getCmd(), wb.getSeq()));
 			
 			buffer.put(bytes);
@@ -41,7 +38,7 @@ public class ClientMinaEncoder extends ProtocolEncoderAdapter {
 			buffer.flip();
 			out.write(buffer);
     	}else{
-    		logger.warn("异常数据："+message);
+    		LOG.warn("异常数据："+message);
     	}
     }
 

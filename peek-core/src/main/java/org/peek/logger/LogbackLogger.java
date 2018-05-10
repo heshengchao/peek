@@ -36,6 +36,11 @@ public class LogbackLogger implements PeekLogger {
 	public void warn(String msg, Throwable throwable) {
 		LOGGER.warn(msg, throwable);
 	}
+	
+	@Override
+	public void warn(String msg) {
+		LOGGER.warn(msg);
+	}
 
 	/** {@inheritDoc} */
 	@Override
@@ -46,5 +51,12 @@ public class LogbackLogger implements PeekLogger {
 			logger.info(LOG.buildLogMessage(httpRequest, duration, systemError, responseSize));
 		}
 	}
+
+	@Override
+	public boolean isDebugAble() {
+		return LOGGER.isDebugEnabled();
+	}
+
+	
 }
 

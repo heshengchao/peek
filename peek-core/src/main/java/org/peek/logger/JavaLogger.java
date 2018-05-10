@@ -48,4 +48,14 @@ public class JavaLogger  implements PeekLogger {
 			logger.info(LOG.buildLogMessage(httpRequest, duration, systemError, responseSize));
 		}
 	}
+
+	@Override
+	public boolean isDebugAble() {
+		return LOGGER.isLoggable(Level.FINE);
+	}
+
+	@Override
+	public void warn(String msg) {
+		LOGGER.warning(msg);
+	}
 }

@@ -77,6 +77,15 @@ public final class LOG {
 		addDebuggingLog("INFO", msg);
 	}
 
+	public static void warn(String msg) {
+		try {
+			JAVA_MELODY_LOGGER.warn(msg);
+			addDebuggingLog("WARN", msg);
+		} catch (final Throwable t) { // NOPMD
+			// au pire (cette méthode ne doit pas lancer d'erreur vu où elle est appelée)
+			t.printStackTrace(System.err);
+		}
+	}
 	public static void warn(String msg, Throwable throwable) {
 		try {
 			JAVA_MELODY_LOGGER.warn(msg, throwable);
@@ -149,6 +158,10 @@ public final class LOG {
 		} else {
 			return new JavaLogger();
 		}
+	}
+
+	public static boolean isDebugEnabled() {
+		return JAVA_MELODY_LOGGER.isDebugAble();
 	}
 }
 

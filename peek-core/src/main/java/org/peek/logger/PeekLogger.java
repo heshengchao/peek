@@ -6,12 +6,9 @@ public interface PeekLogger {
 	/**
 	 * Nom du logger interne.
 	 */
-	String INTERNAL_LOGGER_NAME = "org.peek";
-
-	/**
-	 * Log interne en niveau debug.
-	 * @param msg Message
-	 */
+	String INTERNAL_LOGGER_NAME = "peek";
+	boolean isDebugAble();
+	
 	void debug(String msg);
 
 	/**
@@ -34,13 +31,9 @@ public interface PeekLogger {
 	 */
 	void info(String msg, Throwable throwable);
 
-	/**
-	 * Log interne en niveau warn.
-	 * @param msg Message
-	 * @param throwable Throwable
-	 */
 	void warn(String msg, Throwable throwable);
 
+	void warn(String msg);
 	/**
 	 * Log les détails de l'exécution d'une requête http en niveau info.
 	 * @param httpRequest Requête http

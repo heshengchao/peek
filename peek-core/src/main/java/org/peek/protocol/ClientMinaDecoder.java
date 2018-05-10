@@ -6,13 +6,11 @@ import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.peek.logger.LOG;
 
 
 
 public class ClientMinaDecoder extends CumulativeProtocolDecoder {  
-	private static Logger logger = LoggerFactory.getLogger(ClientMinaDecoder.class); 
   
 	/**文字编码*/
 	private final Charset charset;  
@@ -24,8 +22,8 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 
 	@Override
 	protected boolean doDecode(IoSession session, IoBuffer in, ProtocolDecoderOutput out) throws Exception {
-		if(logger.isDebugEnabled())
-			logger.debug("数据大小："+in.limit());
+		if(LOG.isDebugEnabled())
+			LOG.debug("数据大小："+in.limit());
 		
 		int oldPos = in.position();
 		if(in.hasRemaining()){
@@ -39,14 +37,14 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 			in.get(headers);
 				
 			CustomPotocolMeta meta = getDataHeader(headers);
-			if(logger.isDebugEnabled())
-				logger.debug("数据包头信息："+meta.toJsonString());
+			if(LOG.isDebugEnabled())
+				LOG.debug("数据包头信息："+meta.toJsonString());
 			//数据并未发送完全
 			if( (meta.length+headerSize)>totleDataSize ){
 				in.position(oldPos);
 				in.setAutoExpand(true);
-				if(logger.isDebugEnabled())
-					logger.debug("数据接收未完成，等待下一包数据");
+				if(LOG.isDebugEnabled())
+					LOG.debug("数据接收未完成，等待下一包数据");
 				return false;
 			}else{
 				byte[] tmp=new byte[meta.length];
@@ -62,8 +60,8 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 				if(in.hasRemaining()){
 					in.get(new byte[in.remaining()]);
 				}
-				if(logger.isDebugEnabled())
-					logger.debug("数据接收完成，传入业务");
+				if(LOG.isDebugEnabled())
+					LOG.debug("数据接收完成，传入业务");
 			}
 		}
 		return true;
