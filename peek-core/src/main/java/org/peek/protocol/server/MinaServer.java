@@ -11,14 +11,19 @@ import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import org.peek.logger.LOG;
 import org.peek.protocol.ClientMinaDecoder;
 import org.peek.protocol.ClientMinaEncoder;
+import org.springframework.util.StringUtils;
 
 
 public class MinaServer {
 	final static Charset  charset=Charset.defaultCharset();
 	IoAcceptor ioAcceptor;
-	private Integer port=1314;
+	private int port=1314;
+	private String ip=null;
 
-	public void setPort(Integer port) {
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public void setPort(int port) {
 		this.port = port;
 	}
 	
@@ -29,13 +34,23 @@ public class MinaServer {
         ioAcceptor.setHandler(new PeekIoHandler());
         ioAcceptor.getSessionConfig().setReadBufferSize(2048);
         ioAcceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
-        ioAcceptor.bind(new InetSocketAddress(port));
+        InetSocketAddress is;
+        if(!StringUtils.isEmpty(ip)) {
+        	is= new InetSocketAddress(ip,port);
+        }else {
+        	is= new InetSocketAddress(port);
+        }
+        ioAcceptor.bind(is);
 	}
 	
 	public void stop() {
 		if(ioAcceptor!=null) {
+			try {
 			ioAcceptor.unbind();
 			ioAcceptor.dispose();
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
 	}
 
