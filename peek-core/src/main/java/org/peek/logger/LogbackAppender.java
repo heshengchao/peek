@@ -14,7 +14,7 @@ import ch.qos.logback.core.UnsynchronizedAppenderBase;
 
 public class LogbackAppender  extends UnsynchronizedAppenderBase<ILoggingEvent> {
 	private static final String EXCEPTION_PATTERN = "%ex";
-	private static final Level THRESHOLD = Level.WARN;
+	private static final Level THRESHOLD = Level.ERROR;
 
 	private static final LogbackAppender SINGLETON = new LogbackAppender();
 
