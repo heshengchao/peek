@@ -48,8 +48,8 @@ public class MinaServer {
 			try {
 			ioAcceptor.unbind();
 			ioAcceptor.dispose();
-			}catch (Exception e) {
-				// TODO: handle exception
+			}catch (Throwable e) {
+				LOG.warn(e.getMessage(), e);
 			}
 		}
 	}
