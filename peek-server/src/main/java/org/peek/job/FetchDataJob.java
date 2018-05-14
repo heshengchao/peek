@@ -43,13 +43,13 @@ public class FetchDataJob implements InitializingBean {
 					LoggerInfo li=new LoggerInfo();
 					BeanUtils.copyProperties(input, li);
 					
-					li.setGroupId(ins.getGroupId());
-					li.setInsId(ins.getInsId());
+					li.setAppGroupId(ins.getGroupId());
+					li.setAppInsId(ins.getInsId());
 					return li;
 				}
 			});
 			
-			logRepository.save(plist);
+			logRepository.saveAll(plist);
 		}
 	}
 
