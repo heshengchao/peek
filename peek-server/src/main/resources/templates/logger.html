@@ -4,7 +4,7 @@
 </head>
 <body>
 	<div class="row">
-		<div class="col-sm-5">
+		<div class="col-sm-12">
 			<div class="widget-box transparent">
 				<div class="widget-header widget-header-flat">
 					<h4 class="widget-title lighter">
@@ -25,11 +25,11 @@
 							</thead>
 
 							<tbody>
-								<#list appInsList as ins>
+								<#list loggerList as log>
 								<tr>
-									<td>${ins.groupName!}</td>
-									<td><small>${ins.insName!}</small> </td>
-									<td><b class="green">${ins.insIp!}:${ins.insPort!}</b></td>
+									<td><small><b class="green">${log.msg!}</b></small></td>
+									<td><small><b class="green">${(log.time?string("yyyy-MM-dd HH:mm:ss"))!}</b></small></td>
+									<td><small>${log.stack!}</small></td>
 								</tr>
 								</#list>
 							</tbody>

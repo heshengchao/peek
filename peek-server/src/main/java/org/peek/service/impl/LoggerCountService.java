@@ -18,22 +18,6 @@ public class LoggerCountService {
 	@Autowired LoggerCountRepository repository;
 	
 	public List<LoggerInfo> findByApp(LoggerInfoQuery query){
-		Query querys=new Query();
-		Criteria criteria = new Criteria();
-		querys.addCriteria(criteria);
-		
-		if(!StringUtils.isEmpty(query.getAppGroupId())){
-			criteria.and("appGroupId").is(query.getAppGroupId());
-		}
-		if(!StringUtils.isEmpty(query.getAppInsId())){
-			criteria.and("appInsId").is(query.getAppInsId());
-		}
-		if(query.getStartTime()!=null){
-			criteria.and("time").gte(query.getStartTime());
-		}
-		if(query.getEndTime()!=null){
-			criteria.and("time").lte(query.getEndTime());
-		}
-		repository.find(query);
+		return repository.find(query);
 	}
  }

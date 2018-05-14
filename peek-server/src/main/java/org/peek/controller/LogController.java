@@ -21,10 +21,10 @@ public class LogController {
 	@Autowired LoggerCountService loggerCountService;
 	@Autowired AppService appService;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "")
 	public ModelAndView  index(@RequestParam(required=false) String groupId,
 			@RequestParam(required=false)String appInsId) throws IOException{
-		ModelAndView mv=new ModelAndView("logger");
+		ModelAndView mv=new ModelAndView("/logger");
 		LoggerInfoQuery query=new LoggerInfoQuery();
 		if(!StringUtils.isEmpty(groupId))
 			query.setAppGroupId(groupId);
