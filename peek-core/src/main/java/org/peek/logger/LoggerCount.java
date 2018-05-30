@@ -3,7 +3,6 @@ package org.peek.logger;
 import java.util.Date;
 
 import org.peek.common.LoggerLevelEnum;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
@@ -11,6 +10,9 @@ import lombok.Data;
 public class LoggerCount {
 
 	private String msg;
+	private String clazz;
+	private String clazzMethod;
+	private int clazzLine;
 	private String thread;
 	private Date time;
 	private LoggerLevelEnum level;

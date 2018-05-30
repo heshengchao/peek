@@ -18,9 +18,9 @@
 						<table class="table table-bordered table-striped">
 							<thead class="thin-border-bottom">
 								<tr>
-									<th><i class="ace-icon fa fa-caret-right blue"></i>应用</th>
-									<th><i class="ace-icon fa fa-caret-right blue"></i>实例名称</th>
-									<th class="hidden-480"><i class="ace-icon fa fa-caret-right blue"></i>IP：端口</th>
+									<th>应用</th>
+									<th>实例名称</th>
+									<th>IP：端口</th>
 								</tr>
 							</thead>
 
@@ -29,7 +29,15 @@
 								<tr>
 									<td><small><b class="green">${log.msg!}</b></small></td>
 									<td><small><b class="green">${(log.time?string("yyyy-MM-dd HH:mm:ss"))!}</b></small></td>
-									<td><small>${log.stack!}</small></td>
+									<td><small><b class="green">${log.msg!}</b></small></td>
+									
+									<td><small>
+										<#if log.stack?? && log.stack?length gt 33>  
+										    ${log.stack?substring(0,30)}...  
+										<#else>${log.stack!}   
+										</#if>  
+									</small>
+									</td>
 								</tr>
 								</#list>
 							</tbody>

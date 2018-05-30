@@ -29,7 +29,7 @@
 								<tr>
 									<td>${ins.groupName!}</td>
 									<td><small>${ins.insName!}</small> </td>
-									<td><b class="green"><a href="/app?appInsId=${ins.insId!}"></a>${ins.insIp!}:${ins.insPort!}</b></td>
+									<td><b class="green"><a href="/app?appInsId=${ins.insId!}">${ins.insIp!}:${ins.insPort!?c}</a></b></td>
 								</tr>
 								</#list>
 							</tbody>

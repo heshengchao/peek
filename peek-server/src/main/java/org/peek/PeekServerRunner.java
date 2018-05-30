@@ -21,8 +21,8 @@ public class PeekServerRunner {
 	}
 	
 	  @Bean  
-	    public FilterRegistrationBean  filterFreemarker() {  
-	        FilterRegistrationBean registrationBean = new FilterRegistrationBean();  
+	    public FilterRegistrationBean<FreemarkerFilter>  filterFreemarker() {  
+	        FilterRegistrationBean<FreemarkerFilter> registrationBean = new FilterRegistrationBean<>();  
 	        registrationBean.setFilter(new FreemarkerFilter()); 
 	        registrationBean.addUrlPatterns("*.html");
 	        registrationBean.setDispatcherTypes(DispatcherType.REQUEST,DispatcherType.FORWARD);
@@ -30,8 +30,8 @@ public class PeekServerRunner {
 	    }  
 	    
 	   @Bean  
-	    public FilterRegistrationBean  filterSitemesh() {  
-	        FilterRegistrationBean registrationBean = new FilterRegistrationBean();  
+	    public FilterRegistrationBean<WebSiteMeshFilter>  filterSitemesh() {  
+	        FilterRegistrationBean<WebSiteMeshFilter> registrationBean = new FilterRegistrationBean<>();  
 	        registrationBean.setFilter(new WebSiteMeshFilter());  
 	        return registrationBean;  
 	    }  
