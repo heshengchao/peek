@@ -18,22 +18,30 @@
 						<table class="table table-bordered table-striped">
 							<thead class="thin-border-bottom">
 								<tr>
-									<th>应用</th>
-									<th>实例名称</th>
-									<th>IP：端口</th>
+									<th>类</th>
+									<th>线程</th>
+									<th>时间</th>
+									<th>内容</th>
+									<th>异常堆栈</th>
 								</tr>
 							</thead>
 
 							<tbody>
 								<#list loggerList as log>
 								<tr>
-									<td><small><b class="green">${log.msg!}</b></small></td>
+									<td><small><b class="green">${log.clazz!}(${log.clazzMethod!}:${log.clazzLine!})</b></small></td>
+									<td><small><b class="green">${log.thread!}</b></small></td>
 									<td><small><b class="green">${(log.time?string("yyyy-MM-dd HH:mm:ss"))!}</b></small></td>
-									<td><small><b class="green">${log.msg!}</b></small></td>
-									
-									<td><small>
-										<#if log.stack?? && log.stack?length gt 33>  
-										    ${log.stack?substring(0,30)}...  
+									<td><small><b class="red">
+									<#if log.msg?? && log.msg?length gt 50>  
+										   <a hre="#"  title="${log.msg!}"> ${log.msg?substring(0,50)}...</a>  
+										<#else>${log.msg!}   
+										</#if>  
+									</b></small>
+									</td>
+									<td alt="${log.stack!}"><small >
+										<#if log.stack?? && log.stack?length gt 50>  
+										    <a hre="#"  title="${log.stack!}"> ${log.stack?substring(0,50)}...</a> 
 										<#else>${log.stack!}   
 										</#if>  
 									</small>
