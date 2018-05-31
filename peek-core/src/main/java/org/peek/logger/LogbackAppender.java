@@ -67,7 +67,7 @@ public class LogbackAppender  extends UnsynchronizedAppenderBase<ILoggingEvent> 
 			}
 			lc.setMsg(event.getMessage());
 			lc.setClazz(event.getCallerData()[0].getClassName());
-			lc.setClazz(event.getCallerData()[0].getMethodName());
+			lc.setClazzMethod(event.getCallerData()[0].getMethodName());
 			lc.setClazzLine(event.getCallerData()[0].getLineNumber());
 			lc.setThread(event.getThreadName());
 			lc.setTime(new Date(event.getTimeStamp()));
