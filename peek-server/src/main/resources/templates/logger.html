@@ -34,14 +34,14 @@
 									<td><small><b class="green">${(log.time?string("yyyy-MM-dd HH:mm:ss"))!}</b></small></td>
 									<td><small><b class="red">
 									<#if log.msg?? && log.msg?length gt 50>  
-										   <a hre="#"  title="${log.msg!}"> ${log.msg?substring(0,50)}...</a>  
+										   <a hre="#" data-toggle="tooltip" title="${log.msg!}"> ${log.msg?substring(0,50)}...</a>  
 										<#else>${log.msg!}   
 										</#if>  
 									</b></small>
 									</td>
 									<td alt="${log.stack!}"><small >
 										<#if log.stack?? && log.stack?length gt 50>  
-										    <a hre="#"  title="${log.stack!}"> ${log.stack?substring(0,50)}...</a> 
+										    <a hre="#" data-toggle="tooltip" title="${log.stack!}"> ${log.stack?substring(0,50)}...</a> 
 										<#else>${log.stack!}   
 										</#if>  
 									</small>
@@ -58,7 +58,9 @@
 			<!-- /.widget-box -->
 		</div>
 		<!-- /.col -->
-
+		<script type="text/javascript">
+			$(function () { $("[data-toggle='tooltip']").popover(); });
+		</script>
 	</div>
 </body>
 </html>

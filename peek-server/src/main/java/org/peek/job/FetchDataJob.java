@@ -1,7 +1,9 @@
 package org.peek.job;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,7 +11,7 @@ import org.peek.domain.AppInstance;
 import org.peek.domain.LoggerInfo;
 import org.peek.logger.LoggerCount;
 import org.peek.protocol.WriteBean;
-import org.peek.protocol.client.MinaClient;
+import org.peek.protocol.client.AliveClient;
 import org.peek.repository.AppInstanceRepository;
 import org.peek.repository.LoggerCountRepository;
 import org.peek.service.NoticeService;
@@ -31,26 +33,32 @@ public class FetchDataJob implements InitializingBean {
 	@Autowired AppInstanceRepository appRepository;
 	@Autowired NoticeService noticeService;
 	@Autowired LoggerCountRepository logRepository;
+	static final Map<String,AliveClient> clientMap=new HashMap<>();
 	
-	
-	public void fetch(AppInstance ins) {
-		WriteBean  wb=MinaClient.sendMsg(ins.getInsIp(), ins.getInsPort(), "fetchLogger");
-		if(wb!=null) {
-			List<LoggerCount> list=JSON.parseArray(wb.getXmlMsg(),LoggerCount.class);
-			List<LoggerInfo> plist=Lists.transform(list, new Function<LoggerCount,LoggerInfo>(){
-				@Override
-				public LoggerInfo apply(LoggerCount input) {
-					LoggerInfo li=new LoggerInfo();
-					BeanUtils.copyProperties(input, li);
+	private AliveClient getClient(AppInstance app) {
+		AliveClient client=clientMap.get(app.getInsIp()+app.getInsPort());
+		if(client==null) {
+			client=new AliveClient(app.getInsIp(), app.getInsPort(),new AliveClient.Callback() {
+				@Override public void action(WriteBean msg) {
+					List<LoggerCount> list=JSON.parseArray(msg.getXmlMsg(),LoggerCount.class);
+					List<LoggerInfo> plist=Lists.transform(list, new Function<LoggerCount,LoggerInfo>(){
+						@Override
+						public LoggerInfo apply(LoggerCount input) {
+							LoggerInfo li=new LoggerInfo();
+							BeanUtils.copyProperties(input, li);
+							
+							li.setAppGroupId(app.getGroupId());
+							li.setAppInsId(app.getInsId());
+							return li;
+						}
+					});
 					
-					li.setAppGroupId(ins.getGroupId());
-					li.setAppInsId(ins.getInsId());
-					return li;
+					logRepository.saveAll(plist);
 				}
 			});
-			
-			logRepository.saveAll(plist);
+			clientMap.put(app.getInsIp()+app.getInsPort(), client);
 		}
+		return client;
 	}
 
 	@Override
@@ -63,7 +71,7 @@ public class FetchDataJob implements InitializingBean {
 					List<AppInstance> list=appRepository.findAll();
 					if(list!=null && list.size()>0) {
 						for(AppInstance app:list) {
-							fetch(app);
+							getClient(app).sendMsg("fetchLogger");
 						}
 					}
 				}catch (Throwable e) {

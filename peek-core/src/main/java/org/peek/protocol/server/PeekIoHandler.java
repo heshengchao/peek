@@ -34,7 +34,6 @@ public class PeekIoHandler extends IoHandlerAdapter{
 		WriteBean rsp=new WriteBean();
 		rsp.setXmlMsg(JSON.toJSONString(LoggingHandler.collect()));
 		session.write(rsp);
-		session.closeOnFlush();
 	}
 	public @Override void sessionIdle(IoSession session, IdleStatus status) throws Exception{
 		if(LOG.isDebugEnabled())
