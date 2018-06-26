@@ -3,15 +3,15 @@ package org.peek.service.impl;
 import java.util.Date;
 
 import org.junit.Test;
-import org.peek.service.impl.NoticeServiceImpl;
+import org.peek.service.impl.weixin.WeixinNotifyService;
 
 
 public class NoticeServiceTest {
 
-	NoticeServiceImpl notice=new NoticeServiceImpl(); 
+	WeixinNotifyService notice=new WeixinNotifyService(); 
 	
 	@Test
 	public void sendMsg() throws Exception {
-		notice.httpPostWithJSON("289A71E7E88A042EAE16CD481A50F29B", new Date(), "test", "testContent");
+		notice.submitWeixin("oVW-ywQ5XAqA9GtInRwheXN0KMko", new Date(), "test", "testContent");
 	}
 }

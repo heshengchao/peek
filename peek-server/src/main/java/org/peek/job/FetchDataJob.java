@@ -15,10 +15,13 @@ import org.peek.protocol.client.AliveClient;
 import org.peek.repository.AppInstanceRepository;
 import org.peek.repository.LoggerCountRepository;
 import org.peek.service.NoticeService;
+import org.peek.service.impl.UserService;
+import org.peek.service.impl.weixin.WeixinNotifyService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Function;
@@ -31,8 +34,12 @@ import lombok.extern.slf4j.Slf4j;
 public class FetchDataJob implements InitializingBean {
 	
 	@Autowired AppInstanceRepository appRepository;
-	@Autowired NoticeService noticeService;
+//	@Autowired NoticeService noticeService;
 	@Autowired LoggerCountRepository logRepository;
+
+	@Autowired WeixinNotifyService weixinNotifyService;
+	
+	
 	static final Map<String,AliveClient> clientMap=new HashMap<>();
 	
 	private AliveClient getClient(AppInstance app) {
@@ -49,6 +56,11 @@ public class FetchDataJob implements InitializingBean {
 							
 							li.setAppGroupId(app.getGroupId());
 							li.setAppInsId(app.getInsId());
+							
+							if(!StringUtils.isEmpty(li.getStack())) {
+								weixinNotifyService.notifyUser(li.getTime(), li.getMsg(), li.getStack());
+							}
+							
 							return li;
 						}
 					});

@@ -64,43 +64,7 @@ public class NoticeServiceImpl implements NoticeService {
 		}
 	}
 	
-	public static String httpPostWithJSON(String toUser,Date datetime,String content,String stack) throws Exception {
-
-		String url="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+AccessTokenUtil.getAccessToken();
-		 log.info("weixin submitUrl:{}",url);
-		 
-        HttpPost httpPost = new HttpPost(url);
-        CloseableHttpClient client = HttpClients.createDefault();
-        
-        
-//        json方式
-        AlarmNotifyWrappr alarm=new AlarmNotifyWrappr();
-        alarm.setTouser(toUser);
-        alarm.setTopcolor("#FF0000");
-        alarm.setTemplate_id("jhEtKJsd2xZ9OC5rNt-JFDO8PfNh8M_7iOlmHMpHNAg");
-        Map<String,AlarmNotifyParam> parames=new HashMap<>();
-        alarm.setData(parames);
-        parames.put("first",new AlarmNotifyParam( "异常通知","#173177"));
-        parames.put("keyword1",new AlarmNotifyParam( DateUtils.format(datetime),"#173177"));
-        parames.put("keyword2",new AlarmNotifyParam( content,"#173177"));
-        parames.put("remark",new AlarmNotifyParam(stack,"#173177"));
-        
-        String submitStr=JSON.toJSONString(alarm);
-        log.info("weixin submit:{}",alarm);
-        StringEntity entity = new StringEntity(submitStr,"utf-8");//解决中文乱码问题    
-        entity.setContentEncoding("UTF-8");    
-        entity.setContentType("application/json");    
-        httpPost.setEntity(entity);
-        
-        HttpResponse resp = client.execute(httpPost);
-        String respContent = null;
-        if(resp.getStatusLine().getStatusCode() == 200) {
-            HttpEntity he = resp.getEntity();
-            respContent = EntityUtils.toString(he,"UTF-8");
-        }
-        log.info("weixin rsp:{}",respContent);
-        return respContent;
-    }
+	
 	@Override
 	public void noticeByEmail( List<String> emailAddressList, String sendTitle,
 			String sendContent,LoggerLevelEnum level) {
