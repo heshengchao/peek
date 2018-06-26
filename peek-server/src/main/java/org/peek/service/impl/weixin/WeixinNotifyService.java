@@ -3,12 +3,10 @@ package org.peek.service.impl.weixin;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -37,7 +35,7 @@ public class WeixinNotifyService {
 	public String submitWeixin(String toUser,Date datetime,String content,String stack) {
 
 		String url="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+AccessTokenUtil.getAccessToken();
-		 log.info("weixin submitUrl:{}",url);
+//		 log.info("weixin submitUrl:{}",url);
 		 
         HttpPost httpPost = new HttpPost(url);
         CloseableHttpClient client = HttpClients.createDefault();
@@ -55,7 +53,7 @@ public class WeixinNotifyService {
         parames.put("remark",new AlarmNotifyParam(stack,"#173177"));
         
         String submitStr=JSON.toJSONString(alarm);
-        log.info("weixin submit:{}",alarm);
+//        log.info("weixin submit:{}",alarm);
         StringEntity entity = new StringEntity(submitStr,"utf-8");//解决中文乱码问题    
         entity.setContentEncoding("UTF-8");    
         entity.setContentType("application/json");    
