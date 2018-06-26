@@ -48,8 +48,8 @@ public class WeixinController {
         response.sendRedirect(redirect.toString());
     }
 	
-	@RequestMapping(value = "/weixin/login", method = {RequestMethod.GET})
-    public  Map<String, String> loginFromWeixin(@RequestParam(required=false,name="code")final String code,final HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping(value = "/getOpenId", method = {RequestMethod.GET})
+    public  Map<String, String> getOpenId(@RequestParam(required=false,name="code")final String code,final HttpServletRequest request,HttpServletResponse response) {
     	String tokenBody= HttpRequest.get("https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx12dad99918ae1d41&secret=91c34685d2afb5312b406c6b344ee76a&code="+code+"&grant_type=authorization_code").body();
     	log.info("tokenBody rsp:{}",tokenBody);
     	Map<String, String> tokenMap = JSON.parseObject(tokenBody,new TypeReference<Map<String, String>>(){} );
