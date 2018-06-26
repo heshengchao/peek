@@ -28,24 +28,17 @@
     
     <logger name="ch.qos.logback" level="INFO"/>
 
-	<logger name="com.gome" level="INFO"/>
 	<logger name="RocketmqClient" level="WARN"/>
 	<logger name="org.apache" level="WARN"/>
 	<logger name="com.alibaba" level="ERROR"/>
 	<logger name="com.netflix" level="ERROR"/>
-	<logger name="org.springframework" level="DEBUG"/>
-	<logger name="org.springframework.boot" level="INFO"/>
-	<logger name="org.springframework.web" level="INFO"/>
-	<logger name="org.springframework.data" level="INFO"/>
-	<logger name="org.springframework.beans" level="INFO"/>
+	<logger name="org.springframework" level="WARN"/>
 	<logger name="org.hibernate" level="WARN"/>
-	
 	
 	<logger name="peek" level="INFO"/>
 	<logger name="org.mongodb" level="WARN"/>
 	
 	<root level="DEBUG">
-		<appender-ref ref="STDOUT"/>
 		<appender-ref ref="FILE"/>
 		
 	</root>
