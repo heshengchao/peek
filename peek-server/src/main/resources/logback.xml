@@ -38,7 +38,7 @@
 	<logger name="peek" level="INFO"/>
 	<logger name="org.mongodb" level="WARN"/>
 	
-	<root level="DEBUG">
+	<root level="INFO">
 		<appender-ref ref="FILE"/>
 		
 	</root>
