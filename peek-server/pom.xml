@@ -10,7 +10,7 @@
 	<artifactId>peek-server</artifactId>
 	
 	<properties>
-		<spring.boot.version>2.0.2.RELEASE</spring.boot.version>
+		<spring.boot.version>2.0.3.RELEASE</spring.boot.version>
 	</properties>
 
 	<dependencies>
@@ -165,7 +165,6 @@
 								<initialMemorySize>256M</initialMemorySize>
 								<maxMemorySize>1024M</maxMemorySize>
 								<systemProperties>
-									<systemProperty>spring.profiles.active=${build.profile.id}</systemProperty>
 									<systemProperty>user.timezone=Asia/Shanghai</systemProperty>
 								</systemProperties>
 								<extraArguments>
