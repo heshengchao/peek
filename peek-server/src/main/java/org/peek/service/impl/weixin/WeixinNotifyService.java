@@ -26,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class WeixinNotifyService {
 	@Autowired UserService userService;
+	@Autowired AccessTokenUtil accessTokenUtil;
 	public void notifyUser( Date datetime,String content,String stack) {
 		for(User user:userService.findAll()) {
 			this.submitWeixin(user.getWeixinOpenId(), datetime, content, stack);
@@ -34,7 +35,7 @@ public class WeixinNotifyService {
 	
 	public String submitWeixin(String toUser,Date datetime,String content,String stack) {
 
-		String url="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+AccessTokenUtil.getAccessToken();
+		String url="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+accessTokenUtil.getAccessToken();
 //		 log.info("weixin submitUrl:{}",url);
 		 
         HttpPost httpPost = new HttpPost(url);

@@ -5,77 +5,65 @@ import com.alibaba.fastjson.JSONObject;
 
 import lombok.extern.slf4j.Slf4j;
 
-import javax.net.ssl.HttpsURLConnection;  
+import javax.net.ssl.HttpsURLConnection;
+
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.peek.domain.Config;
+import org.peek.service.impl.ConfigService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
 import java.io.*;  
   
-import java.net.URL;  
+import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;  
   
 /**
  * 获取微信APPID和secret工具类 
  */  
 @Slf4j
+@Service
 public  class AccessTokenUtil {  
   
-   //实用<span style="font-family:Consolas;">synchronized static可以防止同时被多实例化</span>  
-    public synchronized static String getAccessToken() {  
-        //保存access_token文件名字  
-        String FileName = "WxTokenUtil.properties";  
+	@Autowired ConfigService configService;
+    public synchronized  String getAccessToken() {  
         try {  
-            // 从文件中获取token值及时间  
-            Properties prop = new Properties();// 属性集合对象  
-             //获取文件流  
-            InputStream fis = AccessTokenUtil.class.getClassLoader().getResourceAsStream(FileName);  
-            prop.load(fis);// 将属性文件流装载到Properties对象中  
-            fis.close();// 关闭流  
             //获取Appid，APPsecret  
-            String APPID = prop.getProperty("APPID");  
-            String APPSECRET = prop.getProperty("APPSECRET");  
+            String APPID = configService.getValue("appId");  
+            String APPSECRET = configService.getValue("appSecrt");  
             // 获取accesstoken，初始值为空，第一次调用之后会把值写入文件  
-            String access_token = prop.getProperty("access_token");  
-            String expires_in = prop.getProperty("expires_in");  
-            String last_time = prop.getProperty("last_time");  
+            Config access_token = configService.getByKey("accessToken");  
   
-            int int_expires_in = 0;  
-            long long_last_time = 0;  
-  
-            try {  
-                int_expires_in = Integer.parseInt(expires_in);  
-                long_last_time = Long.parseLong(last_time);  
-  
-            } catch (Exception e) {  
-  
-            }  
-            //得到当前时间  
-            long current_time = System.currentTimeMillis();  
-  
-            // 每次调用，判断expires_in是否过期，如果token时间超时，重新获取，expires_in有效期为7200  
-            if ((current_time - long_last_time) / 1000 >= int_expires_in) {  
-                //获取token url  
-                String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ APPID + "&secret=" + APPSECRET;  
-                //发送http请求得到json流  
-                JSONObject jobject = httpRequest(url);  
-                //从json流中获取access_token  
-                String  j_access_token = jobject.getString("access_token");  
-                String  j_expires_in = jobject.getString("expires_in");  
-  
-                //保存access_token  
-                if (j_access_token != null && j_expires_in != null) {  
-                    prop.setProperty("access_token", j_access_token);  
-                    prop.setProperty("expires_in", j_expires_in);  
-                    prop.setProperty("last_time", System.currentTimeMillis() + "");  
-  
-                    URL url_ = AccessTokenUtil.class.getClassLoader().getResource(FileName);  
-                    FileOutputStream fos = new FileOutputStream(new File(url_.toURI()));  
-                    prop.store(fos, null);  
-                    fos.close();// 关闭流  
-                }  
-                //如果已经过期返回获取到的access_token  
-                return j_access_token;  
-            } else {  
-                //如果没有过期，返回从文件中读取的access_token  
-                return access_token;  
-            }  
+           if(access_token!=null && access_token.getExpireTime().after(new Date())) {
+        	   return access_token.getValue();
+           }
+           
+           
+           Calendar cal=Calendar.getInstance();
+            //获取token url  
+            String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ APPID + "&secret=" + APPSECRET;  
+            //发送http请求得到json流  
+            JSONObject jobject = httpRequest(url);  
+            //从json流中获取access_token  
+            String  j_access_token = jobject.getString("access_token");  
+            String  j_expires_in = jobject.getString("expires_in");  
+
+            if(!StringUtils.isEmpty(j_access_token)) {
+            	cal.set(Calendar.SECOND, cal.get(Calendar.SECOND)+7200);
+            	
+            	Config conf=new Config();
+            	conf.setExpireTime(cal.getTime());
+            	conf.setKey("accessToken");
+            	conf.setValue(j_access_token);
+            	configService.save(conf);
+            }
+            //如果已经过期返回获取到的access_token  
+            return j_access_token;  
         } catch (Exception e) {  
         	log.error(e.getMessage(),e);
             return null;  
@@ -116,7 +104,10 @@ public  class AccessTokenUtil {
             inputStream.close();  
             inputStream = null;  
             httpUrlConn.disconnect();  
-            jsonObject = JSONObject.parseObject(buffer.toString());  
+            
+            String rsp=buffer.toString();
+            log.info("response str:{}",rsp);
+            jsonObject = JSONObject.parseObject(rsp);  
   
         } catch (Exception e) {  
         	log.error(e.getMessage(),e);
