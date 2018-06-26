@@ -14,7 +14,7 @@ public class WebSiteMeshFilter extends ConfigurableSiteMeshFilter{
 	  
      builder.addDecoratorPath("/*", "/layout.html").addExcludedPath("/monitor/*")
      .addExcludedPath("/api/*").addExcludedPath("/detail/*")
-     .addExcludedPath("/login/*");       
+     .addExcludedPath("/login/*").addExcludedPath("/peekWeixin/*"); ;       
    builder.addTagRuleBundles(new DivExtractingTagRuleBundle());  
   }
 }

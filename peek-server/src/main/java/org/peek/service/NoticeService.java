@@ -20,6 +20,18 @@ public interface NoticeService {
 	 */
 	void noticeBySms( List<String> phoneList, String sendContent,LoggerLevelEnum level);
 
+	/**
+	 * @Title:noticeBySms
+	 * @Description:微信通知
+	 * @author qiaoguobing 
+	 * @Date:2017年11月9日上午10:03:57
+	 * @param projectName  模块名字
+	 * @param phoneList	手机号
+	 * @param sendContent  内容
+	 * @return void
+	 */
+	void noticeByWeixin( List<String> openIdList, String sendContent,LoggerLevelEnum level);
+
 	
 	/**
 	 * @Title:noticeByEmail
