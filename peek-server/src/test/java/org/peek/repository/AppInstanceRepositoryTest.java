@@ -21,10 +21,18 @@ public class AppInstanceRepositoryTest extends BaseDaoTest{
 	@Test
 	public void save() {
 		AppInstance ins=new AppInstance();
-		ins.setInsId("gsh_chubWeb_300");
-		ins.setInsName("chubWeb_300");
-		ins.setInsIp("10.112.65.119");
+		ins.setInsId("gsh_chubWeb_500");
+		ins.setInsName("chubWeb_500");
+		ins.setInsIp("10.115.88.20");
 		ins.setInsPort(17034);
+		ins.setCreateTime(new Date());
+		ins=repository.save(ins);
+		
+		
+		ins.setInsId("gsh_chubRpc_500");
+		ins.setInsName("chubRpc_500");
+		ins.setInsIp("10.115.88.20");
+		ins.setInsPort(17074);
 		ins.setCreateTime(new Date());
 		ins=repository.save(ins);
 		

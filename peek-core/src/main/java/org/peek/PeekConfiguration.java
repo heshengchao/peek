@@ -12,9 +12,9 @@ public class PeekConfiguration {
 	@Autowired   Environment env;  
 	
 	@Bean(name = "peekFilter")
-	public FilterRegistrationBean filterMonitoringFilter() {
+	public FilterRegistrationBean filterMonitoringFilter(MinaServer minaService) {
 		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-		filterRegistrationBean.setFilter(new MonitorFilter());
+		filterRegistrationBean.setFilter(new MonitorFilter(minaService));
 		filterRegistrationBean.setEnabled(true);
 		filterRegistrationBean.addUrlPatterns("/*");
 		return filterRegistrationBean;

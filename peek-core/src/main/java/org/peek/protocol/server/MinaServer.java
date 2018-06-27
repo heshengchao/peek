@@ -44,10 +44,11 @@ public class MinaServer {
 	}
 	
 	public void stop() {
-		if(ioAcceptor!=null) {
+		if(ioAcceptor!=null && ioAcceptor.isActive()) {
 			try {
-			ioAcceptor.unbind();
-			ioAcceptor.dispose();
+				LOG.info("stop server....");
+				ioAcceptor.unbind();
+				ioAcceptor.dispose();
 			}catch (Throwable e) {
 				LOG.warn(e.getMessage(), e);
 			}

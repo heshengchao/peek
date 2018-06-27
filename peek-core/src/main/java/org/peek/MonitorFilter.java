@@ -11,12 +11,17 @@ import javax.servlet.ServletResponse;
 
 import org.peek.logger.LOG;
 import org.peek.logger.LogbackAppender;
+import org.peek.protocol.server.MinaServer;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class MonitorFilter  implements Filter {
-
+	private MinaServer minaService;
+	
+	public MonitorFilter(MinaServer minaService) {
+		this.minaService=minaService;
+	}
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		log.info("monitor start");
@@ -67,6 +72,7 @@ public class MonitorFilter  implements Filter {
 
 	@Override
 	public void destroy() {
+		minaService.stop();
 		log.info("monitor stop");
 	}
 
