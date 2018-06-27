@@ -48,7 +48,7 @@ public class MinaServer {
 			try {
 				LOG.info("stop server....");
 				ioAcceptor.unbind();
-				ioAcceptor.dispose();
+				ioAcceptor.dispose(true);
 			}catch (Throwable e) {
 				LOG.warn(e.getMessage(), e);
 			}
