@@ -58,7 +58,7 @@ public class FetchDataJob implements InitializingBean {
 							li.setAppInsId(app.getInsId());
 							
 							if(!StringUtils.isEmpty(li.getStack())) {
-								weixinNotifyService.notifyUser(li.getTime(), li.getMsg(), li.getStack());
+								weixinNotifyService.notifyUser(app,li);
 							}
 							
 							return li;

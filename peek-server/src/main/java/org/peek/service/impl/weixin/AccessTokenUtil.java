@@ -7,9 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.peek.domain.Config;
 import org.peek.service.impl.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +18,6 @@ import java.io.*;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Properties;  
   
 /**
  * 获取微信APPID和secret工具类 

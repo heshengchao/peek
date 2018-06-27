@@ -1,7 +1,6 @@
 package org.peek.service.impl.weixin;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +11,11 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.peek.domain.AppInstance;
+import org.peek.domain.Config;
+import org.peek.domain.LoggerInfo;
 import org.peek.domain.User;
+import org.peek.service.impl.ConfigService;
 import org.peek.service.impl.UserService;
 import org.peek.uitls.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,31 +30,35 @@ import lombok.extern.slf4j.Slf4j;
 public class WeixinNotifyService {
 	@Autowired UserService userService;
 	@Autowired AccessTokenUtil accessTokenUtil;
-	public void notifyUser( Date datetime,String content,String stack) {
+	@Autowired ConfigService configService;
+	
+	public void notifyUser(AppInstance app,LoggerInfo loginfo) {
 		for(User user:userService.findAll()) {
-			this.submitWeixin(user.getWeixinOpenId(), datetime, content, stack);
+			this.submitWeixin(user.getWeixinOpenId(),app,loginfo);
 		}
 	}
 	
-	public String submitWeixin(String toUser,Date datetime,String content,String stack) {
+	public String submitWeixin(String toUserOpenID,AppInstance app,LoggerInfo loginfo) {
 
 		String url="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+accessTokenUtil.getAccessToken();
-//		 log.info("weixin submitUrl:{}",url);
 		 
         HttpPost httpPost = new HttpPost(url);
         CloseableHttpClient client = HttpClients.createDefault();
         
 //        json方式
         AlarmNotifyWrappr alarm=new AlarmNotifyWrappr();
-        alarm.setTouser(toUser);
+        alarm.setTouser(toUserOpenID);
         alarm.setTopcolor("#FF0000");
-        alarm.setTemplate_id("jhEtKJsd2xZ9OC5rNt-JFDO8PfNh8M_7iOlmHMpHNAg");
+        alarm.setTemplate_id(configService.getValue(Config.key_weixinMsgTmpCode));
         Map<String,AlarmNotifyParam> parames=new HashMap<>();
         alarm.setData(parames);
         parames.put("first",new AlarmNotifyParam( "异常通知","#173177"));
-        parames.put("keyword1",new AlarmNotifyParam( DateUtils.format(datetime),"#173177"));
-        parames.put("keyword2",new AlarmNotifyParam( content,"#173177"));
-        parames.put("remark",new AlarmNotifyParam(stack,"#173177"));
+        parames.put("keyword1",new AlarmNotifyParam(app.getInsIp()));
+        parames.put("keyword2",new AlarmNotifyParam( DateUtils.format(loginfo.getTime()),"#173177"));
+        parames.put("keyword3",new AlarmNotifyParam(app.getInsName()));
+        parames.put("keyword4",new AlarmNotifyParam( loginfo.getMsg(),"#173177"));
+        parames.put("keyword5",new AlarmNotifyParam( "无"));
+        parames.put("remark",new AlarmNotifyParam(loginfo.getStack(),"#173177"));
         
         String submitStr=JSON.toJSONString(alarm);
 //        log.info("weixin submit:{}",alarm);

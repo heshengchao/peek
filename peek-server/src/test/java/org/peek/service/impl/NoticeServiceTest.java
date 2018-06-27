@@ -10,8 +10,8 @@ public class NoticeServiceTest {
 
 	WeixinNotifyService notice=new WeixinNotifyService(); 
 	
-	@Test
-	public void sendMsg() throws Exception {
-		notice.submitWeixin("oVW-ywQ5XAqA9GtInRwheXN0KMko", new Date(), "test", "testContent");
-	}
+//	@Test
+//	public void sendMsg() throws Exception {
+//		notice.submitWeixin("oVW-ywQ5XAqA9GtInRwheXN0KMko", new Date(), "test", "testContent");
+//	}
 }

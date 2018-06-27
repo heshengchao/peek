@@ -12,6 +12,9 @@ import lombok.Data;
 @Data
 public class Config {
 
+	public static final String key_weixinMsgTmpCode="weixinMsgTmpCode";
+	public static final String key_weixinAppID="appId";
+	public static final String key_weixinAppSecrt="appSecrt";
 	/**组名*/
 	private String group;
 	@Id

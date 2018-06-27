@@ -6,8 +6,12 @@ import lombok.Data;
 public class AlarmNotifyParam {
 	private String value;
 	private String color;
+	
+	public AlarmNotifyParam(String value ) {
+		this.value = value;
+	}
+	
 	public AlarmNotifyParam(String value, String color) {
-		super();
 		this.value = value;
 		this.color = color;
 	}
