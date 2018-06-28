@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 
-import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
@@ -16,7 +15,7 @@ import org.springframework.util.StringUtils;
 
 public class MinaServer {
 	final static Charset  charset=Charset.defaultCharset();
-	IoAcceptor ioAcceptor;
+	NioSocketAcceptor ioAcceptor;
 	private int port=1314;
 	private String ip=null;
 
@@ -34,6 +33,7 @@ public class MinaServer {
         ioAcceptor.setHandler(new PeekIoHandler());
         ioAcceptor.getSessionConfig().setReadBufferSize(2048);
         ioAcceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
+        ioAcceptor.setReuseAddress(true);
         InetSocketAddress is;
         if(!StringUtils.isEmpty(ip)) {
         	is= new InetSocketAddress(ip,port);
