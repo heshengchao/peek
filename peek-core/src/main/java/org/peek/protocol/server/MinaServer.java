@@ -29,7 +29,7 @@ public class MinaServer {
 	
 	public void start() throws IOException {
 		ioAcceptor=new NioSocketAcceptor();
-		LOG.info("begin server....");
+		LOG.info("start peek server....");
         ioAcceptor.getFilterChain().addLast("codec",new ProtocolCodecFilter(new ClientMinaEncoder(charset),new ClientMinaDecoder(charset)));
         ioAcceptor.setHandler(new PeekIoHandler());
         ioAcceptor.getSessionConfig().setReadBufferSize(2048);
@@ -46,9 +46,10 @@ public class MinaServer {
 	public void stop() {
 		if(ioAcceptor!=null && ioAcceptor.isActive()) {
 			try {
-				LOG.info("stop server....");
+				LOG.info(" peek server stoping....");
 				ioAcceptor.unbind();
 				ioAcceptor.dispose(true);
+				LOG.info(" peek server stoped....");
 			}catch (Throwable e) {
 				LOG.warn(e.getMessage(), e);
 			}

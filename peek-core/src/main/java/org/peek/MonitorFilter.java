@@ -24,7 +24,7 @@ public class MonitorFilter  implements Filter {
 	}
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		log.info("monitor start");
+		log.info("peek monitor start");
 		initLogs();
 	}
 	private static void initLogs() {
@@ -73,7 +73,7 @@ public class MonitorFilter  implements Filter {
 	@Override
 	public void destroy() {
 		minaService.stop();
-		log.info("monitor stop");
+		log.info("peek stop");
 	}
 
 }
