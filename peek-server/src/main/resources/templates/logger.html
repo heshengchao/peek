@@ -10,19 +10,16 @@
 					<h4 class="widget-title lighter">
 						<i class="ace-icon fa fa-star orange"></i> 应用实例列表
 					</h4>
-
 				</div>
-
 				<div class="widget-body">
 					<div class="widget-main no-padding">
-						<table class="table table-bordered table-striped">
+						<table class="table table-striped  table-bordered">
 							<thead class="thin-border-bottom">
 								<tr>
 									<th>类</th>
 									<th>线程</th>
 									<th>时间</th>
 									<th>内容</th>
-									<th>异常堆栈</th>
 								</tr>
 							</thead>
 
@@ -38,13 +35,6 @@
 										<#else>${log.msg!}   
 										</#if>  
 									</b></small>
-									</td>
-									<td alt="${log.stack!}"><small >
-										<#if log.stack?? && log.stack?length gt 50>  
-										    <a hre="#" data-toggle="tooltip" title="${log.stack!}"> ${log.stack?substring(0,50)}...</a> 
-										<#else>${log.stack!}   
-										</#if>  
-									</small>
 									</td>
 								</tr>
 								</#list>

@@ -10,6 +10,7 @@ public class AlarmNotifyWrappr {
 	private String touser;
 	private String template_id;
 	private String topcolor;
+	private String url;
 	private Map<String,AlarmNotifyParam> data;
 	
 }

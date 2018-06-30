@@ -49,10 +49,11 @@ public class WeixinNotifyService {
         AlarmNotifyWrappr alarm=new AlarmNotifyWrappr();
         alarm.setTouser(toUserOpenID);
         alarm.setTopcolor("#FF0000");
+        alarm.setUrl(configService.getValue(Config.key_peekServerUrl));
         alarm.setTemplate_id(configService.getValue(Config.key_weixinMsgTmpCode));
         Map<String,AlarmNotifyParam> parames=new HashMap<>();
         alarm.setData(parames);
-        parames.put("first",new AlarmNotifyParam( "异常通知","#173177"));
+//        parames.put("first",new AlarmNotifyParam( "异常通知","#173177"));
         parames.put("keyword1",new AlarmNotifyParam(app.getInsIp()));
         parames.put("keyword2",new AlarmNotifyParam( DateUtils.format(loginfo.getTime()),"#173177"));
         parames.put("keyword3",new AlarmNotifyParam(app.getInsName()));
