@@ -4,23 +4,21 @@
 </head>
 <body>
 	<div class="row">
-		<div class="col-sm-5">
-			<div class="widget-box transparent">
-				<div class="widget-header widget-header-flat">
-					<h4 class="widget-title lighter">
+		<div class="col-lg-6 col-md-12">
+			<div class="card">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title">
 						<i class="ace-icon fa fa-star orange"></i> 应用实例列表
 					</h4>
-
 				</div>
 
-				<div class="widget-body">
-					<div class="widget-main no-padding">
-						<table class="table table-bordered table-striped">
-							<thead class="thin-border-bottom">
+				<div class="card-body table-responsive">
+						<table class="table table-bordered table-striped table-hover">
+							<thead class="text-warning">
 								<tr>
-									<th><i class="ace-icon fa fa-caret-right blue"></i>应用</th>
-									<th><i class="ace-icon fa fa-caret-right blue"></i>实例名称</th>
-									<th class="hidden-480"><i class="ace-icon fa fa-caret-right blue"></i>IP：端口</th>
+									<th> 应用</th>
+									<th> 实例名称</th>
+									<th class="hidden-480"> IP：端口</th>
 								</tr>
 							</thead>
 
@@ -34,14 +32,41 @@
 								</#list>
 							</tbody>
 						</table>
-					</div>
-					<!-- /.widget-main -->
 				</div>
-				<!-- /.widget-body -->
 			</div>
-			<!-- /.widget-box -->
 		</div>
-		<!-- /.col -->
+		
+		<div class="col-lg-6 col-md-12">
+			<div class="card">
+				<div class="widget-header card-header-warning">
+					<h4 class="card-title">
+						<i class="ace-icon fa fa-star orange"></i> 人员列表
+					</h4>
+				</div>
+
+				<div class="card-body table-responsive">
+						<table class="table table-bordered table-striped table-hover">
+							<thead class="text-warning">
+								<tr>
+									<th> 名称</th>
+									<th> 手机号</th>
+									<th class="hidden-480"> 微信OpenId</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<#list userList as user>
+								<tr>
+									<td><small>${user.userName!}</small> </td>
+									<td><small>${user.mobile!}</small> </td>
+									<td><b class="green"> ${user.weixinOpenId}</b></td>
+								</tr>
+								</#list>
+							</tbody>
+						</table>
+				</div>
+			</div>
+		</div>
 
 	</div>
 </body>
