@@ -100,6 +100,12 @@
 			<artifactId>sitemesh</artifactId>
 			<version>3.0.1</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.eclipse.jgit</groupId>
+		    <artifactId>org.eclipse.jgit</artifactId>
+		    <version>5.0.1.201806211838-r</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -165,6 +171,7 @@
 								<initialMemorySize>256M</initialMemorySize>
 								<maxMemorySize>1024M</maxMemorySize>
 								<systemProperties>
+									<systemProperty>spring.profiles.active=${build.profile.id}</systemProperty>
 									<systemProperty>user.timezone=Asia/Shanghai</systemProperty>
 								</systemProperties>
 								<extraArguments>
@@ -185,4 +192,39 @@
 			</plugin>
 		</plugins>
 	</build>
+		<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<build.profile.id>200</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>200</id>
+			<properties>
+				<build.profile.id>200</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>300</id>
+			<properties>
+				<build.profile.id>300</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>500</id>
+			<properties>
+				<build.profile.id>500</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>800</id>
+			<properties>
+				<build.profile.id>800</build.profile.id>
+			</properties>
+		</profile>
+	</profiles>
 </project>
