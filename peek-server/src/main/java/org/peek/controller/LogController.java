@@ -40,8 +40,11 @@ public class LogController {
 	@RequestMapping(value = "/detail/{logId}")
 	public ModelAndView  detail(@PathVariable("logId") long logId ) throws IOException{
 		ModelAndView mv=new ModelAndView("/loggerDetail");
-		
-		mv.addObject("logInfo", loggerCountService.getById(logId));
+		LoggerInfo logInfo=loggerCountService.getById(logId);	
+		if(!StringUtils.isEmpty(logInfo.getStack())) {
+			logInfo.setStack(logInfo.getStack().replaceAll("\n", "<w:br />"));
+		}
+		mv.addObject("logInfo",logInfo );
 		return mv;
 	}
 }

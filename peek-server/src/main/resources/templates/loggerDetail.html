@@ -2,12 +2,6 @@
 <head>
 <title>首页</title>
 	<style type="text/css">
-		.loggerInfo td
-		{
-			padding-top:0px;
-			padding-bottom:0px;
-			margin: 0;
-		}
 		.loggerInfo .red
 		{
 			color: red;
@@ -30,7 +24,7 @@
 				</div>
 				<div class="card-body">
 				
-					<div class="tab-content">
+					<div class="tab-content loggerInfo">
 					 	<small>
 							${(logInfo.time?string("yyyy-MM-dd HH:mm:ss"))!}  &nbsp;${logInfo.thread!} &nbsp;${logInfo.clazz!}(${logInfo.clazzMethod!}:${logInfo.clazzLine!}) &nbsp; 
 						 	${logInfo.msg!}  
