@@ -14,8 +14,7 @@ import org.peek.protocol.WriteBean;
 import org.peek.protocol.client.AliveClient;
 import org.peek.repository.AppInstanceRepository;
 import org.peek.repository.LoggerCountRepository;
-import org.peek.service.NoticeService;
-import org.peek.service.impl.UserService;
+import org.peek.service.impl.IdGenerate;
 import org.peek.service.impl.weixin.WeixinNotifyService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.InitializingBean;
@@ -34,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 public class FetchDataJob implements InitializingBean {
 	
 	@Autowired AppInstanceRepository appRepository;
-//	@Autowired NoticeService noticeService;
+	@Autowired IdGenerate idGenerate;
 	@Autowired LoggerCountRepository logRepository;
 
 	@Autowired WeixinNotifyService weixinNotifyService;
@@ -54,6 +53,7 @@ public class FetchDataJob implements InitializingBean {
 							LoggerInfo li=new LoggerInfo();
 							BeanUtils.copyProperties(input, li);
 							
+							li.setId(idGenerate.getId());
 							li.setAppGroupId(app.getGroupId());
 							li.setAppInsId(app.getInsId());
 							
