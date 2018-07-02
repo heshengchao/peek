@@ -10,20 +10,21 @@ import org.peek.service.query.LoggerInfoQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/app")
+@RequestMapping(value = "/log")
 public class LogController {
 
 	@Autowired LoggerCountService loggerCountService;
 	@Autowired AppService appService;
 	
-	@RequestMapping(value = "")
+	@RequestMapping(value = "/{appInsId}")
 	public ModelAndView  index(@RequestParam(required=false) String groupId,
-			@RequestParam(required=false)String appInsId) throws IOException{
+			@PathVariable(name="appInsId")String appInsId) throws IOException{
 		ModelAndView mv=new ModelAndView("/logger");
 		LoggerInfoQuery query=new LoggerInfoQuery();
 		if(!StringUtils.isEmpty(groupId))
@@ -33,6 +34,14 @@ public class LogController {
 		
 		List<LoggerInfo> list=loggerCountService.findByApp(query);
 		mv.addObject("loggerList", list);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/detail/{logId}")
+	public ModelAndView  detail(@PathVariable("logId") long logId ) throws IOException{
+		ModelAndView mv=new ModelAndView("/loggerDetail");
+		
+		mv.addObject("logInfo", loggerCountService.getById(logId));
 		return mv;
 	}
 }

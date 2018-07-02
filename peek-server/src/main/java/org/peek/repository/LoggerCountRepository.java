@@ -45,6 +45,9 @@ public class LoggerCountRepository  {
 		}
 		return mongoTemplate.find(Query.query(criteria),LoggerInfo.class);
 	}
+	public LoggerInfo getById(long logId) {
+		return mongoTemplate.findById(logId, LoggerInfo.class);
+	}
 
 	
 }
