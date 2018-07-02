@@ -22,9 +22,9 @@ public class LogController {
 	@Autowired LoggerCountService loggerCountService;
 	@Autowired AppService appService;
 	
-	@RequestMapping(value = "/{appInsId}")
-	public ModelAndView  index(@RequestParam(required=false) String groupId,
-			@PathVariable(name="appInsId")String appInsId) throws IOException{
+	@RequestMapping(value = "")
+	public ModelAndView  index(@RequestParam(name="appGroup",required=false) String groupId,
+			@RequestParam(name="appInsId",required=false)String appInsId) throws IOException{
 		ModelAndView mv=new ModelAndView("/logger");
 		LoggerInfoQuery query=new LoggerInfoQuery();
 		if(!StringUtils.isEmpty(groupId))

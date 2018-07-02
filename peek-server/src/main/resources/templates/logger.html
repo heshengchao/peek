@@ -28,7 +28,7 @@
 								<#list loggerList as log>
 								<tr>
 									<td > 
-									 <small>
+									 <small class="alert alert-danger">
 										${(log.time?string("yyyy-MM-dd HH:mm:ss"))!}  &nbsp;${log.thread!} &nbsp;${log.clazz!}(${log.clazzMethod!}:${log.clazzLine!}) &nbsp; 
 										<b class="red">
 										<#if log.msg?? && log.msg?length gt 50>  
