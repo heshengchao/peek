@@ -27,7 +27,7 @@
 								<tr>
 									<td>${ins.insName!}</td>
 									<td><small>${ins.insId!}</small> </td>
-									<td><b class="green"><a href="/log/${ins.insId!}">${ins.insIp!}:${ins.insPort!?c}</a></b></td>
+									<td><b class="green"><a href="/log?appInsId=${ins.insId!}">${ins.insIp!}:${ins.insPort!?c}</a></b></td>
 								</tr>
 								</#list>
 							</tbody>
