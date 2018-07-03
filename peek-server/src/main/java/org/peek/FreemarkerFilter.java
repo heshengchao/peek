@@ -39,8 +39,7 @@ public class FreemarkerFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response,FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest)request;
         HttpServletResponse res = (HttpServletResponse)response;
         if(ctx == null){
@@ -49,6 +48,7 @@ public class FreemarkerFilter implements Filter {
                 throw new ExceptionInInitializerError("spring context is not loaded!");
             }
         }
+        req.setAttribute("contextPath", req.getContextPath());
         try {
             String name = req.getRequestURI();
             name = name.substring(1, name.lastIndexOf(".html"));
