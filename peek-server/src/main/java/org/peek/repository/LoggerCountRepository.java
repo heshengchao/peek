@@ -44,7 +44,7 @@ public class LoggerCountRepository  {
 		if(query.getEndTime()!=null){
 			criteria.and("time").lte(query.getEndTime());
 		}
-		querys.with(Sort.by(Sort.Direction.DESC, "time"));  
+		querys.with(Sort.by(Sort.Direction.ASC, "time"));  
 		querys.limit(topn);
 		return mongoTemplate.find(Query.query(criteria),LoggerInfo.class);
 	}
