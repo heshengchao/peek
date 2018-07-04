@@ -24,7 +24,8 @@ public class LogController {
 	
 	@RequestMapping(value = "")
 	public ModelAndView  index(@RequestParam(name="appGroup",required=false) String groupId,
-			@RequestParam(name="appInsId",required=false)String appInsId) throws IOException{
+			@RequestParam(name="appInsId",required=false)String appInsId,
+			@RequestParam(name="topn",required=false,defaultValue="20")int topn) throws IOException{
 		ModelAndView mv=new ModelAndView("/logger");
 		LoggerInfoQuery query=new LoggerInfoQuery();
 		if(!StringUtils.isEmpty(groupId))
@@ -32,7 +33,7 @@ public class LogController {
 		if(!StringUtils.isEmpty(appInsId))
 			query.setAppInsId(appInsId);
 		
-		List<LoggerInfo> list=loggerCountService.findByApp(query);
+		List<LoggerInfo> list=loggerCountService.findTopN(query,topn);
 		mv.addObject("loggerList", list);
 		return mv;
 	}

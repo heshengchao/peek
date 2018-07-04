@@ -14,10 +14,14 @@ public class LoggerCountService {
 	@Autowired LoggerCountRepository repository;
 	
 	public List<LoggerInfo> findByApp(LoggerInfoQuery query){
-		return repository.find(query);
+		return repository.find(query,null);
 	}
 
 	public LoggerInfo getById(long logId) {
  		return repository.getById(logId);
+	}
+
+	public List<LoggerInfo> findTopN(LoggerInfoQuery query, int topn) {
+		return repository.find(query,topn);
 	}
  }
