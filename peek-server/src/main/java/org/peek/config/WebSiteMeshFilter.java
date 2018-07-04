@@ -1,4 +1,4 @@
-package org.peek;
+package org.peek.config;
 
 
 

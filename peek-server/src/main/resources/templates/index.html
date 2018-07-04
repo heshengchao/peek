@@ -27,7 +27,7 @@
 								<tr>
 									<td>${ins.insName!}</td>
 									<td><small>${ins.insId!}</small> </td>
-									<td><b class="green"><a href="/log?appInsId=${ins.insId!}">${ins.insIp!}:${ins.insPort!?c}</a></b></td>
+									<td><b class="green"><a href="${contextPath}/log?appInsId=${ins.insId!}">${ins.insIp!}:${ins.insPort!?c}</a></b></td>
 								</tr>
 								</#list>
 							</tbody>
@@ -38,7 +38,7 @@
 		
 		<div class="col-lg-6 col-md-12">
 			<div class="card">
-				<div class="widget-header card-header-warning">
+				<div class="card-header card-header-warning">
 					<h4 class="card-title">
 						<i class="ace-icon fa fa-star orange"></i> 人员列表
 					</h4>
@@ -67,7 +67,12 @@
 				</div>
 			</div>
 		</div>
-
+		<script type="text/javascript">
+			$(function(){
+			 $("#nav_index").addClass("active")	
+			})
+		
+		</script>
 	</div>
 </body>
 </html>

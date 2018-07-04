@@ -1,4 +1,4 @@
-package org.peek;
+package org.peek.config;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -48,9 +48,13 @@ public class FreemarkerFilter implements Filter {
                 throw new ExceptionInInitializerError("spring context is not loaded!");
             }
         }
-        req.setAttribute("contextPath", req.getContextPath());
+        String contextPath=req.getContextPath();
+        req.setAttribute("contextPath", contextPath);
         try {
             String name = req.getRequestURI();
+            if(!StringUtils.isEmpty(contextPath)) {
+            	name = name.substring(contextPath.length());
+            }
             name = name.substring(1, name.lastIndexOf(".html"));
             FreeMarkerViewResolver viewResolver = ctx.getBean(FreeMarkerViewResolver.class);
             View view = viewResolver.resolveViewName(name, locale);

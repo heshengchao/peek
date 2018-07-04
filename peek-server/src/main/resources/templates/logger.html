@@ -39,7 +39,7 @@
 								<tr>
 									<td > 
 									 
-									 	<a href="/log/detail/${log.id?c}">
+									 	<a href='${contextPath}/log/detail/${log.id?c}'>
 									 	<small class='${(log.stack?exists)?string("red","orange")}'>
 										${log.level!}&nbsp;${(log.time?string("yyyy-MM-dd HH:mm:ss"))!}  &nbsp;${log.thread!} &nbsp;${log.clazz!}#${log.clazzMethod!}:${log.clazzLine!} &nbsp; 
 										 ${log.msg!} </small>  </a>
@@ -56,7 +56,9 @@
 		</div>
 		<!-- /.col -->
 		<script type="text/javascript">
-			$(function () { $("[data-toggle='tooltip']").popover(); });
+			$(function(){
+			 $("#nav_log").addClass("active")	
+			})
 		</script>
 	</div>
 </body>

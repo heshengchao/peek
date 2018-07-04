@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>首页</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card transparent">
+				 
+				<div class="card-header card-header-warning">
+					<h4 class="card-title">
+						<i class="ace-icon fa fa-star orange"></i> 人员列表
+					</h4>
+				</div>
+
+				<div class="card-body table-responsive">
+						<table class="table table-bordered table-striped table-hover">
+							<thead class="text-warning">
+								<tr>
+									<th> 名称</th>
+									<th> 手机号</th>
+									<th class="hidden-480"> 微信OpenId</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<#list userList as user>
+								<tr>
+									<td><small>${user.userName!}</small> </td>
+									<td><small>${user.mobile!}</small> </td>
+									<td><b class="green"> ${user.weixinOpenId}</b></td>
+								</tr>
+								</#list>
+							</tbody>
+						</table>
+				</div>
+				 
+			</div>
+		</div>
+		<!-- /.col -->
+		<script type="text/javascript">
+			$(function(){
+			 $("#nav_user").addClass("active")	
+			})
+		</script>
+	</div>
+</body>
+</html>

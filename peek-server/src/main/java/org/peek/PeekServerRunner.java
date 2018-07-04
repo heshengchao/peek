@@ -1,14 +1,10 @@
 package org.peek;
 
-import javax.servlet.DispatcherType;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 @EnableAutoConfiguration
 @SpringBootApplication
@@ -20,20 +16,5 @@ public class PeekServerRunner {
 		 context.addApplicationListener(new ApplicationPidFileWriter());
 	}
 	
-	  @Bean  
-	    public FilterRegistrationBean<FreemarkerFilter>  filterFreemarker() {  
-	        FilterRegistrationBean<FreemarkerFilter> registrationBean = new FilterRegistrationBean<>();  
-	        registrationBean.setFilter(new FreemarkerFilter()); 
-	        registrationBean.addUrlPatterns("*.html");
-	        registrationBean.setDispatcherTypes(DispatcherType.REQUEST,DispatcherType.FORWARD);
-	        return registrationBean;  
-	    }  
-	    
-	   @Bean  
-	    public FilterRegistrationBean<WebSiteMeshFilter>  filterSitemesh() {  
-	        FilterRegistrationBean<WebSiteMeshFilter> registrationBean = new FilterRegistrationBean<>();  
-	        registrationBean.setFilter(new WebSiteMeshFilter());  
-	        return registrationBean;  
-	    }  
 	
 }
