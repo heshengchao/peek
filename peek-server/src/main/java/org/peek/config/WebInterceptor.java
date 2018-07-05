@@ -10,8 +10,10 @@ public class WebInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest req, HttpServletResponse rsp, Object o, ModelAndView modelAndView) throws Exception {
-    	 String contextPath=req.getContextPath();
-    	 modelAndView.addObject("contextPath", contextPath);
+    	if(modelAndView!=null) {
+    		String contextPath=req.getContextPath();
+    		modelAndView.addObject("contextPath", contextPath);
+    	}
     }
 
 }

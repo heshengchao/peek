@@ -25,7 +25,7 @@ public class LogController {
 	@RequestMapping(value = "")
 	public ModelAndView  index(@RequestParam(name="appGroup",required=false) String groupId,
 			@RequestParam(name="appInsId",required=false)String appInsId,
-			@RequestParam(name="topn",required=false,defaultValue="20")int topn) throws IOException{
+			@RequestParam(name="topn",required=false,defaultValue="50")int topn) throws IOException{
 		ModelAndView mv=new ModelAndView("/logger");
 		LoggerInfoQuery query=new LoggerInfoQuery();
 		if(!StringUtils.isEmpty(groupId))
