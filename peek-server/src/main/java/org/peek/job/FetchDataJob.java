@@ -41,8 +41,9 @@ public class FetchDataJob implements InitializingBean {
 	
 	static final Map<String,AliveClient> clientMap=new HashMap<>();
 	
-	private AliveClient getClient(AppInstance app) {
-		AliveClient client=clientMap.get(app.getInsIp()+app.getInsPort());
+	private AliveClient getClient(String key,AppInstance app) {
+		
+		AliveClient client=clientMap.get(key);
 		if(client==null) {
 			client=new AliveClient(app.getInsIp(), app.getInsPort(),new AliveClient.Callback() {
 				@Override public void action(WriteBean msg) {
@@ -68,7 +69,7 @@ public class FetchDataJob implements InitializingBean {
 					logRepository.saveAll(plist);
 				}
 			});
-			clientMap.put(app.getInsIp()+app.getInsPort(), client);
+			clientMap.put(key, client);
 		}
 		return client;
 	}
@@ -83,7 +84,12 @@ public class FetchDataJob implements InitializingBean {
 					List<AppInstance> list=appRepository.findAll();
 					if(list!=null && list.size()>0) {
 						for(AppInstance app:list) {
-							getClient(app).sendMsg("fetchLogger");
+							String key=app.getInsIp()+app.getInsPort();
+							try {
+								getClient(key,app).sendMsg("fetchLogger");
+							}catch (Exception e) {
+								clientMap.remove(key); 
+							}
 						}
 					}
 				}catch (Throwable e) {
