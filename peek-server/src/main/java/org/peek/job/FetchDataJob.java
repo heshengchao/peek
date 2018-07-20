@@ -47,6 +47,8 @@ public class FetchDataJob implements InitializingBean {
 		if(client==null) {
 			client=new AliveClient(app.getInsIp(), app.getInsPort(),new AliveClient.Callback() {
 				@Override public void action(WriteBean msg) {
+					if(StringUtils.isEmpty(msg.getXmlMsg()))
+						return;
 					List<LoggerCount> list=JSON.parseArray(msg.getXmlMsg(),LoggerCount.class);
 					List<LoggerInfo> plist=Lists.transform(list, new Function<LoggerCount,LoggerInfo>(){
 						@Override
