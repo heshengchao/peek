@@ -49,7 +49,14 @@ public class FetchDataJob implements InitializingBean {
 				@Override public void action(WriteBean msg) {
 					if(StringUtils.isEmpty(msg.getXmlMsg()))
 						return;
-					List<LoggerCount> list=JSON.parseArray(msg.getXmlMsg(),LoggerCount.class);
+					
+					List<LoggerCount> list=null;
+					try {
+						list=JSON.parseArray(msg.getXmlMsg(),LoggerCount.class);
+					} catch (Exception e) {
+						 log.error("parse jsonFail,the str:{}",msg.getXmlMsg());
+						 return ;
+					}
 					List<LoggerInfo> plist=Lists.transform(list, new Function<LoggerCount,LoggerInfo>(){
 						@Override
 						public LoggerInfo apply(LoggerCount input) {
