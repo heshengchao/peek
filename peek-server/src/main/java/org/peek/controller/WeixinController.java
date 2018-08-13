@@ -27,11 +27,11 @@ public class WeixinController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/token")
-	public String  token(HttpRequest req) throws IOException{
+	public String  token() throws IOException{
 		return "peekToken";
 	}
 	@RequestMapping(value = "/callback")
-	public WinxinReturnVo  index(HttpRequest req) throws IOException{
+	public WinxinReturnVo  index() throws IOException{
 		WinxinReturnVo vo=new WinxinReturnVo();
 		vo.setErrmsg("ok");
 		return vo;
