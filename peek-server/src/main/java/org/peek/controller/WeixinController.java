@@ -11,6 +11,7 @@ import org.peek.controller.vo.WinxinReturnVo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
@@ -24,7 +25,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/peekWeixin")
 public class WeixinController {
 	
-	
+	@ResponseBody
+	@RequestMapping(value = "/token")
+	public String  token(HttpRequest req) throws IOException{
+		return "peekToken";
+	}
 	@RequestMapping(value = "/callback")
 	public WinxinReturnVo  index(HttpRequest req) throws IOException{
 		WinxinReturnVo vo=new WinxinReturnVo();
