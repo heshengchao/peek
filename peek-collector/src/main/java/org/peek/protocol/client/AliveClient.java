@@ -42,7 +42,7 @@ public class AliveClient {
 	}
 	
 	/**发送消息 */
-	public void sendMsg(String xmlMsg ){
+	public boolean sendMsg(String xmlMsg ){
 		
 		IoSession session=sessionMap.get(host+port);
 		if(session==null) {
@@ -51,7 +51,7 @@ public class AliveClient {
 		
 		if(session==null) {
 			log.warn("未建立与服务器({})的链接",host+":"+port);
-			return;
+			return false;
 		}
 		
 		WriteBean bean =new WriteBean();
@@ -60,6 +60,7 @@ public class AliveClient {
 		bean.setSeq(instance.getNextMessageSeq());
 		session.write(bean);
 		
+		return true;
 	}
 	
 	private IoSession getSession(String host,Integer port) {

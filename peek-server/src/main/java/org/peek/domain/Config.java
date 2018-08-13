@@ -13,6 +13,7 @@ import lombok.Data;
 public class Config {
 
 	public static final String key_weixinMsgTmpCode="weixinMsgTmpCode";
+	public static final String key_weixinMsgTmpCode_serverAlive="weixinMsgTmpCode_serverAlive";
 	public static final String key_weixinAppID="appId";
 	public static final String key_weixinAppSecrt="appSecrt";
 	public static final String key_peekServerUrl="peekServerUrl";

@@ -1,14 +1,12 @@
 package org.peek.job;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import org.peek.domain.AppInstance;
 import org.peek.domain.LoggerInfo;
+import org.peek.enums.InstanceState;
 import org.peek.logger.LoggerCount;
 import org.peek.protocol.WriteBean;
 import org.peek.protocol.client.AliveClient;
@@ -19,6 +17,7 @@ import org.peek.service.impl.weixin.WeixinNotifyService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -38,12 +37,12 @@ public class FetchDataJob implements InitializingBean {
 
 	@Autowired WeixinNotifyService weixinNotifyService;
 	
-	
-	static final Map<String,AliveClient> clientMap=new HashMap<>();
+	static final Map<String,AliveClientWapper> clientMap=new HashMap<>();
 	
 	private AliveClient getClient(String key,AppInstance app) {
 		
-		AliveClient client=clientMap.get(key);
+		AliveClientWapper wapper=clientMap.get(key);
+		AliveClient client=(wapper==null)?null:wapper.getClient();
 		if(client==null) {
 			client=new AliveClient(app.getInsIp(), app.getInsPort(),new AliveClient.Callback() {
 				@Override public void action(WriteBean msg) {
@@ -78,34 +77,48 @@ public class FetchDataJob implements InitializingBean {
 					logRepository.saveAll(plist);
 				}
 			});
-			clientMap.put(key, client);
+			wapper=new AliveClientWapper();
+			wapper.setClient(client);
+			wapper.setInstance(app);
+			clientMap.put(key, wapper);
 		}
 		return client;
 	}
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		 Timer timer = new Timer();
-		 //每10秒查询一次
-		 timer.schedule(new TimerTask() {
-			@Override public void run() {
+	@Scheduled(cron="0/10 * * * * ?")
+	public void fetchLogger() {
+		for(AliveClientWapper wapper:clientMap.values()) {
+			String key=wapper.getInstance().getInsIp()+wapper.getInstance().getInsPort();
+			try {
+				wapper.getClient().sendMsg("fetchLogger");
+			}catch (Exception e) {
+				weixinNotifyService.serverAliveAlert(wapper.getInstance(), InstanceState.connectFail);
+				clientMap.remove(key); 
+			}
+		}
+	}
+	
+	@Scheduled(cron="0 * * * * ?")
+	public void connect() {
+		List<AppInstance> list=appRepository.findAll();
+		if(list!=null && list.size()>0) {
+			for(AppInstance app:list) {
+				String key=app.getInsIp()+app.getInsPort();
+				if(clientMap.containsKey(key))
+					continue;
+				
 				try {
-					List<AppInstance> list=appRepository.findAll();
-					if(list!=null && list.size()>0) {
-						for(AppInstance app:list) {
-							String key=app.getInsIp()+app.getInsPort();
-							try {
-								getClient(key,app).sendMsg("fetchLogger");
-							}catch (Exception e) {
-								clientMap.remove(key); 
-							}
-						}
-					}
-				}catch (Throwable e) {
-					log.error(e.getMessage(),e);
+					getClient(key,app).sendMsg("fetchLogger");
+				}catch (Exception e) {
+					weixinNotifyService.serverAliveAlert(app, InstanceState.connectFail);
+					clientMap.remove(key); 
 				}
 			}
-		}, new Date(), 10000);
-		
+		}
+	}
+	
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		connect();
 	}
 }
