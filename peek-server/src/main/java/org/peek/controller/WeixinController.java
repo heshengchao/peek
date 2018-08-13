@@ -32,6 +32,11 @@ public class WeixinController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/echostr")
+	public String  echostr(@RequestParam("echostr") String echostr) throws IOException{
+		return echostr;
+	}
+	@ResponseBody
 	@RequestMapping(value = "/aesKey")
 	public String  aesKey() throws IOException{
 		return "Ud619UzuHNRQ660E8TDxURVapm2urGgH77b7PtKNjvu";
