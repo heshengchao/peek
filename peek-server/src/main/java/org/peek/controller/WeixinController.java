@@ -30,6 +30,12 @@ public class WeixinController {
 	public String  token() throws IOException{
 		return "peekToken";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/aesKey")
+	public String  aesKey() throws IOException{
+		return "Ud619UzuHNRQ660E8TDxURVapm2urGgH77b7PtKNjvu";
+	}
 	@RequestMapping(value = "/callback")
 	public WinxinReturnVo  index() throws IOException{
 		WinxinReturnVo vo=new WinxinReturnVo();
