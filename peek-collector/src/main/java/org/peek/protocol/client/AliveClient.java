@@ -52,7 +52,7 @@ public class AliveClient {
 		if(session==null || !session.isActive()) {
 			log.warn("未建立与服务器({})的链接",host+":"+port);
 			sessionMap.remove(host+port);
-			return false;
+			throw new ConnectAccessException("连接服务器："+host+":"+port+"链接异常");
 		}
 		
 		WriteBean bean =new WriteBean();
