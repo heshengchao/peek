@@ -39,7 +39,7 @@
 								<tr>
 									<td > 
 										<small> ${(log.sysTime?string("yyyy-MM-dd HH:mm:ss"))!} </small> 
-									 	<small class='${(log.state.name()==online)?string("red","orange")}'> &nbsp;${log.insId!}&nbsp;${log.state!} </small> 
+									 	<small class='${(log.state.name()="online")?string("red","orange")}'> &nbsp;${log.insId!}&nbsp;${log.state!} </small> 
 									</td>
 								</tr>
 								</#list>
