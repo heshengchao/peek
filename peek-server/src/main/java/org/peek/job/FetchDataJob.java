@@ -87,10 +87,15 @@ public class FetchDataJob implements InitializingBean {
 
 	@Scheduled(cron="0/10 * * * * ?")
 	public void fetchLogger() {
-		for(AliveClientWapper wapper:clientMap.values()) {
+		for(Map.Entry<String, AliveClientWapper> en:clientMap.entrySet()) {
+			AliveClientWapper wapper=en.getValue();
 			String key=wapper.getInstance().getInsIp()+wapper.getInstance().getInsPort();
 			try {
-				wapper.getClient().sendMsg("fetchLogger");
+				boolean success=wapper.getClient().sendMsg("fetchLogger");
+				if(!success) {
+					log.warn("sendMsg fail!");
+					clientMap.remove(en.getKey());
+				}
 			}catch (Exception e) {
 				weixinNotifyService.serverAliveAlert(wapper.getInstance(), InstanceState.connectFail);
 				clientMap.remove(key); 

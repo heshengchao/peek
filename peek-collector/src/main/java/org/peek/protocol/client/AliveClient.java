@@ -49,8 +49,9 @@ public class AliveClient {
 			session=getSession(host,port);
 		}
 		
-		if(session==null) {
+		if(session==null || !session.isActive()) {
 			log.warn("未建立与服务器({})的链接",host+":"+port);
+			sessionMap.remove(host+port);
 			return false;
 		}
 		
