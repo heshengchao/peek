@@ -101,7 +101,7 @@ public class FetchDataJob implements InitializingBean {
 					clientMap.remove(en.getKey());
 				}
 			}catch (Exception e) {
-				appInsStateService.add(wapper.getInstance(), InstanceState.connectFail);
+				appInsStateService.add(wapper.getInstance(), InstanceState.offline);
 				clientMap.remove(key); 
 			}
 		}
@@ -109,15 +109,20 @@ public class FetchDataJob implements InitializingBean {
 	
 	@Scheduled(cron="0 * * * * ?")
 	public void connect() {
+		connect(false);
+	}
+	
+	private void connect(boolean first) {
 		List<AppInstance> list=appRepository.findAll();
 		if(list!=null && list.size()>0) {
 			for(AppInstance app:list) {
 				String key=app.getInsIp()+app.getInsPort();
 				if(clientMap.containsKey(key))
 					continue;
-				
 				try {
 					getClient(key,app).sendMsg("fetchLogger");
+					if(!first)
+						appInsStateService.add(app, InstanceState.online);
 				}catch (Exception e) {
 					appInsStateService.add(app, InstanceState.connectFail);
 					clientMap.remove(key); 
@@ -129,7 +134,7 @@ public class FetchDataJob implements InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		try {
-		connect();
+			connect(true);
 		}catch (Exception e) {
 			log.error(e.getMessage(),e);
 		}

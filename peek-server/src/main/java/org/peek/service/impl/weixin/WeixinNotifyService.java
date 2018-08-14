@@ -12,6 +12,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.peek.constant.ActionThreadPool;
 import org.peek.domain.AppInstance;
 import org.peek.domain.Config;
 import org.peek.domain.LoggerInfo;
@@ -42,9 +43,13 @@ public class WeixinNotifyService {
 	}
 	
 	public void notifyUser(AppInstance app,LoggerInfo loginfo) {
-		for(User user:userService.findAll()) {
-			this.submitWeixin(user.getWeixinOpenId(),app,loginfo);
-		}
+		ActionThreadPool.execute(new ActionThreadPool.Call() {
+			@Override public void run() {
+				for(User user:userService.findAll()) {
+					submitWeixin(user.getWeixinOpenId(),app,loginfo);
+				}
+			}
+		});
 	}
 	
 	public String submitWeixin(String toUserOpenID,AppInstance app,LoggerInfo loginfo) {
@@ -100,9 +105,14 @@ public class WeixinNotifyService {
     }
 	
 	public void serverAliveAlert(AppInstance app,InstanceState state) {
-		for(User user:userService.findAll()) {
-			this.serverAliveAlert(user.getWeixinOpenId(),app,state);
-		}
+		ActionThreadPool.execute(new ActionThreadPool.Call() {
+			@Override public void run() {
+				for(User user:userService.findAll()) {
+					serverAliveAlert(user.getWeixinOpenId(),app,state);
+				}
+			}
+		});
+		
 	}
 	/**服务可用性告警
 	 * @param toUserOpenID
