@@ -12,6 +12,7 @@ import org.peek.protocol.WriteBean;
 import org.peek.protocol.client.AliveClient;
 import org.peek.repository.AppInstanceRepository;
 import org.peek.repository.LoggerCountRepository;
+import org.peek.service.impl.AppInsStateService;
 import org.peek.service.impl.IdGenerate;
 import org.peek.service.impl.weixin.WeixinNotifyService;
 import org.springframework.beans.BeanUtils;
@@ -35,6 +36,7 @@ public class FetchDataJob implements InitializingBean {
 	@Autowired IdGenerate idGenerate;
 	@Autowired LoggerCountRepository logRepository;
 
+	@Autowired AppInsStateService appInsStateService;
 	@Autowired WeixinNotifyService weixinNotifyService;
 	
 	static final Map<String,AliveClientWapper> clientMap=new HashMap<>();
@@ -97,7 +99,7 @@ public class FetchDataJob implements InitializingBean {
 					clientMap.remove(en.getKey());
 				}
 			}catch (Exception e) {
-				weixinNotifyService.serverAliveAlert(wapper.getInstance(), InstanceState.connectFail);
+				appInsStateService.add(wapper.getInstance(), InstanceState.connectFail);
 				clientMap.remove(key); 
 			}
 		}
@@ -115,7 +117,7 @@ public class FetchDataJob implements InitializingBean {
 				try {
 					getClient(key,app).sendMsg("fetchLogger");
 				}catch (Exception e) {
-					weixinNotifyService.serverAliveAlert(app, InstanceState.connectFail);
+					appInsStateService.add(app, InstanceState.connectFail);
 					clientMap.remove(key); 
 				}
 			}

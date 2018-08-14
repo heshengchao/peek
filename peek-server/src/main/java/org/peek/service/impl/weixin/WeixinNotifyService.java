@@ -121,14 +121,14 @@ public class WeixinNotifyService {
         AlarmNotifyWrappr alarm=new AlarmNotifyWrappr();
         alarm.setTouser(toUserOpenID);
         alarm.setTopcolor("#FF0000");
-        alarm.setUrl(configService.getValue(Config.key_peekServerUrl)+"/log/app/"+app.getInsId());
+        alarm.setUrl(configService.getValue(Config.key_peekServerUrl)+"/appState/"+app.getInsId());
         alarm.setTemplate_id(configService.getValue(Config.key_weixinMsgTmpCode_serverAlive));
         Map<String,AlarmNotifyParam> parames=new HashMap<>();
         alarm.setData(parames);
 //        parames.put("first",new AlarmNotifyParam( "异常通知","#173177"));
         parames.put("keyword1",new AlarmNotifyParam( DateUtils.format(new Date()),"#173177"));
         parames.put("keyword2",new AlarmNotifyParam(stateMap.get(state)));//告警类型
-        parames.put("keyword3",new AlarmNotifyParam(app.getInsName()+"("+app.getInsIp()+app.getInsPort()+")"));//告警内容
+        parames.put("keyword3",new AlarmNotifyParam(app.getInsName()+"("+app.getInsIp()+":"+app.getInsPort()+")"));//告警内容
         
         String submitStr=JSON.toJSONString(alarm);
 //        log.info("weixin submit:{}",alarm);
