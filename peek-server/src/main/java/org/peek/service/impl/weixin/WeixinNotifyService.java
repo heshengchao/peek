@@ -67,7 +67,7 @@ public class WeixinNotifyService {
         alarm.setTemplate_id(configService.getValue(Config.key_weixinMsgTmpCode));
         Map<String,AlarmNotifyParam> parames=new HashMap<>();
         alarm.setData(parames);
-//        parames.put("first",new AlarmNotifyParam( "异常通知","#173177"));
+        parames.put("first",new AlarmNotifyParam( "服务异常告警","#173177"));
         parames.put("keyword1",new AlarmNotifyParam(app.getInsIp()));
         parames.put("keyword2",new AlarmNotifyParam( DateUtils.format(loginfo.getTime()),"#173177"));
         parames.put("keyword3",new AlarmNotifyParam(app.getInsName()));
@@ -135,7 +135,7 @@ public class WeixinNotifyService {
         alarm.setTemplate_id(configService.getValue(Config.key_weixinMsgTmpCode_serverAlive));
         Map<String,AlarmNotifyParam> parames=new HashMap<>();
         alarm.setData(parames);
-//        parames.put("first",new AlarmNotifyParam( "异常通知","#173177"));
+        parames.put("first",new AlarmNotifyParam( "服务异常告警","#173177"));
         parames.put("keyword1",new AlarmNotifyParam( DateUtils.format(new Date()),"#173177"));
         parames.put("keyword2",new AlarmNotifyParam(stateMap.get(state)));//告警类型
         parames.put("keyword3",new AlarmNotifyParam(app.getInsName()+"("+app.getInsIp()+":"+app.getInsPort()+")"));//告警内容
