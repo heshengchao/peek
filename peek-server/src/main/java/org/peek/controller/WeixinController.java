@@ -53,7 +53,7 @@ public class WeixinController {
      */
 	@RequestMapping(value = "/toAuthorize")
     public void toAuthorize( HttpServletResponse response) throws IOException {
-        String encodedUrl = URLEncoder.encode("http://test.laigome.com/peekWeixin/getOpenId", "utf-8");
+        String encodedUrl = URLEncoder.encode("http://test.laigome.com/peek/peekWeixin/getOpenId", "utf-8");
         StringBuilder redirect = new StringBuilder("https://open.weixin.qq.com/connect/oauth2/authorize");
         redirect.append("?appid=").append("wx12dad99918ae1d41")
                 .append("&redirect_uri=").append(encodedUrl)
