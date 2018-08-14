@@ -25,6 +25,7 @@ import org.springframework.util.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -89,7 +90,8 @@ public class FetchDataJob implements InitializingBean {
 
 	@Scheduled(cron="0/10 * * * * ?")
 	public void fetchLogger() {
-		for(Map.Entry<String, AliveClientWapper> en:clientMap.entrySet()) {
+		Map<String, AliveClientWapper> map=Maps.newHashMap(clientMap);
+		for(Map.Entry<String, AliveClientWapper> en:map.entrySet()) {
 			AliveClientWapper wapper=en.getValue();
 			String key=wapper.getInstance().getInsIp()+wapper.getInstance().getInsPort();
 			try {
