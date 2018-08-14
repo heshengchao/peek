@@ -38,8 +38,8 @@
 								<#list appStateList as log>
 								<tr>
 									<td > 
-									 	<small class='${(log.stack?exists)?string("red","orange")}'>
-										${log.insId!}&nbsp;${(log.sysTime?string("yyyy-MM-dd HH:mm:ss"))!}  &nbsp;${log.state!} </small> 
+										<small> ${(log.sysTime?string("yyyy-MM-dd HH:mm:ss"))!} </small> 
+									 	<small class='${(log.state.name()==online)?string("red","orange")}'> &nbsp;${log.insId!}&nbsp;${log.state!} </small> 
 									</td>
 								</tr>
 								</#list>

@@ -28,12 +28,12 @@ public class AppInsStateRepository  {
 			criteria.and("appInsId").is(query.getAppInsId());
 		}
 		if(query.getStartTime()!=null){
-			criteria.and("time").gte(query.getStartTime());
+			criteria.and("sysTime").gte(query.getStartTime());
 		}
 		if(query.getEndTime()!=null){
-			criteria.and("time").lte(query.getEndTime());
+			criteria.and("sysTime").lte(query.getEndTime());
 		}
-		querys.with(Sort.by(Sort.Direction.DESC, "time"));  
+		querys.with(Sort.by(Sort.Direction.DESC, "sysTime"));  
 		if(topn!=null) {
 			querys.skip(0).limit(topn);
 		}
