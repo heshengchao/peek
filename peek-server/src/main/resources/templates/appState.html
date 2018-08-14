@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>首页</title>
+	<style type="text/css">
+		.loggerInfo td
+		{
+			padding-top:0px;
+			padding-bottom:0px;
+			margin: 0;
+		}
+	
+		.loggerInfo .red
+		{
+			color: red;
+		}
+		
+		.loggerInfo .orange
+		{
+			color: orange;
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card transparent">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title lighter">
+						<i class="ace-icon fa fa-star orange"></i> 服务生命周期管理
+					</h4>
+				</div>
+				<div class="card-body">
+				
+					<div class="tab-content">
+						<table  class="table loggerInfo">
+							<tbody>
+								<#list appStateList as log>
+								<tr>
+									<td > 
+									 	<small class='${(log.stack?exists)?string("red","orange")}'>
+										${log.insId!}&nbsp;${(log.sysTime?string("yyyy-MM-dd HH:mm:ss"))!}  &nbsp;${log.state!} </small> 
+									</td>
+								</tr>
+								</#list>
+							</tbody>
+						</table>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- /.col -->
+		<script type="text/javascript">
+			$(function(){
+			 $("#nav_appState").addClass("active")	
+			})
+		</script>
+	</div>
+</body>
+</html>

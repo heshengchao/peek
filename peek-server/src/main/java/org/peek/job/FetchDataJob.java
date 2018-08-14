@@ -126,6 +126,10 @@ public class FetchDataJob implements InitializingBean {
 	
 	@Override
 	public void afterPropertiesSet() throws Exception {
+		try {
 		connect();
+		}catch (Exception e) {
+			log.error(e.getMessage(),e);
+		}
 	}
 }
