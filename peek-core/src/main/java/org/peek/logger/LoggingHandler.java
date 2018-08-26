@@ -15,6 +15,9 @@ public class LoggingHandler {
 		}
 	}
 	public Queue<LoggerCount> rebuild() {
+		if(logList.isEmpty()) {
+			return null;
+		}
 		synchronized (logList) {
 			Queue<LoggerCount>	old=logList;
 			logList=new LimitQueue<>(1000);
