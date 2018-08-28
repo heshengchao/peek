@@ -59,6 +59,9 @@ public class FetchDataJob implements InitializingBean {
 						 log.error("parse jsonFail,the str:{}",msg.getXmlMsg());
 						 return ;
 					}
+					if(list == null) {
+						return;
+					}
 					List<LoggerInfo> plist=Lists.transform(list, new Function<LoggerCount,LoggerInfo>(){
 						@Override
 						public LoggerInfo apply(LoggerCount input) {
