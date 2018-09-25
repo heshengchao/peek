@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
-			<version>${spring-boot.version}</version>
+			<version>1.5.12.RELEASE</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
