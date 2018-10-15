@@ -42,7 +42,7 @@ public  class AccessTokenUtil {
            
            Calendar cal=Calendar.getInstance();
             //获取token url  
-            String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ APPID + "&secret=" + APPSECRET;  
+            String url = "http://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ APPID + "&secret=" + APPSECRET;  
             //发送http请求得到json流  
             JSONObject jobject = httpRequest(url);  
             //从json流中获取access_token  
