@@ -42,12 +42,11 @@ public  class AccessTokenUtil {
            
            Calendar cal=Calendar.getInstance();
             //获取token url  
-            String url = "http://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ APPID + "&secret=" + APPSECRET;  
+            String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ APPID + "&secret=" + APPSECRET;  
             //发送http请求得到json流  
             JSONObject jobject = httpRequest(url);  
             //从json流中获取access_token  
-            String  j_access_token = jobject.getString("access_token");  
-            String  j_expires_in = jobject.getString("expires_in");  
+            String  j_access_token = jobject.getString("access_token"); 
 
             if(!StringUtils.isEmpty(j_access_token)) {
             	cal.set(Calendar.SECOND, cal.get(Calendar.SECOND)+7200);
