@@ -61,7 +61,7 @@ public class WeixinController {
 		
 		String appId=configService.getValue(Config.key_weixinAppID);
 		
-        String encodedUrl = URLEncoder.encode("http://test.laigome.com/peek/peekWeixin/getOpenId", "utf-8");
+        String encodedUrl = URLEncoder.encode("https://test.laigome.com/peek/peekWeixin/getOpenId", "utf-8");
         StringBuilder redirect = new StringBuilder("https://open.weixin.qq.com/connect/oauth2/authorize");
         redirect.append("?appid=").append(appId)
                 .append("&redirect_uri=").append(encodedUrl)
