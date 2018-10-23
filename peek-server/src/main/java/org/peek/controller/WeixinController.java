@@ -77,7 +77,7 @@ public class WeixinController {
 		log.info("getOpenId for:{}",code);
 		String appId=configService.getValue(Config.key_weixinAppID);
 		String secret=configService.getValue(Config.key_weixinAppSecrt);
-		String tokenBody= HttpRequest.get("https://api.weixin.qq.com/sns/oauth2/access_token?appid="+appId+"&secret="+secret+"&code="+code+"&grant_type=authorization_code").body();
+		String tokenBody= HttpRequest.get("http://api.weixin.qq.com/sns/oauth2/access_token?appid="+appId+"&secret="+secret+"&code="+code+"&grant_type=authorization_code").body();
     	log.info("tokenBody rsp:{}",tokenBody);
     	Map<String, String> tokenMap = JSON.parseObject(tokenBody,new TypeReference<Map<String, String>>(){} );
     	final String openId=tokenMap.get("openid");
