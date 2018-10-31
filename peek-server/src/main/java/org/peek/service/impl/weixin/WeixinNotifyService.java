@@ -122,7 +122,8 @@ public class WeixinNotifyService {
 	 */
 	public String serverAliveAlert(String toUserOpenID,AppInstance app,InstanceState state) {
 
-		String url="http://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+accessTokenUtil.getAccessToken();
+//		String url="http://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+accessTokenUtil.getAccessToken();
+		String url="http://183.57.48.62/cgi-bin/message/template/send?access_token="+accessTokenUtil.getAccessToken();
 		 
         HttpPost httpPost = new HttpPost(url);
         CloseableHttpClient client = HttpClients.createDefault();
