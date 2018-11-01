@@ -132,7 +132,7 @@ public class WeixinNotifyService {
         AlarmNotifyWrappr alarm=new AlarmNotifyWrappr();
         alarm.setTouser(toUserOpenID);
         alarm.setTopcolor("#FF0000");
-        alarm.setUrl(configService.getValue(Config.key_peekServerUrl)+"/appState/"+app.getInsId());
+        alarm.setUrl(configService.getValue(Config.key_peekServerUrl)+"/appState?appInsId="+app.getInsId());
         alarm.setTemplate_id(configService.getValue(Config.key_weixinMsgTmpCode_serverAlive));
         Map<String,AlarmNotifyParam> parames=new HashMap<>();
         alarm.setData(parames);
