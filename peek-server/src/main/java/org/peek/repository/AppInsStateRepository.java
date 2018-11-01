@@ -25,7 +25,7 @@ public class AppInsStateRepository  {
 		querys.addCriteria(criteria);
 		
 		if(!StringUtils.isEmpty(query.getAppInsId())){
-			criteria.and("appInsId").is(query.getAppInsId());
+			criteria.and("insId").is(query.getAppInsId());
 		}
 		if(query.getStartTime()!=null){
 			criteria.and("sysTime").gte(query.getStartTime());
