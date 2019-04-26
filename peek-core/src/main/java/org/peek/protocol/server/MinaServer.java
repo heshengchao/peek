@@ -14,11 +14,19 @@ import org.springframework.util.StringUtils;
 
 
 public class MinaServer {
+	public static final int defaltPort=1314;
 	final static Charset  charset=Charset.defaultCharset();
 	NioSocketAcceptor ioAcceptor;
+	
 	private int port=1314;
 	private String ip=null;
 
+	
+	public MinaServer(int port) {
+		super();
+		this.port = port;
+	}
+	
 	public void setIp(String ip) {
 		this.ip = ip;
 	}

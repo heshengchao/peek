@@ -10,7 +10,8 @@
 	<artifactId>peek-server</artifactId>
 	
 	<properties>
-		<spring.boot.version>2.0.5.RELEASE</spring.boot.version>
+		<spring.boot.version>2.1.1.RELEASE</spring.boot.version>
+		<spring.version>5.0.10.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
@@ -72,7 +73,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 			<version>${spring.boot.version}</version>
 		</dependency>
 		<dependency>
@@ -89,6 +90,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<version>${spring.boot.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -106,6 +108,13 @@
 			<artifactId>persistence-api</artifactId>
 			<version>1.0.2</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>co.elastic.apm</groupId>
+		    <artifactId>elastic-apm-agent</artifactId>
+		    <version>1.1.0</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>

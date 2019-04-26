@@ -11,7 +11,8 @@ import org.springframework.context.annotation.Import;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import(PeekConfiguration.class)
+@Import(value= {PeekConfiguration.class,PeekConfigSetting.class})
 public @interface EnablePeekCollector {
 
+	int monitorPort() default 1314;
 }

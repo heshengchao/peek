@@ -41,15 +41,6 @@ public class UserRepositoryTest extends BaseDaoTest{
 		ins.setWeixinOpenId("oVW-ywZ4HYwJj72dOcznBSU-0hxE");
 		ins=repository.save(ins);
 		
-		
-		ins.setEmail("luojiejun@gome.com.cn");
-		ins.setUserCode("luojiejun");
-		ins.setUserName("罗杰俊");
-		ins.setMobile("13699449404");
-		ins.setWeixinOpenId("oVW-ywcsY7jkrWtnfRNztnqITCsM");
-		ins=repository.save(ins);
-		
-		
 		ins.setEmail("dengbing@gome.com.cn");
 		ins.setUserCode("dengbing");
 		ins.setUserName("邓斌");

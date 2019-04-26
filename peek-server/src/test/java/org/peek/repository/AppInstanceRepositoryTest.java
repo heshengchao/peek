@@ -1,7 +1,10 @@
 package  org.peek.repository;
 
 
-import java.util.Date;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 
 import org.junit.Test;
 import org.peek.BaseDaoTest;
@@ -10,6 +13,7 @@ import org.peek.repository.AppInstanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,21 +24,46 @@ public class AppInstanceRepositoryTest extends BaseDaoTest{
 	
 	@Test
 	public void save() {
-		AppInstance ins=new AppInstance();
-		ins.setInsId("gsh_sharkRpc_500_21");
-		ins.setInsName("sharkRpc_500");
-		ins.setInsIp("10.115.88.21");
-		ins.setInsPort(16064);
-		ins.setCreateTime(new Date());
-		ins=repository.save(ins);
+		InputStream ins=getClass().getClassLoader().getResourceAsStream("800AppIns.json");
 		
-		ins.setInsId("gsh_sharkRpc_500_19");
-		ins.setInsName("sharkRpc_500");
-		ins.setInsIp("10.115.88.19");
-		ins.setInsPort(16064);
-		ins.setCreateTime(new Date());
-		ins=repository.save(ins);
+		List<AppInstance> appes=JSON.parseArray(ConvertStream2Json(ins), AppInstance.class);
+		for(AppInstance app:appes) {
+			repository.save(app);
+		}
 		
-		log.warn("ins:{}",JSON.toJSONString(ins));
 	}
+	
+	
+	private static String ConvertStream2Json(InputStream inputStream)
+    {
+        String jsonStr = "";
+        // ByteArrayOutputStream相当于内存输出流
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int len = 0;
+        // 将输入流转移到内存输出流中
+        try
+        {
+            while ((len = inputStream.read(buffer, 0, buffer.length)) != -1)
+            {
+                out.write(buffer, 0, len);
+            }
+            // 将内存流转换为字符串
+            jsonStr = new String(out.toByteArray());
+        }
+        catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return jsonStr;
+    }
+	
+	@Test
+	public void findAll() {
+		List<AppInstance> list=repository.findAll();
+		
+		log.warn("ins:{}",JSON.toJSONString(list));
+	}
+	
 }

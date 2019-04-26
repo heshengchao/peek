@@ -2,8 +2,6 @@ package org.peek.protocol.client;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.mina.core.future.ConnectFuture;
 import org.apache.mina.core.service.IoConnector;
@@ -30,28 +28,31 @@ public class AliveClient {
 	
 	final static SequenceGenerator instance = new SequenceGenerator();
 	
-	static final Map<String,IoSession> sessionMap=new HashMap<>();
+//	static final Map<String,IoSession> sessionMap=new HashMap<>();
 	private Callback callback;
 	private String host;
 	private int port;
+	//TCP会话
+	private IoSession session;
+	private IoConnector connector;
 	
 	public AliveClient(String host,int port,Callback callback) {
 		this.callback=callback;
 		this.host=host;
 		this.port=port;
+		
+//		session=sessionMap.get(host+port);
+//		if(session==null) {
+			session=getSession(host,port);
+//		}
 	}
 	
 	/**发送消息 */
 	public boolean sendMsg(String xmlMsg ){
 		
-		IoSession session=sessionMap.get(host+port);
-		if(session==null) {
-			session=getSession(host,port);
-		}
-		
 		if(session==null || !session.isActive()) {
 			log.warn("未建立与服务器({})的链接",host+":"+port);
-			sessionMap.remove(host+port);
+//			sessionMap.remove(host+port);
 			throw new ConnectAccessException("连接服务器："+host+":"+port+"链接异常");
 		}
 		
@@ -64,8 +65,17 @@ public class AliveClient {
 		return true;
 	}
 	
+	public void close() {
+		if(session==null) {
+			session.closeOnFlush();
+		}
+		if(connector!=null) {
+			connector.dispose();
+		}
+	}
+	
 	private IoSession getSession(String host,Integer port) {
-		final IoConnector connector = new NioSocketConnector(); // 创建一个非阻塞的客户端程序
+		connector = new NioSocketConnector(); // 创建一个非阻塞的客户端程序
 		connector.setConnectTimeoutMillis(1000);  // 设置链接超时时间
 		
 		CustomerHandler handler=new CustomerHandler(host,port);
@@ -90,9 +100,10 @@ public class AliveClient {
 		IoSession session=null;
 		try{
 			session = future.getSession();// 获得session
-			sessionMap.put(host+port, session);
+//			sessionMap.put(host+port, session);
 			return session;
 		}catch(Exception e){
+			callback.connectFail();
 			connector.dispose();
 			log.error("打开连接["+host+":"+port+"]异常，请注意检查！详细："+e.getMessage(),e);
 			return null;
@@ -113,17 +124,20 @@ public class AliveClient {
 	        cfg.setReceiveBufferSize(2 * 1024);   
 	        cfg.setReadBufferSize(2 * 1024);   
 	        cfg.setKeepAlive(true);   
-	        cfg.setSoLinger(10);
+	        cfg.setSoLinger(0);
 	    }
 	    @Override
 	    public void sessionClosed(IoSession session) throws Exception {
 	    	log.info("连接["+host+":"+port+"]断开");
-			sessionMap.remove(host+port);
+//			sessionMap.remove(host+port);
+			callback.close();
+			connector.dispose();
 	    }
 		public @Override void exceptionCaught(IoSession session, Throwable cause) throws Exception {
 			log.warn("连接["+host+":"+port+"]异常："+cause.getMessage(),cause);
-			sessionMap.remove(host+port);
-			session.closeOnFlush();
+//			sessionMap.remove(host+port);
+			session.closeNow();
+			callback.close();
 		}
 
 		public @Override void messageReceived(IoSession session, Object message) throws Exception {
@@ -151,5 +165,9 @@ public class AliveClient {
 		
 		public void action(WriteBean msg) ;
 
+		public void close() ;
+		
+		public void connectFail() ;
+		
 	}
 }

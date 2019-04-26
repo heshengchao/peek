@@ -2,9 +2,10 @@ package org.peek.domain;
 
 import java.util.Date;
 
+import javax.persistence.Table;
+
 import org.peek.enums.InstanceState;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
@@ -12,7 +13,7 @@ import lombok.Data;
  * @author heshengchao
  */
 @Data
-@Document(collection="appInsState")
+@Table(name="appInsState")
 public class AppInsState {
 
 	@Id

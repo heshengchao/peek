@@ -1,12 +1,13 @@
 package org.peek.domain;
 
+import javax.persistence.Table;
+
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
 @Data
-@Document(collection="user")
+@Table(name="user")
 public class User {
 	@Id
 	private String userCode;

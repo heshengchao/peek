@@ -2,8 +2,10 @@ package org.peek.domain;
 
 import java.util.Date;
 
+import javax.persistence.Table;
+
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.lang.NonNull;
 
 import lombok.Data;
 
@@ -11,13 +13,16 @@ import lombok.Data;
  * @author heshengchao
  */
 @Data
-@Document(collection="appGroup")
+@Table(name="appGroup")
 public class AppGroup {
 
 	@Id
 	private String groupId;
 	/**分组名称*/
+	@NonNull
 	private String groupName;
+	@NonNull
 	private String createUser;
+	@NonNull
 	private Date createTime;
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -107,8 +108,18 @@ public class WeixinNotifyService {
 	public void serverAliveAlert(AppInstance app,InstanceState state) {
 		ActionThreadPool.execute(new ActionThreadPool.Call() {
 			@Override public void run() {
+				CloseableHttpClient client = HttpClients.createDefault();
 				for(User user:userService.findAll()) {
-					serverAliveAlert(user.getWeixinOpenId(),app,state);
+					try {
+						serverAliveAlert(client,user.getWeixinOpenId(),app,state);
+					} catch (IOException e) {
+						log.error(e.getMessage(),e);
+					}
+				}
+				try {
+					client.close();
+				} catch (IOException e) {
+					log.error(e.getMessage(),e);
 				}
 			}
 		});
@@ -119,16 +130,16 @@ public class WeixinNotifyService {
 	 * @param app
 	 * @param loginfo
 	 * @return
+	 * @throws IOException 
+	 * @throws ClientProtocolException 
 	 */
-	public String serverAliveAlert(String toUserOpenID,AppInstance app,InstanceState state) {
+	public String serverAliveAlert(CloseableHttpClient client,String toUserOpenID,AppInstance app,InstanceState state) throws  IOException {
 
 //		String url="http://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+accessTokenUtil.getAccessToken();
 		String url="http://183.57.48.62/cgi-bin/message/template/send?access_token="+accessTokenUtil.getAccessToken();
 		 
         HttpPost httpPost = new HttpPost(url);
-        CloseableHttpClient client = HttpClients.createDefault();
-        
-//        json方式
+       
         AlarmNotifyWrappr alarm=new AlarmNotifyWrappr();
         alarm.setTouser(toUserOpenID);
         alarm.setTopcolor("#FF0000");
@@ -149,23 +160,11 @@ public class WeixinNotifyService {
         httpPost.setEntity(entity);
         
         String respContent = null;
-        HttpResponse resp;
-		try {
-			resp = client.execute(httpPost);
-			if(resp.getStatusLine().getStatusCode() == 200) {
-	            HttpEntity he = resp.getEntity();
-	            respContent = EntityUtils.toString(he,"UTF-8");
-	        }
-		} catch (IOException e) {
-			log.error(e.getMessage(),e);
-		}finally {
-			try {
-				client.close();
-			} catch (IOException e) {
-				log.error(e.getMessage(),e);
-			}
-		}
-       
+        HttpResponse  resp = client.execute(httpPost);
+		if(resp.getStatusLine().getStatusCode() == 200) {
+            HttpEntity he = resp.getEntity();
+            respContent = EntityUtils.toString(he,"UTF-8");
+        }
         log.info("weixin rsp:{}",respContent);
         return respContent;
     }

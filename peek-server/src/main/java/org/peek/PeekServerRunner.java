@@ -7,6 +7,7 @@ import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+@EnablePeekCollector(monitorPort=1231)
 @EnableScheduling
 @EnableAutoConfiguration
 @SpringBootApplication

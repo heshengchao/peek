@@ -1,10 +1,10 @@
 package org.peek.repository;
 
 import org.peek.domain.Config;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ConfigRepository  extends MongoRepository<Config, String> {
+public interface ConfigRepository  extends JpaRepository<Config, String> {
 
 }

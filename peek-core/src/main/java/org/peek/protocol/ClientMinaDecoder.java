@@ -56,6 +56,7 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 				WriteBean wb=new WriteBean();
 				wb.setXmlMsg(xml);
 				wb.setCmd(meta.cmd);
+				wb.setVersion(meta.version);
 				out.write(wb); 
 				if(in.hasRemaining()){
 					in.get(new byte[in.remaining()]);
@@ -70,6 +71,7 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
   
     private CustomPotocolMeta getDataHeader(byte[] headers) {
 		CustomPotocolMeta meta=new CustomPotocolMeta();
+		meta.version=	(short)( headers[0]<< 8 &0xFF00  | (headers[1]&0xFF));//数据类型
 		meta.cmd	=	(short)( headers[2]&0xFF );//命令
 		meta.seralNo =	(short)( headers[3]<< 8 &0xFF00  | (headers[4]&0xFF));//数据类型
 		meta.length=	(int)( headers[6]<< 8 &0xFF00 | (headers[7] & 0xFF));
@@ -89,7 +91,7 @@ public class ClientMinaDecoder extends CumulativeProtocolDecoder {
 	 * @since  2013-7-25 下午7:44:47
 	 */
 	class CustomPotocolMeta {
-		
+		short version;
 		/**长度*/
 		public int length;
 		public short seralNo;

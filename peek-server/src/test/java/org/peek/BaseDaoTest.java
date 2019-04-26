@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 */
 @SpringBootTest(classes = { DaoConfiguration.class })
 @RunWith(SpringRunner.class)
-@ActiveProfiles("test,300")
+@ActiveProfiles("test,800")
 public abstract class BaseDaoTest {
 	
 }

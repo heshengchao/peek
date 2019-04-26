@@ -9,7 +9,7 @@ public class MinaServerTest {
 	
 	
 	public static void main(String[] args) throws IOException {
-		MinaServer server=new MinaServer();
+		MinaServer server=new MinaServer(MinaServer.defaltPort);
 		server.start();
 	}
 }

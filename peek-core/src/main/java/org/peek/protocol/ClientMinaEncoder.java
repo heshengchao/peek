@@ -31,7 +31,7 @@ public class ClientMinaEncoder extends ProtocolEncoderAdapter {
 
 			if(LOG.isDebugEnabled())
 				LOG.debug("发送长度："+bytes.length+",CMD:"+wb.getCmd()+",seq:"+wb.getSeq()+",XML数据："+wb.getXmlMsg());
-			buffer.put(convertHeaderByte(bytes.length, wb.getCmd(), wb.getSeq()));
+			buffer.put(convertHeaderByte(bytes.length, wb.getCmd(), wb.getSeq(),(short)1));
 			
 			buffer.put(bytes);
 			
@@ -51,12 +51,12 @@ public class ClientMinaEncoder extends ProtocolEncoderAdapter {
 	 * @param to
 	 * @return
 	 */
-	private byte[] convertHeaderByte(int length,short cmd, short seq) {
+	private byte[] convertHeaderByte(int length,short cmd, short seq,short version) {
 		
 		byte[] header_byte=new byte[HEAD_SIZE];
 		//起始字头
-		header_byte[0]=-6;
-		header_byte[1]=-11;
+		header_byte[0]=(byte)((version  >> 8)	& 0xff);
+		header_byte[1]=(byte)(version	& 0xff);
 		//命令字
 		header_byte[2]=(byte)cmd;
 		 //流水号

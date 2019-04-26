@@ -8,11 +8,16 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.peek.logger.LOG;
 import org.peek.logger.LogbackAppender;
+import org.peek.operator.OperatorInfoProvider;
 import org.peek.protocol.server.MinaServer;
+import org.springframework.util.StringUtils;
 
+import co.elastic.apm.api.ElasticApm;
+import co.elastic.apm.api.Transaction;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -22,6 +27,9 @@ public class MonitorFilter  implements Filter {
 	public MonitorFilter(MinaServer minaService) {
 		this.minaService=minaService;
 	}
+	
+	OperatorInfoProvider operatorProvider;
+	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		log.info("peek monitor start");
@@ -30,17 +38,14 @@ public class MonitorFilter  implements Filter {
 	private static void initLogs() {
 
 		if (LOG.LOG4J_ENABLED) {
-			// si log4j est disponible on branche aussi l'appender pour le counter de logs
 //			Log4JAppender.getSingleton().register();
 		}
 
 		if (LOG.LOG4J2_ENABLED) {
-			// si log4j2 est disponible on branche aussi l'appender pour le counter de logs
-			//			Log4J2Appender.getSingleton().register();
+			//Log4J2Appender.getSingleton().register();
 		}
 
 		if (LOG.LOGBACK_ENABLED) {
-			// si logback est disponible on branche aussi l'appender pour le counter de logs
 			LogbackAppender.getSingleton().register();
 		}
 		LOG.debug("log listeners initialized");
@@ -48,26 +53,23 @@ public class MonitorFilter  implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-//		HttpServletRequest req=(HttpServletRequest)request;
+		HttpServletRequest req=(HttpServletRequest)request;
 
-
-//		String m=req.getHeader("peek.monitor");
-//		if(!StringUtils.isEmpty(m)) {
-//			response.setContentType("text/json; charset=UTF-8");  
-//			String time=req.getParameter("time");
-//			PrintWriter out = response.getWriter();  
-////	        out.print(Counter.popByTime(time));  
-//	        out.flush();  
-//	        return;
-//		}
+		Transaction transaction = ElasticApm.startTransaction();
+		try {
+		    transaction.setName(req.getRequestURI());
+		    transaction.setType(Transaction.TYPE_REQUEST);
+		    if(operatorProvider!=null && !StringUtils.isEmpty(operatorProvider.getCode())) {
+		    	transaction.setUser(operatorProvider.getCode(), "", operatorProvider.getName());
+		    }
+			chain.doFilter(request, response);
+		} catch (Exception e) {
+		    transaction.captureException(e);
+		    throw e;
+		} finally {
+		    transaction.end();
+		}
 		
-//		long currentTime=System.currentTimeMillis();
-		
-		chain.doFilter(request, response);
-//		Date now= new Date();
-//		long finishTime=now.getTime();
-		
-//		Counter.addCount(now, MetricConstant.HttpCount, finishTime-currentTime, CountType.AVG);
 	}
 
 	@Override

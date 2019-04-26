@@ -5,13 +5,14 @@ package org.peek.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Table;
+
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
 @Data
-@Document(collection="notice")
+@Table(name="notice")
 public class Notice implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

@@ -18,11 +18,11 @@ public class AppService {
 	@Autowired AppInstanceRepository insRepository;
 	
 	public void addGroup(AppGroup group) {
-		groupRepository.insert(group);
+		groupRepository.save(group);
 	}
 	
 	public void addIns(AppInstance ins) {
-		insRepository.insert(ins);
+		insRepository.save(ins);
 	}
 
 	public List<AppInstance> listAppIns() {

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.peek.domain.AppInstance;
 import org.peek.domain.LoggerInfo;
 import org.peek.enums.InstanceState;
+import org.peek.job.ActionThreadPool.Call;
 import org.peek.logger.LoggerCount;
 import org.peek.protocol.WriteBean;
 import org.peek.protocol.client.AliveClient;
@@ -49,9 +50,9 @@ public class FetchDataJob implements InitializingBean {
 		if(client==null) {
 			client=new AliveClient(app.getInsIp(), app.getInsPort(),new AliveClient.Callback() {
 				@Override public void action(WriteBean msg) {
-					if(StringUtils.isEmpty(msg.getXmlMsg()))
+					if(StringUtils.isEmpty(msg.getXmlMsg()) || msg.getVersion()>1)
 						return;
-					
+					log.info("receve data:{},{},{}",msg.getVersion(),msg.getCmd(),msg.getSeq());
 					List<LoggerCount> list=null;
 					try {
 						list=JSON.parseArray(msg.getXmlMsg(),LoggerCount.class);
@@ -80,7 +81,17 @@ public class FetchDataJob implements InitializingBean {
 						}
 					});
 					
-					logRepository.saveAll(plist);
+					logRepository.save(plist);
+				}
+
+				@Override
+				public void close() {
+					clientMap.remove(key);
+				}
+
+				@Override
+				public void connectFail() {
+					clientMap.remove(key);
 				}
 			});
 			wapper=new AliveClientWapper();
@@ -91,22 +102,19 @@ public class FetchDataJob implements InitializingBean {
 		return client;
 	}
 
-	@Scheduled(cron="0/10 * * * * ?")
+	@Scheduled(cron="0/5 * * * * ?")
 	public void fetchLogger() {
 		Map<String, AliveClientWapper> map=Maps.newHashMap(clientMap);
 		for(Map.Entry<String, AliveClientWapper> en:map.entrySet()) {
-			AliveClientWapper wapper=en.getValue();
-			String key=wapper.getInstance().getInsIp()+wapper.getInstance().getInsPort();
-			try {
-				boolean success=wapper.getClient().sendMsg("fetchLogger");
-				if(!success) {
-					log.warn("sendMsg fail!");
-					clientMap.remove(en.getKey());
+			ActionThreadPool.execute(new Call() {
+				@Override public void run() {
+					boolean success=en.getValue().getClient().sendMsg("fetchLogger");
+					if(!success) {
+						log.warn("sendMsg fail!");
+					}
 				}
-			}catch (Exception e) {
-				appInsStateService.add(wapper.getInstance(), InstanceState.offline);
-				clientMap.remove(key); 
-			}
+			});
+				
 		}
 	}
 	
@@ -122,13 +130,25 @@ public class FetchDataJob implements InitializingBean {
 				String key=app.getInsIp()+app.getInsPort();
 				if(clientMap.containsKey(key))
 					continue;
+				AliveClient client=null;
 				try {
-					getClient(key,app).sendMsg("fetchLogger");
+					client=getClient(key,app);
+				}catch (Exception e) {
+					appInsStateService.add(app, InstanceState.connectFail);
+					return;
+				}
+				try {
+					client.sendMsg("fetchLogger");
 					if(!first)
 						appInsStateService.add(app, InstanceState.online);
 				}catch (Exception e) {
 					appInsStateService.add(app, InstanceState.connectFail);
 					clientMap.remove(key); 
+					try {
+						client.close();
+					}catch (Exception e1) {
+						log.error(e1.getMessage(),e1);
+					}
 				}
 			}
 		}

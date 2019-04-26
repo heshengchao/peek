@@ -2,29 +2,37 @@ package org.peek.repository;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
+import org.peek.domain.Config;
 import org.peek.domain.LoggerInfo;
 import org.peek.service.query.LoggerInfoQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 
 @Repository
-public class LoggerCountRepository  {
+public class LoggerCountRepository extends SimpleJpaRepository<Config, String> {
+	
+	
 	@Autowired
-    private MongoTemplate mongoTemplate;
+    private EntityManager entityManager;
 
 	String collectionName="loggerInfo";
 	
+	public LoggerCountRepository(Class<Config> domainClass, EntityManager em) {
+		super(domainClass, em);
+	}
+	
 	public void saveAll(List<LoggerInfo> list) {
-		mongoTemplate.insertAll(list);
+		entityManage.save()
 	}
 	public void save(List<LoggerInfo> list) {
-		mongoTemplate.insertAll(list);
+		entityManager.insertAll(list);
 	}
 
 	public List<LoggerInfo> find(LoggerInfoQuery query, Integer topn) {
