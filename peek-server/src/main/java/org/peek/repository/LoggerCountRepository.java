@@ -29,10 +29,14 @@ public class LoggerCountRepository extends SimpleJpaRepository<Config, String> {
 	}
 	
 	public void saveAll(List<LoggerInfo> list) {
-		entityManage.save()
+		for(LoggerInfo li:list) {
+			entityManager.persist(li);
+		}
 	}
 	public void save(List<LoggerInfo> list) {
-		entityManager.insertAll(list);
+		for(LoggerInfo li:list) {
+			entityManager.persist(li);
+		}
 	}
 
 	public List<LoggerInfo> find(LoggerInfoQuery query, Integer topn) {
@@ -56,9 +60,9 @@ public class LoggerCountRepository extends SimpleJpaRepository<Config, String> {
 		if(topn!=null) {
 			querys.skip(0).limit(topn);
 		}
-		return mongoTemplate.find(querys,LoggerInfo.class);
+		return entityManager.find(querys,LoggerInfo.class);
 	}
 	public LoggerInfo getById(long logId) {
-		return mongoTemplate.findById(logId, LoggerInfo.class);
+		return entityManager.find(LoggerInfo.class, logId);
 	}
 }

@@ -10,8 +10,8 @@
 	<artifactId>peek-server</artifactId>
 	
 	<properties>
-		<spring.boot.version>2.1.1.RELEASE</spring.boot.version>
-		<spring.version>5.0.10.RELEASE</spring.version>
+		<spring.boot.version>2.1.4.RELEASE</spring.boot.version>
+		<spring.version>5.1.6.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
@@ -92,6 +92,13 @@
 			<version>${spring.boot.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.github.wenhao</groupId>
+		    <artifactId>jpa-spec</artifactId>
+		    <version>3.2.4</version>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
