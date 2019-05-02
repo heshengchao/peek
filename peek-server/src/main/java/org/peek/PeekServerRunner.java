@@ -5,10 +5,12 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.mybatis.repository.config.EnableMybatisRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnablePeekCollector(monitorPort=1231)
 @EnableScheduling
+@EnableMybatisRepositories
 @EnableAutoConfiguration
 @SpringBootApplication
 public class PeekServerRunner {

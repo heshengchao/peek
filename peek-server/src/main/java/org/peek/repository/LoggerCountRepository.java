@@ -9,14 +9,12 @@ import org.peek.domain.LoggerInfo;
 import org.peek.service.query.LoggerInfoQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 
 @Repository
-public class LoggerCountRepository extends SimpleJpaRepository<Config, String> {
+public class LoggerCountRepository extends MybatisRepository<Config, String> {
 	
 	
 	@Autowired
