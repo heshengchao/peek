@@ -2,10 +2,11 @@ package org.peek.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.peek.enums.InstanceState;
-import org.springframework.data.annotation.Id;
 
 import lombok.Data;
 
@@ -13,6 +14,7 @@ import lombok.Data;
  * @author heshengchao
  */
 @Data
+@Entity
 @Table(name="appInsState")
 public class AppInsState {
 

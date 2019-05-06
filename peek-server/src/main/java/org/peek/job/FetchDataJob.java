@@ -81,7 +81,7 @@ public class FetchDataJob implements InitializingBean {
 						}
 					});
 					
-					logRepository.save(plist);
+					logRepository.saveAll(plist);
 				}
 
 				@Override

@@ -33,7 +33,7 @@ public class AppInsStateService {
 
 
 	public List<AppInsState> findTopN(AppStateQuery query, int topn) {
-		return appInsStateRepository.find(query,topn);
+		return appInsStateRepository.queryList(query,topn);
 	}
 
 }

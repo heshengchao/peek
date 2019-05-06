@@ -2,9 +2,10 @@ package org.peek.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.lang.NonNull;
 
 import lombok.Data;
@@ -13,7 +14,8 @@ import lombok.Data;
  * @author heshengchao
  */
 @Data
-@Table(name="appGroup")
+@Entity
+@Table(name="app_group")
 public class AppGroup {
 
 	@Id

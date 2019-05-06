@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Data;
 

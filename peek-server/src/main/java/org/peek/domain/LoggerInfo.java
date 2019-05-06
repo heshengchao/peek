@@ -4,8 +4,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
 import org.peek.logger.LoggerCount;
-import org.springframework.data.annotation.Id;
-
+import javax.persistence.Id;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
