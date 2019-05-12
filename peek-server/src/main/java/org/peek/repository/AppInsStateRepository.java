@@ -27,6 +27,9 @@ public interface AppInsStateRepository  extends MybatisRepository<AppInsState, S
 	@Query(statement="queryList")
 	List<AppInsState> queryList(AppStateQuery query, int topn);
 	
+	@Modifying
+	@Query("insert into app_ins_state (id,ins_id,ins_name,state) values (#{id},#{insId},#{insName},#{state})")
+	AppInsState save(AppInsState entity);
 //	@Override
 //	@Modifying
 //	@Query("update app_ins_state SET id='RB5DM201344001',ins_id='test',ins_name='test',sys_time='05/12/2019 \r\n" + 
