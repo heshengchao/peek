@@ -5,8 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.lang.NonNull;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -21,10 +20,10 @@ public class AppGroup {
 	@Id
 	private String groupId;
 	/**分组名称*/
-	@NonNull
+	@NotNull
 	private String groupName;
-	@NonNull
+	@NotNull
 	private String createUser;
-	@NonNull
+	@NotNull
 	private Date createTime;
 }

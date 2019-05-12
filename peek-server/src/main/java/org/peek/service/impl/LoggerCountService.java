@@ -14,7 +14,7 @@ public class LoggerCountService {
 	@Autowired LoggerCountRepository repository;
 	
 	public List<LoggerInfo> findByApp(LoggerInfoQuery query){
-		return repository.find(query,null);
+		return repository.findLogger(query,null);
 	}
 
 	public LoggerInfo getById(long logId) {
@@ -22,6 +22,6 @@ public class LoggerCountService {
 	}
 
 	public List<LoggerInfo> findTopN(LoggerInfoQuery query, int topn) {
-		return repository.find(query,topn);
+		return repository.findLogger(query,topn);
 	}
  }

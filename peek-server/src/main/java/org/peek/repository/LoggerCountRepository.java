@@ -8,6 +8,7 @@ import org.peek.service.query.LoggerInfoQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mybatis.repository.MybatisRepository;
+import org.springframework.data.mybatis.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -15,8 +16,8 @@ import org.springframework.util.StringUtils;
 @Repository
 public interface LoggerCountRepository  extends MybatisRepository<LoggerInfo, String> {
 
-	
-	public List<LoggerInfo> find(LoggerInfoQuery query, Integer topn) ;
+	@Query(statement="findLogger")
+	public List<LoggerInfo> findLogger(LoggerInfoQuery query, Integer topn) ;
 
 	public LoggerInfo getById(long logId);
 	String collectionName="loggerInfo";

@@ -17,11 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Predicate;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mybatis.repository.MybatisRepository;
+import org.springframework.data.mybatis.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 public interface AppInsStateRepository  extends MybatisRepository<AppInsState, String> {
 
+	@Query(statement="queryList")
 	List<AppInsState> queryList(AppStateQuery query, int topn);
 //	@Autowired
 //    private EntityManager entityManager;
