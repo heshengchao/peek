@@ -11,11 +11,11 @@ public class ConfigService {
 	@Autowired ConfigRepository configRepository;
 	
 	public Config getByKey(String key) {
-		return configRepository.findById(key).get();
+		return configRepository.findByKey(key);
 	}
 	
 	public String getValue(String key) {
-		Config conf= configRepository.findById(key).get();
+		Config conf= configRepository.findByKey(key);
 		if(conf!=null) {
 			return conf.getValue();
 		}else {

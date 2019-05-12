@@ -10,13 +10,13 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
-@Table(name="loggerInfo")
+@Table(name="app_log_info")
 public class LoggerInfo extends LoggerCount{
 	
     @Id
     @GeneratedValue
 	private long id;
 	
-	private String appGroupId;
-	private String appInsId;
+	private String insGroupId;
+	private String insId;
 }

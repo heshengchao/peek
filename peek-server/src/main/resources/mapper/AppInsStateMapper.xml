@@ -2,6 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.peek.repository.AppInsStateRepository">
      <select id="queryList" resultType="org.peek.domain.AppInsState">
-        select * from users where id=#{id}
+        select * from app_ins_state where ins_id=#{id}
     </select>
 </mapper>

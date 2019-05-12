@@ -3,6 +3,7 @@ package org.peek.domain;
 import java.util.Date;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
@@ -10,6 +11,7 @@ import lombok.Data;
  * @author heshengchao
  */
 @Data
+@Table(name="config")
 public class Config {
 
 	public static final String key_weixinMsgTmpCode="weixinMsgTmpCode";

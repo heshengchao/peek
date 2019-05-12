@@ -43,7 +43,7 @@ public class AliveClient {
 		
 //		session=sessionMap.get(host+port);
 //		if(session==null) {
-			session=getSession(host,port);
+//			session=getSession(host,port);
 //		}
 	}
 	
@@ -66,7 +66,7 @@ public class AliveClient {
 	}
 	
 	public void close() {
-		if(session==null) {
+		if(session!=null) {
 			session.closeOnFlush();
 		}
 		if(connector!=null) {
@@ -74,7 +74,11 @@ public class AliveClient {
 		}
 	}
 	
-	private IoSession getSession(String host,Integer port) {
+	public boolean connection() {
+		if(connector!=null) {
+			log.warn("network has connected!");
+			return false;
+		}
 		connector = new NioSocketConnector(); // 创建一个非阻塞的客户端程序
 		connector.setConnectTimeoutMillis(1000);  // 设置链接超时时间
 		
@@ -97,17 +101,17 @@ public class AliveClient {
 		
 		ConnectFuture future = connector.connect(adds);// 创建连接
 		future.awaitUninterruptibly();// 等待连接创建完成
-		IoSession session=null;
 		try{
-			session = future.getSession();// 获得session
-//			sessionMap.put(host+port, session);
-			return session;
-		}catch(Exception e){
+			this.session = future.getSession();// 获得session
+			
+		}catch(Throwable e){
 			callback.connectFail();
 			connector.dispose();
 			log.error("打开连接["+host+":"+port+"]异常，请注意检查！详细："+e.getMessage(),e);
-			return null;
+			connector=null;
+			return false;
 		}
+		return true;
 	}
 	
 	class CustomerHandler extends IoHandlerAdapter{

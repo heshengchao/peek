@@ -16,6 +16,7 @@ import org.peek.service.query.AppStateQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Predicate;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mybatis.repository.Modifying;
 import org.springframework.data.mybatis.repository.MybatisRepository;
 import org.springframework.data.mybatis.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -25,6 +26,12 @@ public interface AppInsStateRepository  extends MybatisRepository<AppInsState, S
 
 	@Query(statement="queryList")
 	List<AppInsState> queryList(AppStateQuery query, int topn);
+	
+//	@Override
+//	@Modifying
+//	@Query("update app_ins_state SET id='RB5DM201344001',ins_id='test',ins_name='test',sys_time='05/12/2019 \r\n" + 
+//			"21:20:13.486',state='connectFail' where id = 'RB5DM201344001' ")
+//	AppInsState save(AppInsState insState);
 //	@Autowired
 //    private EntityManager entityManager;
 //

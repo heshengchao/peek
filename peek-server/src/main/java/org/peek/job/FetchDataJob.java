@@ -70,8 +70,8 @@ public class FetchDataJob implements InitializingBean {
 							BeanUtils.copyProperties(input, li);
 							
 							li.setId(idGenerate.getId());
-							li.setAppGroupId(app.getGroupId());
-							li.setAppInsId(app.getInsId());
+							li.setInsGroupId(app.getGroupId());
+							li.setInsId(app.getInsId());
 							
 							if(!StringUtils.isEmpty(li.getStack())) {
 								weixinNotifyService.notifyUser(app,li);
@@ -94,12 +94,18 @@ public class FetchDataJob implements InitializingBean {
 					clientMap.remove(key);
 				}
 			});
-			wapper=new AliveClientWapper();
-			wapper.setClient(client);
-			wapper.setInstance(app);
-			clientMap.put(key, wapper);
+			boolean connectioned=client.connection();
+			if(connectioned) {
+				wapper=new AliveClientWapper();
+				wapper.setClient(client);
+				wapper.setInstance(app);
+				clientMap.put(key, wapper);
+			}else {
+				log.warn("connect[{}] fail!",app);
+			}
+			
 		}
-		return client;
+		return null;
 	}
 
 	@Scheduled(cron="0/5 * * * * ?")
@@ -123,7 +129,7 @@ public class FetchDataJob implements InitializingBean {
 		connect(false);
 	}
 	
-	private void connect(boolean first) {
+	private synchronized void  connect(boolean first) {
 		List<AppInstance> list=appRepository.findAll();
 		if(list!=null && list.size()>0) {
 			for(AppInstance app:list) {
@@ -135,7 +141,11 @@ public class FetchDataJob implements InitializingBean {
 					client=getClient(key,app);
 				}catch (Exception e) {
 					appInsStateService.add(app, InstanceState.connectFail);
-					return;
+					continue;
+				}
+				if(client==null) {
+					appInsStateService.add(app, InstanceState.connectFail);
+					continue;
 				}
 				try {
 					client.sendMsg("fetchLogger");

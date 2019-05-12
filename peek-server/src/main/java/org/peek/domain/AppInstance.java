@@ -12,7 +12,7 @@ import lombok.Data;
  * @author heshengchao
  */
 @Data
-@Table(name="appInstance")
+@Table(name="app_ins")
 public class AppInstance {
 	@Id
 	private String insId;
