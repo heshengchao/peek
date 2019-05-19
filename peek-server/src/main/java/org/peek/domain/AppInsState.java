@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.peek.enums.InstanceState;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.domain.Persistable;
+import org.springframework.data.mybatis.annotation.JdbcType;
 
 import lombok.Data;
 
@@ -37,6 +38,7 @@ public class AppInsState  implements Persistable<String>, Serializable{
 	private Date sysTime;
 	@Enumerated(EnumType.STRING)
 	@Column(updatable = false)
+	@JdbcType("VARCHAR")
 	private InstanceState state;
 	
 	@Override

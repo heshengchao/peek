@@ -25,8 +25,8 @@ public class AppInsStateService {
 		appState.setInsId(app.getInsId());
 		appState.setInsName(app.getInsName());
 		appState.setState(state);
-//		appState.setSysTime(new Date());
-		appInsStateRepository.save(appState);
+		appState.setSysTime(new Date());
+		appInsStateRepository.insert(appState);
 		
 		weixinNotifyService.serverAliveAlert(app,state);
 	}
